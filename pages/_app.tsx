@@ -1,8 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import MainLayout from "@components/main-layout";
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const Application = ({ Component, pageProps }: AppProps) => (
+  <MainLayout>
+    <Component {...pageProps} />
+  </MainLayout>
+);
 
-export default MyApp;
+export default Application;
