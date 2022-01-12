@@ -1,4 +1,6 @@
 const nextJest = require("next/jest");
+const { pathsToModuleNameMapper } = require("ts-jest");
+const { compilerOptions } = require("./tsconfig");
 
 const createJestConfig = nextJest({
   dir: "./",
@@ -26,10 +28,7 @@ const customJestConfig = {
     "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$": `<rootDir>/__mocks__/fileMock.js`,
 
     // Handle module aliases
-    "^@/pages/(.*)$": "<rootDir>/pages/$1",
-    "^@/components/(.*)$": "<rootDir>/components/$1",
-    "^@/hooks/(.*)$": "<rootDir>/hooks/$1",
-    "^@/utils/(.*)$": "<rootDir>/components/$1",
+    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: "<rootDir>/" }),
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
