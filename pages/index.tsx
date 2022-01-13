@@ -5,7 +5,7 @@ import replaceJSX from "@utils/replace-jsx";
 import MainLayout from "@components/main-layout";
 
 const textStyled = (title: string) => (
-  <span className="relative inline-block px-2">
+  <span key={title} className="relative inline-block px-2">
     <div className="absolute inset-0 transform -skew-x-12 bg-white" />
     <span className="relative text-deep-purple-accent-700 dark:text-deep-purple-accent-400">{title}</span>
   </span>

@@ -17,33 +17,35 @@ const Navigation = () => {
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
             {tabsLeft.map((tab) => (
-              <li key={`navigation-tab-${tab?.name}`} className="font-medium tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
-                <Link href={tab?.href} passHref>
+              <Link href={tab?.href} passHref key={`navigation-tab-${tab?.name}`}>
+                <li className="font-medium cursor-pointer tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
                   {tab?.name}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
-        <div className="flex flex-row items-center lg:mx-auto">
-          <AcademicCapIcon className="w-8 text-white dark:text-deep-purple-accent-400" />
-          <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
-            Teacher Reviewer
-          </span>
-        </div>
+        <Link href="/" passHref>
+          <div className="flex flex-row items-center lg:mx-auto cursor-pointer">
+            <AcademicCapIcon className="w-8 text-white dark:text-deep-purple-accent-400" />
+            <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
+              Teacher Reviewer
+            </span>
+          </div>
+        </Link>
 
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
-            <li className="font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
-              <Link href="/" passHref>
+            <Link href="/" passHref>
+              <li className="font-medium cursor-pointer tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
                 Sign In
-              </Link>
-            </li>
-            <li className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-white focus:shadow-outline focus:outline-none">
-              <Link href="/" passHref>
+              </li>
+            </Link>
+            <Link href="/" passHref>
+              <li className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-white focus:shadow-outline focus:outline-none">
                 Sign up
-              </Link>
-            </li>
+              </li>
+            </Link>
           </ul>
         </div>
 
