@@ -35,12 +35,12 @@ const Navigation = () => {
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
             <li className="font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
-              <Link href="/" passHref>
+              <Link href="/login" passHref>
                 Sign In
               </Link>
             </li>
             <li className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-white focus:shadow-outline focus:outline-none">
-              <Link href="/" passHref>
+              <Link href="/register" passHref>
                 Sign up
               </Link>
             </li>
@@ -89,12 +89,12 @@ const Navigation = () => {
                       </li>
                     ))}
                     <li className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                      <Link href="/" passHref>
+                      <Link href="/login" passHref>
                         Sign in
                       </Link>
                     </li>
                     <li className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                      <Link href="/" passHref>
+                      <Link href="/register" passHref>
                         Sign up
                       </Link>
                     </li>
