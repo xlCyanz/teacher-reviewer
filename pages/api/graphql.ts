@@ -6,7 +6,7 @@ import {
 } from "apollo-server-core";
 
 import resolvers from "./resolvers";
-import { typeDefs } from "./schemas";
+import typeDefs from "./schemas";
 
 const apolloServer = new ApolloServer({
   typeDefs,
