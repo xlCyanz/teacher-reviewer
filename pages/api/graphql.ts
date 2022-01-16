@@ -22,7 +22,7 @@ const startServer = apolloServer.start();
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   await startServer;
   await apolloServer.createHandler({
