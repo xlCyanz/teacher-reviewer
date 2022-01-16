@@ -17,20 +17,26 @@ const Navigation = () => {
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
             {tabsLeft.map((tab) => (
-              <li key={`navigation-tab-${tab?.name}`} className="font-medium tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
-                <Link href={tab?.href} passHref>
+              <Link
+                href={tab?.href}
+                passHref
+                key={`navigation-tab-${tab?.name}`}
+              >
+                <li className="font-medium cursor-pointer tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
                   {tab?.name}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
-        <div className="flex flex-row items-center lg:mx-auto">
-          <AcademicCapIcon className="w-8 text-white dark:text-deep-purple-accent-400" />
-          <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
-            Teacher Reviewer
-          </span>
-        </div>
+        <Link href="/" passHref>
+          <div className="flex flex-row items-center lg:mx-auto cursor-pointer">
+            <AcademicCapIcon className="w-8 text-white dark:text-deep-purple-accent-400" />
+            <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
+              Teacher Reviewer
+            </span>
+          </div>
+        </Link>
 
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
@@ -82,7 +88,10 @@ const Navigation = () => {
                 <nav>
                   <ul className="space-y-4">
                     {tabsLeft.map((tab) => (
-                      <li key={`navigation-tab-${tab?.name}`} className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                      <li
+                        key={`navigation-tab-${tab?.name}`}
+                        className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                      >
                         <Link href={tab?.href} passHref>
                           {tab?.name}
                         </Link>

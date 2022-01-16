@@ -7,7 +7,9 @@ import MainLayout from "@components/main-layout";
 const textStyled = (title: string) => (
   <span key={title} className="relative inline-block px-2">
     <div className="absolute inset-0 transform -skew-x-12 bg-white" />
-    <span className="relative text-deep-purple-accent-700 dark:text-deep-purple-accent-400">{title}</span>
+    <span className="relative text-deep-purple-accent-700 dark:text-deep-purple-accent-400">
+      {title}
+    </span>
   </span>
 );
 
@@ -33,7 +35,9 @@ const Home: NextPage = () => (
         </div>
         <div className="relative px-4 pt-4 sm:pt-12 sm:px-0 h-full max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
           <h2 className="mb-8 font-sans text-center text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl sm:leading-none">
-            {replaceJSX("Rate and comment about your {teachers}", { teachers: textStyled("teachers") })}
+            {replaceJSX("Rate and comment about your {teachers}", {
+              teachers: textStyled("teachers"),
+            })}
           </h2>
           <form className="flex flex-col items-center w-full mb-4 md:flex-row md:px-16">
             <input
@@ -52,7 +56,6 @@ const Home: NextPage = () => (
 
       {/* Feature's Section */}
       <Features />
-
     </MainLayout>
   </>
 );

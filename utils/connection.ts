@@ -3,7 +3,9 @@ import mongoose, { Schema } from "mongoose";
 const { DATABASE_URL } = process.env;
 
 const connection = async () => {
-  const conn = await mongoose.connect(`${DATABASE_URL}`).catch((err) => console.error(err));
+  const conn = await mongoose
+    .connect(`${DATABASE_URL}`)
+    .catch((err: string) => console.error(err));
 
   const Teacher = new Schema({
     name: String,
@@ -34,12 +36,17 @@ const connection = async () => {
     body: String,
   });
 
-  const modelTeacher = mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
+  const modelTeacher =
+    mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
   const modelUser = mongoose.models.User || mongoose.model("User", User);
-  const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
+  const modelComments =
+    mongoose.models.Comments || mongoose.model("Comments", Comments);
 
   return {
-    conn, modelTeacher, modelUser, modelComments,
+    conn,
+    modelTeacher,
+    modelUser,
+    modelComments,
   };
 };
 
