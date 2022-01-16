@@ -15,25 +15,20 @@ const connection = async () => {
       unique: true,
     },
     area: String,
-    status: {
-      type: Number,
-      enum: [0, 1], // 0 (Inactive) -- 1 (Active)
-      default: 1,
-    },
-    rating: {
-      clarity: {
+    votes: [{
+      scoreClarity: {
         type: Number,
         default: 0,
       },
-      assistance: {
+      scoreAssistance: {
         type: Number,
         default: 0,
       },
-      takeClassAgain: {
+      scoreTakeClassAgain: {
         type: Number,
         default: 0,
       },
-    },
+    }],
   });
 
   const User = new Schema({
