@@ -4,8 +4,9 @@ import {
   ApolloServerPluginLandingPageDisabled,
   ApolloServerPluginLandingPageGraphQLPlayground,
 } from "apollo-server-core";
-import typeDefs from "graphql/schemas";
-import resolvers from "graphql/resolvers";
+
+import resolvers from "./resolvers";
+import typeDefs from "./schemas";
 
 const apolloServer = new ApolloServer({
   typeDefs,
@@ -19,7 +20,10 @@ const apolloServer = new ApolloServer({
 
 const startServer = apolloServer.start();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   await startServer;
   await apolloServer.createHandler({
     path: "/api/graphql",

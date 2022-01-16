@@ -3,7 +3,9 @@ import mongoose, { Schema } from "mongoose";
 const { DATABASE_URL } = process.env;
 
 const connection = async () => {
-  const conn = await mongoose.connect(`${DATABASE_URL}`).catch((err) => console.error(err));
+  const conn = await mongoose
+    .connect(`${DATABASE_URL}`)
+    .catch((err: string) => console.error(err));
 
   const Teacher = new Schema({
     name: {
@@ -61,7 +63,10 @@ const connection = async () => {
   const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
 
   return {
-    conn, modelTeacher, modelUser, modelComments,
+    conn,
+    modelTeacher,
+    modelUser,
+    modelComments,
   };
 };
 
