@@ -1,57 +1,44 @@
+/* eslint-disable new-cap */
+import connection from "../../../utils/connection";
+
+interface Rating {
+  clarity: number;
+  puntuality: number;
+  takeClass: number;
+}
+interface Teacher {
+  id: string;
+  name: string;
+  area: string;
+  rating: Rating;
+}
+interface Comment {
+  id?: string;
+  userId?: string;
+  teacherId?: string;
+  userName?: string;
+  updatedAt?: string;
+  createdAt?: string;
+  body?: string;
+}
+
+let db: any;
+
+(async () => {
+  db = await connection();
+})();
+
 const resolvers = {
   Query: {
-    teachers: () => {
-      const teachers = [
-        {
-          id: "id",
-          name: "name",
-          area: "area",
-          rating: {
-            clarity: 0,
-            puntuality: 0,
-            takeClass: 0,
-          },
-        },
-        {
-          id: "id",
-          name: "name",
-          area: "area",
-          rating: {
-            clarity: 0,
-            puntuality: 0,
-            takeClass: 0,
-          },
-        },
-        {
-          id: "id",
-          name: "name",
-          area: "area",
-          rating: {
-            clarity: 0,
-            puntuality: 0,
-            takeClass: 0,
-          },
-        },
-      ];
+    teachers: async () => {
+      const teachers: Array<Teacher> = await db.modelTeacher.find();
       return teachers;
     },
-    comments: (_: unknown, { teacherId }: { teacherId: string }) => {
-      const comments = [
-        {
-          id: "id",
-          userId: "userId",
-          teacherId: "TeacherID",
-          userName: "Nombre de usuario",
-          body: "mensaje",
-        },
-        {
-          id: "id",
-          userId: "userId",
-          teacherId: "TeacherID",
-          userName: "Nombre de usuario",
-          body: "mensaje",
-        },
-      ];
+    comments: async (_: unknown, { teacherId }: { teacherId: string }) => {
+      const comments: Array<Comment> = await db.modelComments
+        .find()
+        .populate({ path: "teacherId" });
+      console.log(comments);
       return comments;
     },
     teacher: (_: any, { id }: { id: string }) => {
@@ -119,7 +106,7 @@ const resolvers = {
     },
     updateTeacherRating: (
       _: any,
-      { newRating, teacherId }: { newRating: any; teacherId: any }
+      { newRating, teacherId }: { newRating: Rating; teacherId: string }
     ) => {
       const teacher = {
         id: "id",
@@ -133,7 +120,15 @@ const resolvers = {
       };
       return teacher;
     },
-    addComment: (_: any, { comment }: { comment: any }) => {},
+    addComment: async (_: any, { comment }: { comment: any }) => {
+      const commentExample: Comment = {
+        teacherId: "61e21114aaf5ac5b9985e52f",
+        body: "prueba",
+      };
+      const Model = db.modelComments;
+      const com = new Model(commentExample);
+      await com.save();
+    },
     updateComment: (
       _: any,
       { newComment, userId }: { newComment: any; userId: any }

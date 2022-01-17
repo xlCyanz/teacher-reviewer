@@ -40,16 +40,16 @@ const Login = () => {
             className="flex items-center justify-center w-full my-3 h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-red-400 hover:bg-red-700 dark:bg-gray-900 dark:hover:bg-gray-800 focus:shadow-outline focus:outline-none"
           >
             <div className="flex items-center gap-2">
-              <div className="font-semibold text-white">
-                Login with Google
-              </div>
+              <div className="font-semibold text-white">Login with Google</div>
               <GoogleIcon className="w-6 bg-white p-1 rounded-full" />
             </div>
           </button>
 
           <div className="flex items-center w-full mb-5">
             <hr className="flex-1 border-gray-400 dark:border-gray-500" />
-            <div className="px-3 text-sm text-gray-400 dark:text-gray-500 sm:text-sm">o</div>
+            <div className="px-3 text-sm text-gray-400 dark:text-gray-500 sm:text-sm">
+              o
+            </div>
             <hr className="flex-1 border-gray-400 dark:border-gray-500" />
           </div>
           <form onSubmit={(e) => handleSubmit(e)}>
