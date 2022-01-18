@@ -17,39 +17,35 @@ const Navigation = () => {
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
             {tabsLeft.map((tab) => (
-              <Link
-                href={tab?.href}
-                passHref
-                key={`navigation-tab-${tab?.name}`}
-              >
-                <li className="font-medium cursor-pointer tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
+              <Link key={`navigation-tab-${tab?.name}`} href={tab?.href} passHref>
+                <a className="cursor-pointer font-medium tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
                   {tab?.name}
-                </li>
+                </a>
               </Link>
             ))}
           </ul>
         </div>
         <Link href="/" passHref>
-          <div className="flex flex-row items-center lg:mx-auto cursor-pointer">
+          <a className="flex flex-row items-center lg:mx-auto cursor-pointer">
             <AcademicCapIcon className="w-8 text-white dark:text-deep-purple-accent-400" />
             <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
               Teacher Reviewer
             </span>
-          </div>
+          </a>
         </Link>
 
         <div>
           <ul className="items-center hidden space-x-3 lg:flex">
-            <li className="font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
-              <Link href="/login" passHref>
+            <Link href="/login" passHref>
+              <a className="cursor-pointer font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
                 Sign In
-              </Link>
-            </li>
-            <li className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-white focus:shadow-outline focus:outline-none">
-              <Link href="/register" passHref>
+              </a>
+            </Link>
+            <Link href="/register" passHref>
+              <a className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-gray-100 hover:bg-white focus:shadow-outline focus:outline-none">
                 Sign up
-              </Link>
-            </li>
+              </a>
+            </Link>
           </ul>
         </div>
 
@@ -88,25 +84,22 @@ const Navigation = () => {
                 <nav>
                   <ul className="space-y-4">
                     {tabsLeft.map((tab) => (
-                      <li
-                        key={`navigation-tab-${tab?.name}`}
-                        className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        <Link href={tab?.href} passHref>
+                      <Link key={`navigation-tab-${tab?.name}`} href={tab?.href} passHref>
+                        <a className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
                           {tab?.name}
-                        </Link>
-                      </li>
+                        </a>
+                      </Link>
                     ))}
-                    <li className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                      <Link href="/login" passHref>
+                    <Link href="/login" passHref>
+                      <a className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
                         Sign in
-                      </Link>
-                    </li>
-                    <li className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                      <Link href="/register" passHref>
+                      </a>
+                    </Link>
+                    <Link href="/register" passHref>
+                      <a className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
                         Sign up
-                      </Link>
-                    </li>
+                      </a>
+                    </Link>
                   </ul>
                 </nav>
               </div>

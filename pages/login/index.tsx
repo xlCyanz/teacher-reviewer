@@ -98,9 +98,9 @@ const Login = () => {
                 Aun no tienes una cuenta?
                 {" "}
                 <Link href="/register" passHref>
-                  <span className="cursor-pointer text-blue-600 hover:underline">
+                  <a className="cursor-pointer text-blue-600 hover:underline">
                     Registrarse
-                  </span>
+                  </a>
                 </Link>
               </div>
             </div>

@@ -111,9 +111,9 @@ const Register = () => {
             ¿Ya tienes una cuenta?
             {" "}
             <Link href="/login" passHref>
-              <span className="cursor-pointer text-blue-600 hover:underline">
+              <a className="cursor-pointer text-blue-600 hover:underline">
                 Iniciar sesion
-              </span>
+              </a>
             </Link>
           </div>
         </div>
