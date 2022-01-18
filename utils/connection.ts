@@ -15,20 +15,23 @@ const connection = async () => {
       unique: true,
     },
     area: String,
-    votes: [{
-      scoreClarity: {
-        type: Number,
-        default: 0,
+    votes: [
+      {
+        userName: String,
+        scoreClarity: {
+          type: Number,
+          default: 0,
+        },
+        scoreAssistance: {
+          type: Number,
+          default: 0,
+        },
+        scoreTakeClassAgain: {
+          type: Number,
+          default: 0,
+        },
       },
-      scoreAssistance: {
-        type: Number,
-        default: 0,
-      },
-      scoreTakeClassAgain: {
-        type: Number,
-        default: 0,
-      },
-    }],
+    ],
   });
 
   const User = new Schema({
@@ -52,11 +55,7 @@ const connection = async () => {
   });
 
   const modelTeacher = mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
-<<<<<<< HEAD
-=======
   modelTeacher.createIndexes();
-
->>>>>>> 279313ab17bb76abfd687cfacf225eb55239cf8d
   const modelUser = mongoose.models.User || mongoose.model("User", User);
   const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
 
