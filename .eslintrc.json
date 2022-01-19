@@ -7,7 +7,6 @@
     },
     "extends": [
         "next/core-web-vitals",
-        "prettier",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
@@ -23,7 +22,7 @@
             "version": "detect"
         }
     },
-    "plugins": ["react", "prettier", "@typescript-eslint"],
+    "plugins": ["react", "@typescript-eslint"],
     "rules": {
         "react/react-in-jsx-scope": 0,
         "import/extensions": ["off"],
