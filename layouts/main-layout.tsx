@@ -1,6 +1,5 @@
-import Footer from "@components/footer";
-import Navigation from "@components/navigation";
 import { ReactNode } from "react";
+import { Navigation, Footer } from "@components";
 
 interface Props {
   children: ReactNode;

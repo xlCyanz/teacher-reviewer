@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { PropertyTabs } from "@utils/types";
+import { PropertyTabs } from "@utils";
 import { AcademicCapIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const Navigation = () => {

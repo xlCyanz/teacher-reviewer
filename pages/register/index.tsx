@@ -1,6 +1,6 @@
-import GoogleIcon from "@components/icons/GoogleIcon";
 import Head from "next/head";
 import Link from "next/link";
+import { GoogleIcon } from "@components";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 const Register = () => {

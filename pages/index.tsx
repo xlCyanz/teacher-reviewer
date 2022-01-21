@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Features from "@components/features";
-import replaceJSX from "@utils/replace-jsx";
-import MainLayout from "@components/main-layout";
+import { Features } from "@components";
+import { replaceJSX } from "@utils";
+import { MainLayout } from "@layouts";
 
 const textStyled = (title: string) => (
   <span key={title} className="relative inline-block px-2">

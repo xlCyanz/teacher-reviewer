@@ -1,9 +1,9 @@
 import Head from "next/head";
-import MainLayout from "@components/main-layout";
+import { MainLayout } from "@layouts";
+import { GetServerSideProps } from "next";
 import {
   AnnotationIcon, ClockIcon, RewindIcon, SpeakerphoneIcon,
 } from "@heroicons/react/outline";
-import { GetServerSideProps } from "next";
 
 interface Props {
     teacher: {
