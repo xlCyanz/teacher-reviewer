@@ -17,7 +17,10 @@ const connection = async () => {
     area: String,
     votes: [
       {
-        userName: String,
+        userId: {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+        },
         scoreClarity: {
           type: Number,
           default: 0,
@@ -44,18 +47,22 @@ const connection = async () => {
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
     },
     teacherId: {
       type: Schema.Types.ObjectId,
       ref: "Teacher",
+      required: true,
     },
-    createdAt: Date,
+    createdAt: {
+      type: Date,
+      default: new Date(),
+    },
     updatedAt: Date,
     body: String,
   });
 
   const modelTeacher = mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
-  modelTeacher.createIndexes();
   const modelUser = mongoose.models.User || mongoose.model("User", User);
   const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
 
