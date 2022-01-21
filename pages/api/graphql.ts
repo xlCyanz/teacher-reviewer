@@ -4,9 +4,7 @@ import {
   ApolloServerPluginLandingPageDisabled,
   ApolloServerPluginLandingPageGraphQLPlayground,
 } from "apollo-server-core";
-
-import resolvers from "./resolvers";
-import typeDefs from "./schemas";
+import { resolvers, typeDefs } from "../../graphql";
 
 const apolloServer = new ApolloServer({
   typeDefs,
