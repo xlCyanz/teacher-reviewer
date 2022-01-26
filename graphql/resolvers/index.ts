@@ -8,13 +8,13 @@ const resolvers = {
       const teachers: Teacher[] = await modelTeacher.find({});
       return teachers;
     },
-    // comments: async (_: never, { teacherName }: { teacherName: string }) => {
-    //   const { modelComments } = await connection();
-    //   const comments: Array<Comment> = await modelComments.find({
-    //     teacherName,
-    //   });
-    //   return comments;
-    // },
+    comments: async (_: never, { teacherName }: { teacherName: string }) => {
+      const { modelComments } = await connection();
+      const comments: Array<Comment> = await modelComments.find({
+        teacherName,
+      });
+      return comments;
+    },
     teacher: async (_: never, { name }: { name: string }) => {
       const { modelTeacher } = await connection();
       const teacher: Teacher = await modelTeacher.findOne({ name });
