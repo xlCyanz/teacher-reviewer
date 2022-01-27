@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const { DATABASE_URL } = process.env;
+const DATABASE_URL = process.env.NEXT_PUBLIC_DATABASE_URL;
 
 const connection = async () => {
   const conn = await mongoose
@@ -39,8 +39,12 @@ const connection = async () => {
 
   const User = new Schema({
     name: String,
+    email: String,
     password: String,
-    createdAt: Date,
+    createdAt: {
+      type: Date,
+      default: new Date(),
+    },
   });
 
   const Comments = new Schema({
@@ -63,7 +67,10 @@ const connection = async () => {
   });
 
   const modelTeacher = mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
-  const modelUser = mongoose.models.User || mongoose.model("User", User);
+
+  delete mongoose.models.User;
+  const modelUser = mongoose.model("User", User);
+
   const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
 
   return {
