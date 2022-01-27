@@ -16,8 +16,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const tabsLeft: PropertyTabs[] = [
-    { name: "Teachers", href: "/" },
-    { name: "Areas", href: "/" },
+    { name: "Teachers", href: "/teachers" },
   ];
 
   return (

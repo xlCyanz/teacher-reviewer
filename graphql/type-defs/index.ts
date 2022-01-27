@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: String
     name: String
     email: String
-    password: String
+    image: String
   }
 
   type Rating {
@@ -43,7 +43,6 @@ const typeDefs = gql`
     name: String
     area: String
   }
-  
 
   input inputVote {
     userId: ID
@@ -71,10 +70,12 @@ const typeDefs = gql`
     updateTeacher(teacherName: String!, newTeacher: inputTeacher!): Teacher
     deleteTeacher(teacherName: String!): Boolean
     voteForTeacher(vote: inputVote!): Boolean
+
     # Comment
     addComment(comment: inputComment!): Comment
     updateComment(newComment: inputComment!, userId: String!): Comment
     deleteComment(id: ID!): String
+
     # User
     addUser(newUser: inputUser!): User
     updateUser(name: String!, newUser: inputUser!): User
