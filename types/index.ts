@@ -13,38 +13,36 @@ export interface ResponseFuncs {
 }
 
 export interface Vote {
-  userName: string;
+  userId: string;
+  teacherId: string
   scoreClarity: number;
   scoreAssistance: number;
   scoreTakeClassAgain: number;
 }
 
 export interface Teacher {
-  id: string;
+  _id?: string;
   name: string;
   area: string;
-  votes?: Vote[];
+  rating :{
+    scoreClarity: number;
+    scoreAssistance: number;
+    scoreTakeClassAgain: number;
+  };
 }
 
 export interface Comment {
-  id?: string;
-  userId?: string;
-  teacherId?: string;
+  _id?: string;
+  userId: string;
+  teacherId: string;
   updatedAt?: string;
-  createdAt?: string;
-  body?: string;
+  createdAt: string;
+  body: string;
 }
 
 export interface User {
-  _id: string;
+  _id?: string;
   name: string;
   email: string;
   image?: string;
-  password: string;
-}
-
-export interface EnviromentVariables {
-  databaseUrl?: string | null;
-  graphqlUrl?: string | null;
-  googleClientId? : string | null;
 }

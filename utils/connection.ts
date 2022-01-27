@@ -1,10 +1,9 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, connect } from "mongoose";
 
 const DATABASE_URL = process.env.NEXT_PUBLIC_DATABASE_URL;
 
 const connection = async () => {
-  const conn = await mongoose
-    .connect(`${DATABASE_URL}`)
+  const conn = await connect(`${DATABASE_URL}`)
     .catch((err: string) => console.error(err));
 
   const Teacher = new Schema({
@@ -15,26 +14,29 @@ const connection = async () => {
       unique: true,
     },
     area: String,
-    votes: [
-      {
-        userId: {
-          type: Schema.Types.ObjectId,
-          ref: "User",
-        },
-        scoreClarity: {
-          type: Number,
-          default: 0,
-        },
-        scoreAssistance: {
-          type: Number,
-          default: 0,
-        },
-        scoreTakeClassAgain: {
-          type: Number,
-          default: 0,
-        },
-      },
-    ],
+  });
+
+  const Vote = new Schema({
+    teacherId: {
+      type: Schema.Types.ObjectId,
+      ref: "Teacher",
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    scoreClarity: {
+      type: Number,
+      default: 0,
+    },
+    scoreAssistance: {
+      type: Number,
+      default: 0,
+    },
+    scoreTakeClassAgain: {
+      type: Number,
+      default: 0,
+    },
   });
 
   const User = new Schema({
@@ -47,7 +49,7 @@ const connection = async () => {
     },
   });
 
-  const Comments = new Schema({
+  const Comment = new Schema({
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -67,17 +69,16 @@ const connection = async () => {
   });
 
   const modelTeacher = mongoose.models.Teacher || mongoose.model("Teacher", Teacher);
-
-  delete mongoose.models.User;
-  const modelUser = mongoose.model("User", User);
-
-  const modelComments = mongoose.models.Comments || mongoose.model("Comments", Comments);
+  const modelUser = mongoose.models.User || mongoose.model("User", User);
+  const modelComment = mongoose.models.Comment || mongoose.model("Comment", Comment);
+  const modelVote = mongoose.models.Vote || mongoose.model("Vote", Vote);
 
   return {
     conn,
     modelTeacher,
     modelUser,
-    modelComments,
+    modelComment,
+    modelVote,
   };
 };
 

@@ -1,26 +1,42 @@
-import { connection } from "@utils";
-import { Teacher, Vote, User } from "types";
+import { connection, getRating } from "@utils";
+
+import {
+  Teacher,
+  Vote,
+  User,
+  Comment,
+} from "@types";
 
 const resolvers = {
   Query: {
     teachers: async () => {
       const { modelTeacher } = await connection();
-      const teachers: Teacher[] = await modelTeacher.find({});
+      const teachers: Teacher[] = await modelTeacher.find();
       return teachers;
     },
-    // comments: async (_: never, { teacherName }: { teacherName: string }) => {
-    //   const { modelComments } = await connection();
-    //   const comments: Array<Comment> = await modelComments.find({
-    //     teacherName,
-    //   });
-    //   return comments;
-    // },
+    comments: async (_: never, { teacherName }: { teacherName: string }) => {
+      const { modelComment, modelTeacher } = await connection();
+
+      const teacher: Teacher = await modelTeacher.findOne({ name: teacherName });
+      const comments: Comment[] = await modelComment.find({
+        teacherId: teacher._id,
+      }).populate("userId");
+
+      return comments;
+    },
     teacher: async (_: never, { name }: { name: string }) => {
-      const { modelTeacher } = await connection();
+      const { modelTeacher, modelVote } = await connection();
+
       const teacher: Teacher = await modelTeacher.findOne({ name });
+      const votes = await modelVote.find({ teacherId: teacher._id });
 
-      // Traer los comentarios
+      const {
+        scoreAssistance,
+        scoreTakeClassAgain,
+        scoreClarity,
+      } = getRating(votes);
 
+      teacher.rating = { scoreAssistance, scoreTakeClassAgain, scoreClarity };
       return teacher;
     },
     teachersByArea: async (_: never, { area }: { area: string }) => {
@@ -56,20 +72,10 @@ const resolvers = {
       }, newTeacher);
       return TeacherUpdated;
     },
-    voteForTeacher: async (
-      _: never,
-      {
-        vote,
-        teacherName,
-      }: { vote: Vote; teacherName: string },
-    ) => {
-      const { modelTeacher } = await connection();
-      const teacherUpdated = await modelTeacher.updateOne(
-        { name: teacherName },
-        { $push: { votes: vote } },
-      );
-
-      return teacherUpdated;
+    voteForTeacher: async (_: never, { vote }: { vote: Vote }) => {
+      const { modelVote } = await connection();
+      const newVote : Vote = await modelVote.create(vote);
+      return newVote;
     },
     deleteTeacher: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelTeacher } = await connection();
@@ -81,29 +87,28 @@ const resolvers = {
       }
     },
     addComment: async (_: never, { comment }: { comment: Comment }) => {
-      const { modelComments } = await connection();
-      const newComment = await modelComments.create(comment);
+      const { modelComment } = await connection();
+      const newComment = await modelComment.create(comment);
       return newComment;
     },
     // updateComment: async (
     //   _: never,
     //   { newComment, id }: { newComment: string; id:string },
     // ) => {
-    //   const { modelComments } = await connection();
-    //   const CommentUpdated = await modelComments.findOne({ id });
+    //   const { modelComment } = await connection();
+    //   const CommentUpdated = await modelComment.findOne({ id });
+
     //   CommentUpdated.body = newComment;
     //   CommentUpdated.updatedAt = new Date().toLocaleString();
     //   CommentUpdated.save();
+
     //   return CommentUpdated;
     // },
-    // deleteComment: async (_: never, { id }: { id: string }) => {
-    //   const { modelComments } = await connection();
-    //   const CommentDeleted: Comment = await modelComments.findByIdAndDelete(
-    //     id,
-    //     (_err:never, doc: Comment) => doc,
-    //   );
-    //   return CommentDeleted;
-    // },
+    deleteComment: async (_: never, { id }: { id: string }) => {
+      const { modelComment } = await connection();
+      const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
+      return CommentDeleted;
+    },
 
     addUser: async (_:never, { newUser }: { newUser: User }) => {
       const { modelUser } = await connection();
