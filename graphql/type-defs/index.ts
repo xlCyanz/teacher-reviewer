@@ -2,6 +2,7 @@ import { gql } from "apollo-server-micro";
 
 const typeDefs = gql`
   type User {
+    _id: String
     name: String
     password: String
     token: String
@@ -14,13 +15,14 @@ const typeDefs = gql`
   }
 
   type Teacher {
+    _id: String
     name: String
     area: String
     rating: Rating
   }
 
   type Comment {
-    id: ID
+    _id: ID
     userId: User
     teacherId: Teacher
     createdAt: String

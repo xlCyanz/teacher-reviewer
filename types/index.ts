@@ -20,14 +20,14 @@ export interface Vote {
 }
 
 export interface Teacher {
-  id: string;
+  _id: string;
   name: string;
   area: string;
   votes?: Vote[];
 }
 
 export interface Comment {
-  id?: string;
+  _id?: string;
   userId?: string;
   teacherId?: string;
   updatedAt?: string;

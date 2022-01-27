@@ -1,27 +1,36 @@
 import { connection } from "@utils";
-import { Teacher, Vote, User } from "types";
+import { getRating } from "graphql/utils";
+import { Teacher, Vote, User, Comment } from "types";
 
 const resolvers = {
   Query: {
     teachers: async () => {
       const { modelTeacher } = await connection();
-      const teachers: Teacher[] = await modelTeacher.find({});
+      const teachers: Teacher[] = await modelTeacher.find();
       return teachers;
     },
     comments: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelComments } = await connection();
+      const { modelTeacher } = await connection();
+      const teacher: Teacher = await modelTeacher.findOne({name: teacherName});
       const comments: Array<Comment> = await modelComments.find({
-        teacherName,
-      });
+        teacherId: teacher._id,
+      }).populate("userId").populate("teacherId");
+      console.log(comments);
       return comments;
     },
     teacher: async (_: never, { name }: { name: string }) => {
       const { modelTeacher } = await connection();
       const teacher: Teacher = await modelTeacher.findOne({ name });
-
-      // Traer los comentarios
-
-      return teacher;
+      console.log(teacher._id)
+      const {scoreAssistance,scoreTakeClassAgain, scoreClarity} = getRating(teacher.votes)
+      const teacherWithoutVotes = {
+        _id: teacher._id,
+        name: teacher.name,
+        area: teacher.area,
+        rating: {scoreAssistance,scoreTakeClassAgain, scoreClarity},
+      }
+      return teacherWithoutVotes;
     },
     teachersByArea: async (_: never, { area }: { area: string }) => {
       const { modelTeacher } = await connection();
@@ -85,25 +94,25 @@ const resolvers = {
       const newComment = await modelComments.create(comment);
       return newComment;
     },
-    // updateComment: async (
-    //   _: never,
-    //   { newComment, id }: { newComment: string; id:string },
-    // ) => {
-    //   const { modelComments } = await connection();
-    //   const CommentUpdated = await modelComments.findOne({ id });
-    //   CommentUpdated.body = newComment;
-    //   CommentUpdated.updatedAt = new Date().toLocaleString();
-    //   CommentUpdated.save();
-    //   return CommentUpdated;
-    // },
-    // deleteComment: async (_: never, { id }: { id: string }) => {
-    //   const { modelComments } = await connection();
-    //   const CommentDeleted: Comment = await modelComments.findByIdAndDelete(
-    //     id,
-    //     (_err:never, doc: Comment) => doc,
-    //   );
-    //   return CommentDeleted;
-    // },
+    updateComment: async (
+      _: never,
+      { newComment, id }: { newComment: string; id:string },
+    ) => {
+      const { modelComments } = await connection();
+      const CommentUpdated = await modelComments.findOne({ id });
+      CommentUpdated.body = newComment;
+      CommentUpdated.updatedAt = new Date().toLocaleString();
+      CommentUpdated.save();
+      return CommentUpdated;
+    },
+    deleteComment: async (_: never, { id }: { id: string }) => {
+      const { modelComments } = await connection();
+      const CommentDeleted: Comment = await modelComments.findByIdAndDelete(
+        id,
+        (_err:never, doc: Comment) => doc,
+      );
+      return CommentDeleted;
+    },
 
     addUser: async (_:never, { newUser }: { newUser: User }) => {
       const { modelUser } = await connection();
