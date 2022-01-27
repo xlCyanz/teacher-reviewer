@@ -3,8 +3,8 @@ import { gql } from "apollo-server-micro";
 const typeDefs = gql`
   type User {
     name: String
+    email: String
     password: String
-    token: String
   }
 
   type Rating {
@@ -33,7 +33,7 @@ const typeDefs = gql`
     teacher(name: String!): Teacher
     teachersByArea(area: String!): [Teacher]
     comments(teacherName: String!): [Comment]
-    user(name: String!): User
+    user(email: String!): User
     users: [User]
   }
 

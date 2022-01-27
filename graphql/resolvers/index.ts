@@ -33,9 +33,9 @@ const resolvers = {
       const users: User[] = await modelUser.find({});
       return users;
     },
-    user: async (_: never, { name }: { name: string }) => {
+    user: async (_: never, { email }: { email: string }) => {
       const { modelUser } = await connection();
-      const user: User = await modelUser.findOne({ name });
+      const user: User = await modelUser.findOne({ email });
       return user;
     },
   },

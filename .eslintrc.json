@@ -12,6 +12,10 @@
         "plugin:react/recommended",
         "airbnb"
     ],
+    "globals": {
+        "jsx": "readonly",
+        "react": "readonly"
+    },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018,
