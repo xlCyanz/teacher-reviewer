@@ -43,9 +43,11 @@ const typeDefs = gql`
     name: String
     area: String
   }
+  
 
   input inputVote {
     userId: ID
+    teacherId: ID
     scoreClarity: Int
     scoreAssistance: Int
     scoreTakeClassAgain: Int
@@ -67,8 +69,8 @@ const typeDefs = gql`
     # teacher
     addTeacher(newTeacher: inputTeacher!): Teacher
     updateTeacher(teacherName: String!, newTeacher: inputTeacher!): Teacher
-    voteForTeacher(teacherName: String!, vote: inputVote!): Teacher
     deleteTeacher(teacherName: String!): Boolean
+    voteForTeacher(vote: inputVote!): Vote
     # comment
     addComment(comment: inputComment!): Comment
     updateComment(newComment: inputComment!, userId: String!): Comment

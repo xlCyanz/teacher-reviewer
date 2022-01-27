@@ -13,7 +13,8 @@ export interface ResponseFuncs {
 }
 
 export interface Vote {
-  userName: string;
+  userId: string;
+  teacherId: string
   scoreClarity: number;
   scoreAssistance: number;
   scoreTakeClassAgain: number;
@@ -23,7 +24,11 @@ export interface Teacher {
   _id: string;
   name: string;
   area: string;
-  votes?: Vote[];
+  rating :{
+    scoreClarity: number;
+    scoreAssistance: number;
+    scoreTakeClassAgain: number;
+  };
 }
 
 export interface Comment {
