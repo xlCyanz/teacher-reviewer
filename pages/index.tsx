@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Features } from "@components";
 import { replaceJSX } from "@utils";
 import { MainLayout } from "@layouts";
 
@@ -53,9 +52,7 @@ const Home: NextPage = () => (
           </p>
         </div>
       </main>
-
-      {/* Feature's Section */}
-      <Features />
+      <div className="py-56" />
     </MainLayout>
   </>
 );
