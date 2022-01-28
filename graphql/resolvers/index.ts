@@ -17,27 +17,36 @@ const resolvers = {
     comments: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelComment, modelTeacher } = await connection();
 
-      const teacher: Teacher = await modelTeacher.findOne({ name: teacherName });
-      const comments: Comment[] = await modelComment.find({
-        teacherId: teacher._id,
-      }).populate("userId");
+      try {
+        const teacher: Teacher = await modelTeacher.findOne({ name: teacherName });
 
-      return comments;
+        const comments: Comment[] = await modelComment.find({
+          teacherId: teacher._id,
+        }).populate("userId");
+
+        return comments;
+      } catch (error) {
+        return null;
+      }
     },
     teacher: async (_: never, { name }: { name: string }) => {
       const { modelTeacher, modelVote } = await connection();
 
-      const teacher: Teacher = await modelTeacher.findOne({ name });
-      const votes = await modelVote.find({ teacherId: teacher._id });
+      try {
+        const teacher: Teacher = await modelTeacher.findOne({ name });
+        const votes = await modelVote.find({ teacherId: teacher._id });
 
-      const {
-        scoreAssistance,
-        scoreTakeClassAgain,
-        scoreClarity,
-      } = getRating(votes);
+        const {
+          scoreAssistance,
+          scoreTakeClassAgain,
+          scoreClarity,
+        } = getRating(votes);
 
-      teacher.rating = { scoreAssistance, scoreTakeClassAgain, scoreClarity };
-      return teacher;
+        teacher.rating = { scoreAssistance, scoreTakeClassAgain, scoreClarity };
+        return teacher;
+      } catch (error) {
+        return null;
+      }
     },
     teachersByArea: async (_: never, { area }: { area: string }) => {
       const { modelTeacher } = await connection();
@@ -74,8 +83,12 @@ const resolvers = {
     },
     voteForTeacher: async (_: never, { vote }: { vote: Vote }) => {
       const { modelVote } = await connection();
-      const newVote : Vote = await modelVote.create(vote);
-      return newVote;
+      try {
+        await modelVote.create(vote);
+        return true;
+      } catch (error) {
+        return false;
+      }
     },
     deleteTeacher: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelTeacher } = await connection();
@@ -108,12 +121,6 @@ const resolvers = {
       const { modelComment } = await connection();
       const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
       return CommentDeleted;
-    },
-
-    addUser: async (_:never, { newUser }: { newUser: User }) => {
-      const { modelUser } = await connection();
-      const user: User = await modelUser.create(newUser);
-      return user;
     },
     updateUser: async (_:never, { name, newUser }: { name: string; newUser: User }) => {
       const { modelUser } = await connection();

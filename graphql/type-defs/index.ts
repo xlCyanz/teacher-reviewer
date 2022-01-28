@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-micro";
 
 const typeDefs = gql`
+  scalar Date
+
   type User {
     _id: String
     name: String
@@ -25,8 +27,8 @@ const typeDefs = gql`
     _id: ID
     userId: User
     teacherId: Teacher
-    createdAt: String
-    updatedAt: String
+    createdAt: Date
+    updatedAt: Date
     body: String
   }
 
@@ -60,8 +62,6 @@ const typeDefs = gql`
 
   input inputUser {
     name: String
-    password: String
-    token: String
   }
 
   type Mutation {
@@ -77,7 +77,6 @@ const typeDefs = gql`
     deleteComment(id: ID!): String
 
     # User
-    addUser(newUser: inputUser!): User
     updateUser(name: String!, newUser: inputUser!): User
     deleteUser(name: String!): Boolean
   }
