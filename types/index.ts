@@ -20,6 +20,13 @@ export interface Vote {
   scoreTakeClassAgain: number;
 }
 
+export interface User {
+  _id?: string;
+  name: string;
+  email: string;
+  image?: string;
+}
+
 export interface Teacher {
   _id?: string;
   name: string;
@@ -33,16 +40,9 @@ export interface Teacher {
 
 export interface Comment {
   _id?: string;
-  userId: string;
-  teacherId: string;
+  userId: User;
+  teacherId: Teacher;
   updatedAt?: string;
   createdAt: string;
   body: string;
-}
-
-export interface User {
-  _id?: string;
-  name: string;
-  email: string;
-  image?: string;
 }

@@ -23,7 +23,7 @@ const Navigation = () => {
     <div className="px-4 py-5 bg-deep-purple-accent-700 dark:bg-gray-900 w-full md:px-24 lg:px-8">
       <div className="relative flex justify-between items-center">
         <div>
-          <ul className="items-center hidden space-x-3 lg:flex">
+          <div className="items-center hidden space-x-3 lg:flex">
             {tabsLeft.map((tab) => (
               <Link key={`navigation-tab-${tab?.name}`} href={tab?.href} passHref>
                 <a className="cursor-pointer font-medium tracking-wide text-white py-2 px-4 rounded-md transition-colors duration-200 hover:text-deep-purple-accent-400 hover:bg-white">
@@ -31,7 +31,7 @@ const Navigation = () => {
                 </a>
               </Link>
             ))}
-          </ul>
+          </div>
         </div>
         <Link href="/" passHref>
           <a className="flex flex-row items-center lg:mx-auto cursor-pointer">
@@ -94,7 +94,7 @@ const Navigation = () => {
             </Transition>
           </Menu>
         ) : (
-          <ul className="items-center hidden space-x-3 lg:flex">
+          <div className="items-center hidden space-x-3 lg:flex">
             <Link href="/login" passHref>
               <a className="cursor-pointer font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
                 Sign In
@@ -105,7 +105,7 @@ const Navigation = () => {
                 Sign up
               </a>
             </Link>
-          </ul>
+          </div>
         )}
 
         <div className="ml-auto lg:hidden">
@@ -141,7 +141,7 @@ const Navigation = () => {
                   </div>
                 </div>
                 <nav>
-                  <ul className="space-y-4">
+                  <div className="space-y-4">
                     <div className="flex flex-col gap-2">
                       {tabsLeft.map((tab) => (
                         <Link key={`navigation-tab-${tab?.name}`} href={tab?.href} passHref>
@@ -216,7 +216,7 @@ const Navigation = () => {
                         </a>
                       </Link>
                     )}
-                  </ul>
+                  </div>
                 </nav>
               </div>
             </div>
