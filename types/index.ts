@@ -31,11 +31,12 @@ export interface Teacher {
   _id?: string;
   name: string;
   area: string;
-  rating :{
+  rating?: {
     scoreClarity: number;
     scoreAssistance: number;
     scoreTakeClassAgain: number;
   };
+  _v?: string;
 }
 
 export interface Comment {

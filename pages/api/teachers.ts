@@ -1,16 +1,21 @@
+import fs from "fs";
 import { connection } from "@utils";
-import { ResponseFuncs } from "@types";
+import { ResponseFuncs, Teacher } from "@types";
 import { NextApiRequest, NextApiResponse } from "next";
-import teachers from "../../public/teachers.json";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
-  const catcher = (error: Error) => res.status(400).json({ error });
-  const { id } = req.query;
-
   const handleCase: ResponseFuncs = {
-    POST: async (request: NextApiRequest, response: NextApiResponse) => {
-      return response.json(teachers);
+    GET: async () => {
+      const { modelTeacher } = await connection();
+      const teachersFromDB: Teacher[] = await modelTeacher.find({});
+      const teachers = fs.readFileSync("./public/teachers.json");
+
+      if (JSON.stringify(teachersFromDB) !== JSON.stringify(teachers)) {
+        fs.writeFileSync("./public/teachers.json", JSON.stringify(teachersFromDB));
+      }
+
+      return res.status(200).json({});
     },
   };
 
