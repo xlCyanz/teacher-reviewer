@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Head from "next/head";
 import Swal from "sweetalert2";
+import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { useRouter } from "next/router";
@@ -9,14 +11,13 @@ import { MainLayout } from "@layouts";
 import { useSession } from "next-auth/react";
 import { Comment, Teacher } from "@types";
 import { GetServerSideProps } from "next";
-import { CommentButton, VoteButton } from "components";
+import { CommentButton, VoteButton } from "@components";
 import {
   AnnotationIcon,
   ClockIcon,
   RewindIcon,
   SpeakerphoneIcon,
 } from "@heroicons/react/outline";
-import client from "apollo-client";
 
 interface Props {
   teacher: Teacher;
