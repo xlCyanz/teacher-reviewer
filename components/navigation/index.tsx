@@ -96,13 +96,8 @@ const Navigation = () => {
         ) : (
           <div className="items-center hidden space-x-3 lg:flex">
             <Link href="/login" passHref>
-              <a className="cursor-pointer font-medium tracking-wide py-2 px-4 text-white transition-colors duration-200 rounded-md hover:text-deep-purple-accent-400 hover:bg-white">
+              <a className="cursor-pointer font-medium tracking-wide py-2 px-4 transition-colors duration-200 rounded-md text-deep-purple-accent-400 bg-white">
                 Sign In
-              </a>
-            </Link>
-            <Link href="/register" passHref>
-              <a className="items-center justify-center py-2 px-4 font-medium tracking-wide text-deep-purple-accent-700 cursor-pointer transition duration-200 rounded-md shadow-md bg-gray-100 hover:bg-white focus:shadow-outline focus:outline-none">
-                Sign up
               </a>
             </Link>
           </div>
@@ -150,13 +145,6 @@ const Navigation = () => {
                           </a>
                         </Link>
                       ))}
-                      {!session && (
-                        <Link href="/login" passHref>
-                          <a className="font-medium tracking-wide text-gray-700 dark:text-gray-100 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                            Sign in
-                          </a>
-                        </Link>
-                      )}
                     </div>
                     {session ? (
                       <Menu as="div" className="lg:hidden inline-block relative text-left">
@@ -210,9 +198,9 @@ const Navigation = () => {
                         </Transition>
                       </Menu>
                     ) : (
-                      <Link href="/register" passHref>
+                      <Link href="/login" passHref>
                         <a className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-                          Sign up
+                          Sign in
                         </a>
                       </Link>
                     )}
