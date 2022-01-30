@@ -5,11 +5,14 @@ import { ApolloProvider } from "@apollo/client";
 import client from "apollo-client";
 
 import "../styles/globals.css";
+import { TeacherContext } from "contexts";
 
 const Application = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
   <SessionProvider session={session}>
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <TeacherContext.Provider>
+        <Component {...pageProps} />
+      </TeacherContext.Provider>
     </ApolloProvider>
   </SessionProvider>
 );
