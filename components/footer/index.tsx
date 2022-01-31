@@ -1,7 +1,7 @@
 import { AcademicCapIcon } from "@heroicons/react/outline";
 
 const Footer = () => (
-  <div className="relative mt-16 dark:mt-0 bg-deep-purple-accent-700 dark:bg-gray-900">
+  <div className="relative bg-deep-purple-accent-700 dark:bg-gray-900">
     <svg
       className="absolute dark:hidden top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-accent-700"
       preserveAspectRatio="none"
