@@ -11,8 +11,6 @@ const TeacherPage = () => {
 
   const [teachersFiltered, setTeacherFiltered] = useState<Teacher[]>([]);
   const [first, setfirst] = useState<string>("");
-  const [isDropDown, setIsDropDown] = useState<boolean>(false);
-
   useMemo(() => {
     if (first !== "") {
       const filtered = Object.values(
@@ -65,46 +63,6 @@ const TeacherPage = () => {
               our talented team of professionals
             </h2>
             <form className="flex flex-col items-center w-full mb-4 py-8 md:flex-row md:px-16">
-              {/* <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => { setIsDropDown(!isDropDown); }}
-                  className="flex items-center text-center p-2 bg-white rounded-md"
-                >
-
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fas"
-                    data-icon="caret-left"
-                    className="w-1.5 mr-2"
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 192 512"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196
-            270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"
-                    />
-                  </svg>
-                  <span> Areas </span>
-                </button>
-                <ul className={isDropDown === true ? "absolute  top-[-20px] right-20  py-2 mt-2 bg-white divide-y divide-gray-600 rounded-md shadow-xl w-44" : "hidden"}>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
-                    Multimedia
-                  </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
-                    Dropdown List 2
-                  </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
-                    Dropdown List 3
-                  </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
-                    Dropdown List 4r
-                  </li>
-                </ul>
-              </div> */}
               <input
                 placeholder="Enter the teacher's name..."
                 required
