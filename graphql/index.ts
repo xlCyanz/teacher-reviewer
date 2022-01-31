@@ -194,9 +194,9 @@ const resolvers = {
       );
       return CommentDeleted;
     },
-    addUser: async (_:never, { newUser }: {newUser:User})=>{},
-    updateUser: async (_:never, { userName, newUser }: {userName:string; newUser:User})=>{},
-    deleteUser: async (_:never, { userName }: {userName:string})=>{},
+    addUser: async (_:never, { newUser }: {newUser:User}) => {},
+    updateUser: async (_:never, { userName, newUser }: {userName:string; newUser:User}) => {},
+    deleteUser: async (_:never, { userName }: {userName:string}) => {},
   },
 };
 export default { typeDefs, resolvers };
