@@ -1,6 +1,6 @@
 import fs from "fs";
 import { connection } from "@utils";
-import { ResponseFuncs, Teacher } from "@types";
+import { ResponseFuncs, ITeacher } from "@types";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -8,7 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     GET: async () => {
       const { modelTeacher } = await connection();
-      const teachersFromDB: Teacher[] = await modelTeacher.find({});
+      const teachersFromDB: ITeacher[] = await modelTeacher.find({});
       const teachers = fs.readFileSync("./public/teachers.json");
 
       if (JSON.stringify(teachersFromDB) !== JSON.stringify(teachers)) {

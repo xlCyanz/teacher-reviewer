@@ -1,24 +1,18 @@
 import { connection, getRating } from "@utils";
-
-import {
-  Teacher,
-  Vote,
-  User,
-  Comment,
-} from "@types";
+import { ITeacher, IVote, IUser } from "@types";
 
 const resolvers = {
   Query: {
     teachers: async () => {
       const { modelTeacher } = await connection();
-      const teachers: Teacher[] = await modelTeacher.find();
+      const teachers: ITeacher[] = await modelTeacher.find();
       return teachers;
     },
     comments: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelComment, modelTeacher } = await connection();
 
       try {
-        const teacher: Teacher = await modelTeacher.findOne({ name: teacherName });
+        const teacher: ITeacher = await modelTeacher.findOne({ name: teacherName });
 
         const comments: Comment[] = await modelComment.find({
           teacherId: teacher._id,
@@ -33,7 +27,7 @@ const resolvers = {
       const { modelTeacher, modelVote } = await connection();
 
       try {
-        const teacher: Teacher = await modelTeacher.findOne({ name });
+        const teacher: ITeacher = await modelTeacher.findOne({ name });
         const votes = await modelVote.find({ teacherId: teacher._id });
 
         const {
@@ -50,38 +44,38 @@ const resolvers = {
     },
     teachersByArea: async (_: never, { area }: { area: string }) => {
       const { modelTeacher } = await connection();
-      const teachers: Teacher[] = await modelTeacher.find({ area });
+      const teachers: ITeacher[] = await modelTeacher.find({ area });
       return teachers;
     },
     users: async () => {
       const { modelUser } = await connection();
-      const users: User[] = await modelUser.find({});
+      const users: IUser[] = await modelUser.find({});
       return users;
     },
     user: async (_: never, { email }: { email: string }) => {
       const { modelUser } = await connection();
-      const user: User = await modelUser.findOne({ email });
+      const user: IUser = await modelUser.findOne({ email });
       return user;
     },
   },
 
   Mutation: {
-    addTeacher: async (_: never, { newTeacher }: { newTeacher: Teacher }) => {
+    addTeacher: async (_: never, { newTeacher }: { newTeacher: ITeacher }) => {
       const { modelTeacher } = await connection();
       const teacher = await modelTeacher.create(newTeacher);
       return teacher;
     },
     updateTeacher: async (
       _: never,
-      { teacherName, newTeacher }: { teacherName: string, newTeacher: Teacher },
+      { teacherName, newTeacher }: { teacherName: string, newTeacher: ITeacher },
     ) => {
       const { modelTeacher } = await connection();
-      const TeacherUpdated: Teacher = await modelTeacher.findOneAndUpdate({
+      const TeacherUpdated: ITeacher = await modelTeacher.findOneAndUpdate({
         name: teacherName,
       }, newTeacher);
       return TeacherUpdated;
     },
-    voteForTeacher: async (_: never, { vote }: { vote: Vote }) => {
+    voteForTeacher: async (_: never, { vote }: { vote: IVote }) => {
       const { modelVote } = await connection();
       try {
         await modelVote.create(vote);
@@ -122,9 +116,9 @@ const resolvers = {
       const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
       return CommentDeleted;
     },
-    updateUser: async (_:never, { name, newUser }: { name: string; newUser: User }) => {
+    updateUser: async (_:never, { name, newUser }: { name: string; newUser: IUser }) => {
       const { modelUser } = await connection();
-      const TeacherUpdated: Teacher = await modelUser.findOneAndUpdate({ name }, newUser);
+      const TeacherUpdated: ITeacher = await modelUser.findOneAndUpdate({ name }, newUser);
       return TeacherUpdated;
     },
     deleteUser: async (_:never, { name }: { name: string }) => {

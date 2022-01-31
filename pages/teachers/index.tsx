@@ -1,7 +1,7 @@
 import _ from "lodash";
 import Head from "next/head";
 import Link from "next/link";
-import { Teacher } from "@types";
+import { ITeacher } from "@types";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "contexts";
 import { useMemo, useState } from "react";
@@ -9,9 +9,9 @@ import { useMemo, useState } from "react";
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
 
-  const [teachersFiltered, setTeacherFiltered] = useState<Teacher[]>([]);
+  const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
   const [first, setfirst] = useState<string>("");
-  const [isDropDown, setIsDropDown] = useState<boolean>(false);
+  // const [isDropDown, setIsDropDown] = useState<boolean>(false);
 
   useMemo(() => {
     if (first !== "") {
@@ -85,22 +85,29 @@ const TeacherPage = () => {
                     <path
                       fill="currentColor"
                       d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196
-            270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"
+            270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128
+            .662c12.599-12.6 34.142-3.676 34.142 14.142z"
                     />
                   </svg>
                   <span> Areas </span>
                 </button>
-                <ul className={isDropDown === true ? "absolute  top-[-20px] right-20  py-2 mt-2 bg-white divide-y divide-gray-600 rounded-md shadow-xl w-44" : "hidden"}>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
+                <ul className={isDropDown === true ? "absolute
+                top-[-20px] right-20  py-2 mt-2 bg-white divide-y
+                divide-gray-600 rounded-md shadow-xl w-44" : "hidden"}>
+                  <li className="block px-4 py-2 text-sm text-black
+                  hover:bg-gray-400 hover:text-white">
                     Multimedia
                   </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
+                  <li className="block px-4 py-2 text-sm text-black
+                  hover:bg-gray-400 hover:text-white">
                     Dropdown List 2
                   </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
+                  <li className="block px-4 py-2 text-sm text-black
+                  hover:bg-gray-400 hover:text-white">
                     Dropdown List 3
                   </li>
-                  <li className="block px-4 py-2 text-sm text-black hover:bg-gray-400 hover:text-white">
+                  <li className="block px-4 py-2 text-sm text-black
+                  hover:bg-gray-400 hover:text-white">
                     Dropdown List 4r
                   </li>
                 </ul>

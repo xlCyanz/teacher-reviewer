@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { TimeSince } from "@utils";
 import { MainLayout } from "@layouts";
 import { useSession } from "next-auth/react";
-import { Comment, Teacher } from "@types";
+import { IComment, ITeacher } from "@types";
 import { GetServerSideProps } from "next";
 import { CommentButton, VoteButton } from "@components";
 import {
@@ -20,8 +20,8 @@ import {
 } from "@heroicons/react/outline";
 
 interface Props {
-  teacher: Teacher;
-  comments: Comment[]
+  teacher: ITeacher;
+  comments: IComment[]
 }
 
 const TeacherPage = ({ teacher, comments }: Props) => {

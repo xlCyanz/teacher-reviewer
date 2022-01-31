@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PropertyTabs } from "@types";
+import { ITabs } from "@types";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useSession, signOut } from "next-auth/react";
@@ -15,7 +15,7 @@ const Navigation = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  const tabsLeft: PropertyTabs[] = [
+  const tabsLeft: ITabs[] = [
     { name: "Teachers", href: "/teachers" },
   ];
 
