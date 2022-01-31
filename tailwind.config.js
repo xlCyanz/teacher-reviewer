@@ -11,6 +11,7 @@ module.exports = {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        "default-color": "var(--default-color)",
         red: {
           50: "#ffebee",
           100: "#ffcdd2",
