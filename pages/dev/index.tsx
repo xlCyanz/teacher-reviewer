@@ -1,7 +1,7 @@
-import { DefaultColor } from "contexts";
+import { DefaultColorContext } from "contexts";
 
 const Dev = () => {
-  const { color, changeColor } = DefaultColor.useContext();
+  const { color, changeColor } = DefaultColorContext.useContext();
 
   const changeToYellow = () => changeColor("#FFFF00");
   const changeToRed = () => changeColor("#FF0000");
@@ -9,8 +9,8 @@ const Dev = () => {
   const changeToGreen = () => changeColor("#008000");
 
   return (
-    <div className="bg-gray-900 w-screen h-screen flex flex-col justify-center items-center text-2xl">
-      <span className="text-default-color">{color}</span>
+    <div className="bg-default-color w-screen h-screen flex flex-col justify-center items-center text-2xl">
+      <span className="bg-gray-900 p-2 rounded text-default-color">{color}</span>
 
       <div className="mt-20 flex flex-col gap-2 text-white">
         <button className="px-4 py-2 bg-yellow-500" type="button" onClick={changeToYellow}>Amarillo</button>
