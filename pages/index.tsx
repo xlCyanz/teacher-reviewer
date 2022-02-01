@@ -78,10 +78,8 @@ const Home: NextPage = () => {
                     </Link>
                   ))}
                   <Link href="/teachers" passHref>
-                    <a>
-                      <div className="flex flex-col justify-center shadow-lg w-full items-center bg-white rounded py-4 px-6">
-                        Ir a busqueda avanzada
-                      </div>
+                    <a className="flex flex-col justify-center shadow-lg w-full items-center bg-white rounded py-4 px-6">
+                      Ir a busqueda avanzada
                     </a>
                   </Link>
                 </div>

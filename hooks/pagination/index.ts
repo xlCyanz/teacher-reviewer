@@ -1,14 +1,14 @@
-import { ITeacher } from "@types";
 import { useCallback, useEffect, useState } from "react";
 
 interface Props {
-  data: ITeacher[];
+  dataLength: number;
+  limitPerPage: number;
 }
 
-const usePagination = ({ data }: Props) => {
+const usePagination = ({ dataLength, limitPerPage }: Props) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageNumbers, setPageNumbers] = useState<number[]>([]);
-  const [pagesLimit, setPagesLimit] = useState<number>(18);
+  const [pagesLimit, setPagesLimit] = useState<number>(limitPerPage);
   const [lastIndex, setLastIndex] = useState<number>(0);
   const [firstIndex, setFirstIndex] = useState<number>(0);
 
@@ -19,13 +19,13 @@ const usePagination = ({ data }: Props) => {
 
   useEffect(() => {
     const numbers = [];
-    const conditional = Math.ceil(data.length / pagesLimit);
 
-    for (let index = 1; index <= conditional; index += 1) {
+    for (let index = 1; index <= Math.ceil(dataLength / pagesLimit); index += 1) {
       numbers.push(index);
     }
+
     setPageNumbers(numbers);
-  }, [data.length, pagesLimit]);
+  }, [dataLength, pagesLimit]);
 
   /**
    * Update the page limits.
@@ -56,7 +56,7 @@ const usePagination = ({ data }: Props) => {
    * @param {number} page
    */
   const changeToNextPage = useCallback(() => {
-    if (currentPage < pageNumbers?.length) setCurrentPage(prev => prev + 1);
+    if (currentPage < pageNumbers?.length) setCurrentPage((prev) => prev + 1);
   }, [currentPage, pageNumbers?.length]);
 
   /**
@@ -65,7 +65,7 @@ const usePagination = ({ data }: Props) => {
    * @param {number} page
    */
   const changeToPreviusPage = useCallback(() => {
-    if (currentPage > 1) setCurrentPage(prev => prev - 1);
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
   }, [currentPage]);
 
   return {

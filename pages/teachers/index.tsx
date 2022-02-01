@@ -3,25 +3,17 @@ import Head from "next/head";
 import Link from "next/link";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "contexts";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePagination } from "hooks";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import { ITeacher } from "@types";
 
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
 
-  const [first, setfirst] = useState<string>("");
-  const teachersFiltered = useMemo(() => {
-    if (first !== "") {
-      const filtered = Object.values(
-        _.pickBy(teachers, (value) => value?.name.toLowerCase().includes(
-          first?.toLowerCase(),
-        )),
-      );
-      return filtered;
-    }
-    return teachers;
-  }, [first, teachers]);
+  const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
+  const [searcher, setSearcher] = useState<string>("");
+
   const {
     currentPage,
     firstIndex,
@@ -30,7 +22,16 @@ const TeacherPage = () => {
     changeCurrentPage,
     changeToNextPage,
     changeToPreviusPage,
-  } = usePagination({ data: teachersFiltered });
+  } = usePagination({ dataLength: teachers?.length, limitPerPage: 18 });
+
+  useEffect(() => {
+    setTeacherFiltered(Object.values(
+      _.pickBy(teachers, (value) => value?.name.toLowerCase().includes(
+        searcher?.toLowerCase(),
+      )),
+    ));
+  }, [searcher, teachers]);
+
   return (
     <>
       <Head>
@@ -75,34 +76,15 @@ const TeacherPage = () => {
               <input
                 placeholder="Enter the teacher's name..."
                 required
-                onChange={({ target }) => setfirst(target.value)}
+                onChange={({ target }) => setSearcher(target.value)}
                 type="text"
                 className="flex-grow w-full border-black py-4 px-6 dark:text-white text-black font-medium transition text-center placeholder:text-deep-purple-400 dark:placeholder:text-gray-300 duration-200 border-2 rounded appearance-none md:mr-2 md:mb-0 bg-white dark:bg-gray-900 focus:border-gray-800 dark:focus:border-gray-100 focus:outline-none focus:shadow-outline"
               />
             </form>
           </div>
           <div className="grid gap-10 mx-auto py-6 sm:row-gap-10  sm:grid-cols-2 lg:grid-cols-3">
-            {teachersFiltered.length >= 1 ? (
-              _.map(teachersFiltered.slice(firstIndex, lastIndex), (teacher) => (
-                <Link href={`teachers/${teacher.name}`} passHref>
-                  <a>
-                    <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">
-                      <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 dark:bg-gray-800 group-hover:scale-x-100" />
-                      <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-deep-purple-accent-400 dark:bg-gray-800 group-hover:scale-y-100" />
-                      <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-deep-purple-accent-400 dark:bg-gray-800 group-hover:scale-x-100" />
-                      <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-deep-purple-accent-400 dark:bg-gray-800 group-hover:scale-y-100" />
-                      <div className="relative p-5 bg-white rounded-sm">
-                        <div className="flex flex-col mb-2 lg:items-center lg:flex-row">
-                          <p className="font-semibold leading-5">{teacher.name}</p>
-                        </div>
-                        <p className="mb-2 text-sm text-gray-900">{teacher.area}</p>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
-              ))
-            ) : (
-              _.map(teachers.slice(firstIndex, lastIndex), (teacher) => (
+            {teachersFiltered?.length >= 1 && (
+              _.map(teachersFiltered?.slice(firstIndex, lastIndex), (teacher) => (
                 <Link href={`teachers/${teacher.name}`} passHref>
                   <a>
                     <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">

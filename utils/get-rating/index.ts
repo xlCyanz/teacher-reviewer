@@ -1,4 +1,4 @@
-import { Vote } from "@types";
+import { IVote } from "@types";
 
 interface PropsChangeVariablesNames {
     assistence: number;
@@ -12,7 +12,7 @@ const changeVariablesNames = ({ assistence, classAgain, clarity }: PropsChangeVa
   scoreClarity: clarity,
 });
 
-const getRating = (votes: Vote[] | undefined) => {
+const getRating = (votes: IVote[] | undefined) => {
   if (votes === undefined || !votes[0]) {
     return changeVariablesNames(
       {
