@@ -1,7 +1,5 @@
 import { ITeacher } from "@types";
-import {
-  useCallback, useEffect, useState,
-} from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface Props {
   data: ITeacher[];
@@ -10,7 +8,7 @@ interface Props {
 const usePagination = ({ data }: Props) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageNumbers, setPageNumbers] = useState<number[]>([]);
-  const [pagesLimit, setPagesLimit] = useState<number>(12);
+  const [pagesLimit, setPagesLimit] = useState<number>(18);
   const [lastIndex, setLastIndex] = useState<number>(0);
   const [firstIndex, setFirstIndex] = useState<number>(0);
 
@@ -58,7 +56,7 @@ const usePagination = ({ data }: Props) => {
    * @param {number} page
    */
   const changeToNextPage = useCallback(() => {
-    if (currentPage < pageNumbers?.length) setCurrentPage((prev) => prev + 1);
+    if (currentPage < pageNumbers?.length) setCurrentPage(prev => prev + 1);
   }, [currentPage, pageNumbers?.length]);
 
   /**
@@ -67,7 +65,7 @@ const usePagination = ({ data }: Props) => {
    * @param {number} page
    */
   const changeToPreviusPage = useCallback(() => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    if (currentPage > 1) setCurrentPage(prev => prev - 1);
   }, [currentPage]);
 
   return {

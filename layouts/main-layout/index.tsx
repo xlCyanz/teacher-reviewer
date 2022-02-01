@@ -10,7 +10,7 @@ const MainLayout = ({ children }: Props) => (
     <div id="__header__">
       <Navigation />
     </div>
-    <div id="__children__" className="flex-1">
+    <div id="__children__" className="flex-1 dark:bg-gray-400">
       {children}
     </div>
     <div id="__footer__">
