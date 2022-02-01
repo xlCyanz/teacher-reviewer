@@ -1,20 +1,20 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable @typescript-eslint/ban-types */
-import { Teacher } from "@types";
 import _ from "lodash";
+import { ITeacher } from "@types";
 import React, {
   createContext, ReactNode, useCallback, useEffect, useMemo, useState,
 } from "react";
 import teachersFromLocal from "../../public/teachers.json";
 
 interface ITeacherContext {
-    teachers: Teacher[];
+    teachers: ITeacher[];
     findTeacherByName: Function;
     findTeacherById: Function;
 }
 
-interface ProviderProps {
-    children: ReactNode
+export interface IProvider {
+  children: ReactNode;
 }
 
 const TeacherContext = createContext<ITeacherContext>({
@@ -25,8 +25,8 @@ const TeacherContext = createContext<ITeacherContext>({
 
 const useContext = () => React.useContext(TeacherContext);
 
-const Provider = ({ children }: ProviderProps) => {
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
+const Provider = ({ children }: IProvider) => {
+  const [teachers, setTeachers] = useState<ITeacher[]>([]);
 
   useEffect(() => setTeachers(teachersFromLocal), []);
 

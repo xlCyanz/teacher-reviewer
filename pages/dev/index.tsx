@@ -1,42 +1,23 @@
-import _ from "lodash";
-import { Teacher } from "@types";
-import { TeacherContext } from "contexts";
-import { useMemo, useState } from "react";
+import { DefaultColor } from "contexts";
 
 const Dev = () => {
-  const { teachers } = TeacherContext.useContext();
+  const { color, changeColor } = DefaultColor.useContext();
 
-  const [teachersFiltered, setTeacherFiltered] = useState<Teacher[]>();
-  const [first, setfirst] = useState<string>("");
-
-  useMemo(() => {
-    if (first !== "") {
-      const filtered = Object.values(
-        _.pickBy(teachers, (value) => value?.name.toLowerCase().includes(
-          first?.toLowerCase(),
-        )),
-      ).slice(0, 5);
-
-      setTeacherFiltered(filtered);
-    } else setTeacherFiltered([]);
-  }, [first, teachers]);
+  const changeToYellow = () => changeColor("#FFFF00");
+  const changeToRed = () => changeColor("#FF0000");
+  const changeToBlue = () => changeColor("0000FF");
+  const changeToGreen = () => changeColor("#008000");
 
   return (
-    <div className="bg-gray-800 h-screen w-screen p-8 px-36">
-      <form className="flex flex-col items-center w-full mb-4">
-        <input
-          placeholder="Email"
-          onChange={({ target }) => setfirst(target.value)}
-          required
-          type="text"
-          className="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-        />
-      </form>
-      {_.map(teachersFiltered, (teacher) => (
-        <div key={teacher?._id} className="flex justify-center items-center text-lg w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0">
-          {teacher?.name}
-        </div>
-      ))}
+    <div className="bg-gray-900 w-screen h-screen flex flex-col justify-center items-center text-2xl">
+      <span className="text-default-color">{color}</span>
+
+      <div className="mt-20 flex flex-col gap-2 text-white">
+        <button className="px-4 py-2 bg-yellow-500" type="button" onClick={changeToYellow}>Amarillo</button>
+        <button className="px-4 py-2 bg-red-500" type="button" onClick={changeToRed}>Rojo</button>
+        <button className="px-4 py-2 bg-blue-500" type="button" onClick={changeToBlue}>Azul</button>
+        <button className="px-4 py-2 bg-green-500" type="button" onClick={changeToGreen}>Verde</button>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export interface PropertyTabs {
+export interface ITabs {
   name: string;
   href: string;
 }
@@ -12,7 +12,7 @@ export interface ResponseFuncs {
   DELETE?: (request: NextApiRequest, response: NextApiResponse) => Promise<void>;
 }
 
-export interface Vote {
+export interface IVote {
   userId: string;
   teacherId: string
   scoreClarity: number;
@@ -20,14 +20,14 @@ export interface Vote {
   scoreTakeClassAgain: number;
 }
 
-export interface User {
+export interface IUser {
   _id?: string;
   name: string;
   email: string;
   image?: string;
 }
 
-export interface Teacher {
+export interface ITeacher {
   _id?: string;
   name: string;
   area: string;
@@ -39,10 +39,10 @@ export interface Teacher {
   _v?: string;
 }
 
-export interface Comment {
+export interface IComment {
   _id?: string;
-  userId: User;
-  teacherId: Teacher;
+  userId: IUser;
+  teacherId: ITeacher;
   updatedAt?: string;
   createdAt: string;
   body: string;

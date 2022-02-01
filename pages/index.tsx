@@ -1,7 +1,7 @@
 import _ from "lodash";
 import Head from "next/head";
 import Link from "next/link";
-import { Teacher } from "@types";
+import { ITeacher } from "@types";
 import { replaceJSX } from "@utils";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "contexts";
@@ -20,7 +20,7 @@ const textStyled = (title: string) => (
 const Home: NextPage = () => {
   const { teachers } = TeacherContext.useContext();
 
-  const [teachersFiltered, setTeacherFiltered] = useState<Teacher[]>([]);
+  const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
   const [searcher, setSearcher] = useState<string>("");
 
   useEffect(() => {

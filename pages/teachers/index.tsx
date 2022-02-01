@@ -1,25 +1,24 @@
 import _ from "lodash";
 import Head from "next/head";
 import Link from "next/link";
-import { Teacher } from "@types";
+import { ITeacher } from "@types";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "contexts";
 import { useMemo, useState } from "react";
 
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
-
-  const [teachersFiltered, setTeacherFiltered] = useState<Teacher[]>([]);
   const [first, setfirst] = useState<string>("");
-  useMemo(() => {
+  const teachersFiltered = useMemo(() => {
     if (first !== "") {
       const filtered = Object.values(
         _.pickBy(teachers, (value) => value?.name.toLowerCase().includes(
           first?.toLowerCase(),
         )),
-      );
-      setTeacherFiltered(filtered);
-    } else setTeacherFiltered([]);
+      ).slice(0, 10);
+      return filtered;
+    }
+    return [];
   }, [first, teachers]);
 
   return (
@@ -93,24 +92,27 @@ const TeacherPage = () => {
                 </Link>
               ))
             ) : (
-              teachers.map((teacher) => (
-                <Link href={`teacher/${teacher.name}`} passHref>
-                  <a>
-                    <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">
-                      <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-                      <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
-                      <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-                      <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
-                      <div className="relative p-5 bg-white rounded-sm">
-                        <div className="flex flex-col mb-2 lg:items-center lg:flex-row">
-                          <p className="font-semibold leading-5">{teacher.name}</p>
+                teachers.map((teacher, i) => {
+                if (i >= 20) return;
+                return (
+                    <Link href={`teacher/${teacher.name}`} passHref>
+                      <a>
+                        <div className="relative p-px overflow-hidden transition duration-300 transform border rounded shadow-sm hover:scale-105 group hover:shadow-xl">
+                          <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
+                          <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
+                          <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
+                          <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-deep-purple-accent-400 group-hover:scale-y-100" />
+                          <div className="relative p-5 bg-white rounded-sm">
+                            <div className="flex flex-col mb-2 lg:items-center lg:flex-row">
+                              <p className="font-semibold leading-5">{teacher.name}</p>
+                            </div>
+                            <p className="mb-2 text-sm text-gray-900">{teacher.area}</p>
+                          </div>
                         </div>
-                        <p className="mb-2 text-sm text-gray-900">{teacher.area}</p>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
-              ))
+                      </a>
+                    </Link>
+                  )
+                })
             )}
           </div>
         </div>

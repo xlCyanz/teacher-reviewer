@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --default-color: #fff;
+}
+
 body {
     overflow-x: hidden;
 }
