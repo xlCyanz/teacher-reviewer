@@ -137,7 +137,7 @@ const TeacherPage = () => {
                 type="button"
                 aria-current={page === currentPage ? "page" : "false"}
                 onClick={() => changeCurrentPage(page)}
-                className={`z-10 ${
+                className={`z-10 hidden sm:flex ${
                   page === currentPage
                     ? "bg-indigo-50 border-indigo-500 rounded text-indigo-600"
                     : "bg-white border-gray-300 text-gray-500 hover:bg-gray-200"
