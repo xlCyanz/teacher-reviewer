@@ -54,7 +54,9 @@ const CommentButton = ({ userId, teacherId }: Props) => {
         MySwal.fire({
           title: "Guardado",
           icon: "success",
-          text: "Tu comentario se guardo en nuestros registros.",
+          text: "Tu comentario se guardo en nuestros registros. (Muchas veces tarda en reflejarse el comentario)",
+        }).then(() => {
+          if (typeof window !== "undefined") window.location.reload();
         });
       } catch {
         MySwal.fire({

@@ -44,11 +44,12 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       icon: "question",
       input: "radio",
       inputOptions,
-      allowOutsideClick: false,
       inputValidator: (value) => {
         if (!value) return "You need to choose something!";
         return null;
       },
+      showCancelButton: true,
+      cancelButtonText: "Skip",
     });
 
     const { value: takeclassagain } = await Swal.fire({
@@ -56,11 +57,12 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       icon: "question",
       input: "radio",
       inputOptions,
-      allowOutsideClick: false,
       inputValidator: (value) => {
         if (!value) return "You need to choose something!";
         return null;
       },
+      showCancelButton: true,
+      cancelButtonText: "Skip",
     });
 
     const { value: clarity } = await Swal.fire({
@@ -68,23 +70,24 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       icon: "question",
       input: "radio",
       inputOptions,
-      allowOutsideClick: false,
       inputValidator: (value) => {
         if (!value) return "You need to choose something!";
         return null;
       },
+      showCancelButton: true,
+      cancelButtonText: "Skip",
     });
 
-    if (assistance && clarity && takeclassagain) {
+    if (assistance || clarity || takeclassagain) {
       try {
         await client.mutate({
           mutation: QUERY_VOTE,
           variables: {
             userId,
             teacherId,
-            assistance: Number(assistance),
-            clarity: Number(clarity),
-            takeclassagain: Number(takeclassagain),
+            assistance: Number(assistance) || 0,
+            clarity: Number(clarity) || 0,
+            takeclassagain: Number(takeclassagain) || 0,
           },
         });
 
