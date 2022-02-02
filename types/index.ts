@@ -27,16 +27,17 @@ export interface IUser {
   image?: string;
 }
 
+interface ITeacherRating {
+  scoreClarity: number;
+  scoreAssistance: number;
+  scoreTakeClassAgain: number;
+}
+
 export interface ITeacher {
   _id?: string;
   name: string;
   area: string;
-  rating?: {
-    scoreClarity: number;
-    scoreAssistance: number;
-    scoreTakeClassAgain: number;
-  };
-  _v?: string;
+  rating?: ITeacherRating;
 }
 
 export interface IComment {
