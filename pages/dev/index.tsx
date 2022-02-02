@@ -10,7 +10,7 @@ const Dev = () => {
 
   return (
     <div className="bg-default-color w-screen h-screen flex flex-col justify-center items-center text-2xl">
-      <span className="bg-gray-900 p-2 rounded text-default-color">{color}</span>
+      <span className="bg-gray-900 p-2 rounded text-default-color">{color}I'm tryin something :V</span>
 
       <div className="mt-20 flex flex-col gap-2 text-white">
         <button className="px-4 py-2 bg-yellow-500" type="button" onClick={changeToYellow}>Amarillo</button>
