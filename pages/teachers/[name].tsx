@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import _ from "lodash";
 import Head from "next/head";
 import Swal from "sweetalert2";
 import client from "apollo-client";
@@ -6,12 +8,11 @@ import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { TimeSince } from "@utils";
 import { MainLayout } from "@layouts";
 import { useSession } from "next-auth/react";
 import { IComment, ITeacher } from "@types";
 import { GetServerSideProps } from "next";
-import { CommentButton, VoteButton } from "@components";
+import { CommentButton, VoteButton, CommentCard } from "@components";
 import {
   AnnotationIcon,
   ClockIcon,
@@ -25,7 +26,7 @@ interface Props {
 }
 
 const TeacherPage = ({ teacher, comments }: Props) => {
-  const { data: session }: any = useSession();
+  const { data: session, status }: any = useSession();
   const router = useRouter();
 
   const MySwal = withReactContent(Swal);
@@ -51,7 +52,7 @@ const TeacherPage = ({ teacher, comments }: Props) => {
       </Head>
 
       <MainLayout>
-        <main className="relative bg-deep-purple-accent-700 dark:bg-deep-purple-accent-400 dark:mb-0">
+        <main className={`${!teacher && "blur-sm"} relative bg-deep-purple-accent-700 dark:bg-deep-purple-accent-400 dark:mb-0`}>
           <div className="relative py-10 sm:py-12 px-4 sm:px-0 text-center h-full max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl">
             <h2 className="mb-4 font-sans text-center text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl sm:leading-none">
               {`Prof. ${teacher?.name}`}
@@ -79,7 +80,7 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <ClockIcon className="w-6 h-6 sm:w-8 sm:h-8 text-deep-purple-accent-400 dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-                  {`${teacher?.rating?.scoreAssistance}%`}
+                  {`${teacher?.rating?.scoreAssistance || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">
                   Assistance
@@ -93,7 +94,7 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <RewindIcon className="w-6 h-6 sm:w-8 sm:h-8 text-deep-purple-accent-400 dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-                  {`${teacher?.rating?.scoreTakeClassAgain}%`}
+                  {`${teacher?.rating?.scoreTakeClassAgain || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">Take classes again.</p>
                 <p className="text-gray-700 dark:text-gray-600">
@@ -105,7 +106,7 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <SpeakerphoneIcon className="w-6 h-6 sm:w-8 sm:h-8 text-deep-purple-accent-400 dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-deep-purple-accent-400">
-                  {`${teacher?.rating?.scoreClarity}%`}
+                  {`${teacher?.rating?.scoreClarity || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">Clarity</p>
                 <p className="text-gray-700 dark:text-gray-600">
@@ -113,37 +114,17 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-4 my-6">
-              <VoteButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
-              <CommentButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
-            </div>
+            {status === "authenticated" && (
+              <div className="flex justify-center items-center gap-4 my-6">
+                <VoteButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
+                <CommentButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
+              </div>
+            )}
             <div className="py-10 sm:py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
               <h2 className="mb-4 font-sans text-3xl font-bold tracking-tight sm:leading-none text-gray-900 dark:text-gray-100">Comentarios</h2>
               <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                {comments?.map((comment) => (
-                  <div key={comment?._id} className="p-8 bg-white border rounded shadow-xl">
-                    <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                      <span className="text-deep-purple-accent-400 hover:text-deep-purple-800">
-                        {`${TimeSince(comment?.updatedAt || comment?.createdAt || "")}`}
-                      </span>
-                    </p>
-                    <p className="mb-5 text-gray-700">
-                      {comment?.body}
-                    </p>
-                    <div className="flex items-center">
-                      <div className="bg-deep-purple-accent-400 flex-shrink-0 w-10 h-10 flex justify-center items-center rounded-full shadow-sm mr-3">
-                        <span className="font-semibold text-lg text-gray-100">{comment?.userId?.name.slice(0, 2)}</span>
-                      </div>
-                      <div>
-                        <h1 className="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400">
-                          {comment?.userId?.name}
-                        </h1>
-                        <p className="text-sm font-medium leading-4 text-gray-600">
-                          Usuario
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                {_.map(comments, (comment) => (
+                  <CommentCard {...comment} />
                 ))}
               </div>
             </div>
