@@ -7,12 +7,15 @@
     },
     "extends": [
         "next/core-web-vitals",
-        "prettier",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "airbnb"
     ],
+    "globals": {
+        "jsx": "readonly",
+        "react": "readonly"
+    },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018,
@@ -23,10 +26,11 @@
             "version": "detect"
         }
     },
-    "plugins": ["react", "prettier", "@typescript-eslint"],
+    "plugins": ["react", "@typescript-eslint"],
     "rules": {
+        "arrow-body-style": "off",
         "react/react-in-jsx-scope": 0,
-        "import/extensions": ["off"],
+        "import/extensions": "off",
         "react/display-name": 0,
         "react/jsx-filename-extension": [
             2,
@@ -70,6 +74,7 @@
             {
                 "allow": ["warn", "error"]
             }
-        ]
+        ],
+        "jsx-a11y/anchor-is-valid": ["off"]
     }
 }

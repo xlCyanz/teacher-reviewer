@@ -1,0 +1,946 @@
+[{
+    "_id": "61f5fe449591e64bdeb9c32e",
+    "name": "Alfio Lora",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c32f",
+    "name": "Marlen Perez Dorville",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c330",
+    "name": "Francisco Polanco Reyes",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c332",
+    "name": "Edickson Minaya Del Rosario",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c331",
+    "name": "Santo Figueroa",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c334",
+    "name": "David Germosen",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c336",
+    "name": "Nelfis Raymundo Stapleton Pilier",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c338",
+    "name": "Freddy A. García Alvarado",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c33b",
+    "name": "Lizmaida Alcala Calcaño",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c33e",
+    "name": "Lionela Cabrera Santana",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c346",
+    "name": "Gersón Mena Rodriguez",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c349",
+    "name": "Vladimir Columna Pimentel",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c350",
+    "name": "Ellis Zamil Belliard Vàsquez",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c352",
+    "name": "Miguel Antonio Vasquez Liriano",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c354",
+    "name": "Edwin José Rodríguez Mejía",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c35a",
+    "name": "Juan Miranda Reyes",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c361",
+    "name": "Altagracia Rodriguez Matos",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c363",
+    "name": "Francisco Ramirez Velasquez",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c36a",
+    "name": "Andres Arias Mejia",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c36c",
+    "name": "Nelson Hernandez",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c36e",
+    "name": "Hidalgo Peña",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c375",
+    "name": "José Cesar Guzmàn Nuñez",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c378",
+    "name": "Israel Peralta Bonifacio",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c379",
+    "name": "Ibis Xiomara Santiago Ferrerias",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c37e",
+    "name": "Cecilia Mercedes Belliard Vargas",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c37d",
+    "name": "Santos E. Moreta Reyes",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c388",
+    "name": "Hector Rolando Santana Santana",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c396",
+    "name": "Ramon Leonardo Diaz Diaz",
+    "area": "Form. Humanistica en Etica y Valores",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3d0",
+    "name": "Maribel Jimenez Barrios",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3e6",
+    "name": "Pedro Pablo Castro Garcia",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3e7",
+    "name": "Starlin Franco Basilis",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3ea",
+    "name": "Miguel De Jesús",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3ed",
+    "name": "Juan Felix Marmolejos Acevedo",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3f1",
+    "name": "Miguel Alexander Perez Volquez",
+    "area": "Cocurriculares",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3f4",
+    "name": "Alvin Alberto Hidalgo Alcántara",
+    "area": "Cocurriculares",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c3fb",
+    "name": "Wilin Bernardo Volquez Perez",
+    "area": "Cocurriculares",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c408",
+    "name": "Teofilo Moreno Berroa",
+    "area": "Cocurriculares",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c40e",
+    "name": "Amaya Elizabeth De Jesus Castro",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c417",
+    "name": "Ingrid Eileen Scott Rodríguez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c41d",
+    "name": "Eladio Ruiz",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c41b",
+    "name": "Alberto Moreta Martinez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c422",
+    "name": "Francisco Jimenez German",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c428",
+    "name": "Mercedes Ledesma Dolores",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c430",
+    "name": "Rita Perez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c43f",
+    "name": "Jose Antonio Scott Guilleard",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c440",
+    "name": "Lixon Perez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c443",
+    "name": "Juan Gabriel Liria Henríquez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c445",
+    "name": "Julio Reyes Arias",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c464",
+    "name": "Lidia Noelia Almonte Rosario",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c46b",
+    "name": "Carlos Antonio Pichardo Viuque",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c46f",
+    "name": "Moises Gonzalez Salazar",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c470",
+    "name": "Jose Ernesto Flete Morillo",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c471",
+    "name": " Elisia Yoelkis Gerónimo Burgos",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c473",
+    "name": "Hector Jose Henriquez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c47d",
+    "name": "Ursulina Inoa Pitta",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c487",
+    "name": "Carlos Manuel Vargas Toledo",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c493",
+    "name": "Yahaira García De Diaz",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4b4",
+    "name": "Jean Willio Jean Jules",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4b8",
+    "name": "Carlos Luis Luciano Baez",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4c4",
+    "name": "Jesus Manuel Reyes de la Cruz",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4c8",
+    "name": "Ruth Esther Reynoso Santos",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4cb",
+    "name": "Carlos Manuel Valdez Cornielle",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4cc",
+    "name": "Luis Angel Marrero Saldaña",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4d8",
+    "name": "Juan Fidel Lopez Segura",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4ec",
+    "name": "Hector Gonzalez Mejia",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4f6",
+    "name": "Pablo Frías",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c4fe",
+    "name": "Miguel Santiago",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c500",
+    "name": "Raul Calderon Rosendo",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c515",
+    "name": "Pedro Sanchez Santana",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c51a",
+    "name": " jean gesner jean gilles",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c532",
+    "name": "Sandra Polanco",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c536",
+    "name": "Romilio Cuevas D´oleo",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c549",
+    "name": "Juan Martìnez Lòpez",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c559",
+    "name": "Juan Ant. Martinez Cruz",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c56b",
+    "name": "Janell Pèrez Mercado",
+    "area": "ILS",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c593",
+    "name": "Fracisco Caamano",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c594",
+    "name": "Francisco Alberto Caamaño Tawil",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c595",
+    "name": "Alberto  Francois Michel",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c59a",
+    "name": "Carlos Joel Santos Felix",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c59c",
+    "name": "Albert Ignacio Reyes Sanchez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5a4",
+    "name": "Francisco Jose Arias Guilamo",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5ad",
+    "name": "Jhonny Pujols Adame",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5b2",
+    "name": "Elvin Noel Valdez Cueva",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5b5",
+    "name": "Maximiliano Alvarez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5b9",
+    "name": "Samuel David Ramirez Angomas",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5ba",
+    "name": "Antonio Manuel Rojas Taveras",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5c9",
+    "name": "Samuel Alberto Lorenzo Valdez",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5cf",
+    "name": "Livia Gouriliova",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5d1",
+    "name": "Ramón Mena",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c5d7",
+    "name": "Wilton Oltmanns Encarnación",
+    "area": "Ciencias Básicas",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c60a",
+    "name": "Leandro Marte Geraldino",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c60e",
+    "name": "Isbel Cristina Bautista Duran",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c60f",
+    "name": "Yasmery Gomez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c610",
+    "name": "Antonio Bonilla",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c615",
+    "name": "Norys Carolina Garcia Mañon",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c617",
+    "name": "Mario Disla",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c618",
+    "name": "Francisco Alberto Garcia De Leon",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c619",
+    "name": "Werner Froilan Olmos Tavàrez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c61b",
+    "name": "Driade Judith Pared Diaz",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c622",
+    "name": "Freddy Javier Alcantara Rodriguez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c624",
+    "name": "Jeremy Guzman Mendoza",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c643",
+    "name": "Tomàs Rodriguez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c645",
+    "name": "Lisbett Jaquez Mueses",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c651",
+    "name": "Rossy Alexandra Socorro Cruz",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c654",
+    "name": "Amadis Suarez Genao",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c656",
+    "name": "Luis Soto Mirambeaux",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c657",
+    "name": "Kelyn Tejada Belliard",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c658",
+    "name": "Persio Martinez",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c659",
+    "name": "Juan Enmanuel Rosario Rodriguez",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c65b",
+    "name": "Willis Ezequiel Polanco Caraballo",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c65e",
+    "name": "José Manuel Aquino Cepeda",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c660",
+    "name": "Gilberto Elias Vittini",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c65f",
+    "name": "Carlos Manuel Caraballo",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c664",
+    "name": "Leandro Fondeur Gil",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c66e",
+    "name": "Leonardo Enrique Tavarez Betances",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c671",
+    "name": "Raydelto Hernández Perera",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c673",
+    "name": "Huascar Frias Vilorio",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c676",
+    "name": "Jorge Ramon Taveras González",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c677",
+    "name": "Viela Reyes Bourdierd",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c679",
+    "name": "Bismark Montero",
+    "area": "Ciencias de Datos",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c68d",
+    "name": "Daury David Gomez Silvestre",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c68c",
+    "name": "Sally Joslyn Peña Martínez",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c697",
+    "name": "Juan Federico Colon Contreras",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c69d",
+    "name": "Luis Peña Martinez",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6a1",
+    "name": "Luis Bessewell Feliz",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6a5",
+    "name": "Marisol Alvarez Salcedo De Taveras",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6a7",
+    "name": "Cindy Yesiry Vasquez Castillo",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6bb",
+    "name": "Jose Abreu Sanchez",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6bc",
+    "name": "Orison Soto",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6ca",
+    "name": "Wilmer Jose Fariña Piñero",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6e2",
+    "name": "Miguel Liceares Moreta Rodriguez",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c6ed",
+    "name": "Freidy Nunez Perez",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c701",
+    "name": "Simeon Clase Ulloa",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c70b",
+    "name": "Juan Restituyo",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c734",
+    "name": "Amaurys Bargas",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c738",
+    "name": "Marielly Ramirez Herrera",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c741",
+    "name": "Marino Junior Dicent Gil",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c74a",
+    "name": "Evanyeline Brito Rojas",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c759",
+    "name": "Carlos Bienvenido Ogando Montas",
+    "area": "Software",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c77c",
+    "name": "Ramon Antonio Gomez Florian",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c77e",
+    "name": "Gerson Rafael Salce Ortega",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c781",
+    "name": "Teofilo Antonio Dìaz Pratt",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c784",
+    "name": "Porfirio Marino Campaña Pérez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c78b",
+    "name": "Virginia Mercedes Rymer Pérez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c78a",
+    "name": "Angel Evelio Sanchez Javier",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c78e",
+    "name": "Gerald Williams Silvania Javiel",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c792",
+    "name": "Maria Alejandra Mazara Gomera",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c791",
+    "name": "Kelvin Albuèz Blanco",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c79f",
+    "name": "Abner Junior Villavicencio Frias",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7a9",
+    "name": "Jose Manuel Doñe Mateo",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7ae",
+    "name": "Esmil De Jesus Contreras Hidalgo",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7ad",
+    "name": "Juan Alexander Ramirez Perez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7af",
+    "name": "Onel Luis Pelegrino",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7b8",
+    "name": "Maria Antonia Pineda Pereyra",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7bb",
+    "name": "Jose Manuel Ferreras Gonzalez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7bf",
+    "name": "Victor Manuel Mena Muñoz",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7c1",
+    "name": "Cristian Cesarin Cornielle Ramirez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7c7",
+    "name": "Frederic De La Rosa Astacio",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7d2",
+    "name": "Victor Díaz",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7e0",
+    "name": "Jovanny Francisco De Jesus Encarnacion",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7ea",
+    "name": "Jesus Nicolas Mejia Ortiz",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7f0",
+    "name": "Gean Carlos Sosa",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7fe",
+    "name": "Manuel Guerrero",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c7ff",
+    "name": "Joel Odalis Morrobel Ovalle",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c803",
+    "name": "Orlangel De La Rosa Modesto",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c80c",
+    "name": "Sucre Ramirez",
+    "area": "Redes",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c81b",
+    "name": "Elkin Valenzuela Mateo",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c839",
+    "name": "Wilkins Gabriel Cedano Del Rosario",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c83b",
+    "name": "Jose Alejandro Martinez Bonetti",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c83d",
+    "name": "Obed Hernandez Castillo",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c847",
+    "name": "Nestor Andres Martinez Castillo",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c85c",
+    "name": "Santo Mateo",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c866",
+    "name": "Pedro Luis Mercedes Guzmán",
+    "area": "Mecatrónica",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c884",
+    "name": "Leonardo De Jesús Chalas Solano",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c889",
+    "name": "Walky Antonio Abreu Lara",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c88a",
+    "name": "Nestor Gautreaux",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c896",
+    "name": "Juan De Jesus Rodriguez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c8b6",
+    "name": "Pamela María Pantaleon Contreras",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c909",
+    "name": "Valentin Sanchez Estevez",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c915",
+    "name": "Francisco Alberto Jimenez German",
+    "area": "Multimedia",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c942",
+    "name": "Luis Peralta",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c94b",
+    "name": "Jorge Isaac Vanderhorst Ventura",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c94e",
+    "name": "Joan Medrano",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c950",
+    "name": "Engel Antonio Rivas López",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c951",
+    "name": "Nelson Jose Mieses Hernandez",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c954",
+    "name": "Joel Agustin Rosario Lopez",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c95e",
+    "name": "Jhonatan Carvajal Antigua",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c965",
+    "name": "Joel Andres Cuello Montero",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}, {
+    "_id": "61f5fe449591e64bdeb9c96a",
+    "name": "Willy Alfredo Padua Ruiz",
+    "area": "Seguridad en Informática",
+    "__v": 0
+}]
