@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     GET: async () => {
       const { modelTeacher } = await connection();
       const teachersFromDB: ITeacher[] = await modelTeacher.find({});
-      const teachers = fs.readFileSync("./public/teachers.json");
+      const teachers = JSON.parse(fs.readFileSync("./public/teachers.json").toString());
 
       if (JSON.stringify(teachersFromDB) !== JSON.stringify(teachers)) {
         fs.writeFileSync("./public/teachers.json", JSON.stringify(teachersFromDB));

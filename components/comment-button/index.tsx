@@ -5,8 +5,8 @@ import { gql } from "@apollo/client";
 import { AnnotationIcon } from "@heroicons/react/outline";
 
 interface Props {
-    userId: string;
-    teacherId: string;
+    userId: string | undefined;
+    teacherId: string | undefined;
 }
 
 const QUERY_COMMENT = gql`
@@ -56,9 +56,12 @@ const CommentButton = ({ userId, teacherId }: Props) => {
           icon: "success",
           text: "Tu comentario se guardo en nuestros registros. (Muchas veces tarda en reflejarse el comentario)",
         }).then(() => {
-          if (typeof window !== "undefined") window.location.reload();
+          if (typeof window !== "undefined") {
+            window.location.reload();
+          }
         });
-      } catch {
+      } catch (err) {
+        // console.log(JSON.stringify(err, null, 2));
         MySwal.fire({
           title: "Uups...",
           icon: "error",
@@ -69,7 +72,7 @@ const CommentButton = ({ userId, teacherId }: Props) => {
   };
 
   return (
-    <button type="button" onClick={comment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={comment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
         <div className="mr-2 font-semibold text-white">
           Leave a comment

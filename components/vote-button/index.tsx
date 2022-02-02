@@ -5,8 +5,8 @@ import { gql } from "@apollo/client";
 import client from "apollo-client";
 
 interface Props {
-    userId: string;
-    teacherId: string;
+    userId: string | undefined;
+    teacherId: string | undefined;
 }
 
 const QUERY_VOTE = gql`
@@ -94,9 +94,10 @@ const VoteButton = ({ userId, teacherId }: Props) => {
         MySwal.fire({
           title: "Votado",
           icon: "success",
-          text: "Tu voto se guardo en nuestros registros.",
+          text: "Tu voto se guardo en nuestros registros. (Muchas veces tarda en reflejarse el voto)",
         });
-      } catch {
+      } catch (err) {
+        console.error("🚀 ~ file: index.tsx ~ line 64 ~ err", err);
         MySwal.fire({
           title: "Uups...",
           icon: "error",
@@ -107,7 +108,7 @@ const VoteButton = ({ userId, teacherId }: Props) => {
   };
 
   return (
-    <button type="button" onClick={vote} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={vote} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
         <div className="mr-2 font-semibold text-white">
           Leave my vote

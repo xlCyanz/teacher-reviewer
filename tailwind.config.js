@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const forms = require("@tailwindcss/forms");
 
 module.exports = {
   mode: "jit",
@@ -329,5 +330,5 @@ module.exports = {
     opacity: ["responsive", "hover", "focus", "group-hover"],
     backgroundColor: ["responsive", "hover", "focus", "group-hover"],
   },
-  plugins: [],
+  plugins: [forms()],
 };

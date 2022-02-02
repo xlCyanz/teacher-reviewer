@@ -6,14 +6,14 @@ interface Props {
 }
 
 const MainLayout = ({ children }: Props) => (
-  <div className="flex flex-col w-screen h-screen font-sans overflow-x-hidden">
-    <div id="__header__">
+  <div className="flex flex-col w-screen h-screen overflow-x-hidden">
+    <div className="bg-default-color dark:bg-gray-900">
       <Navigation />
     </div>
-    <div id="__children__" className="flex-1 dark:bg-gray-400">
+    <div className="flex-1 dark:bg-gray-900">
       {children}
     </div>
-    <div id="__footer__">
+    <div className="bg-default-color dark:bg-gray-900">
       <Footer />
     </div>
   </div>
