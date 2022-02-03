@@ -71,7 +71,7 @@ const TeacherPage = () => {
 
       <MainLayout>
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-18">
-          <div className="sm:items-center sm:flex sm:justify-between">
+          <div className="flex flex-col lg:flex-row gap-2 justify-between items-center">
             <div className="flex space-x-1 sm:justify-end sm:order-last">
               <input
                 placeholder="Enter the teacher's name..."
@@ -81,7 +81,7 @@ const TeacherPage = () => {
                 className="text-sm appearance-none border-2 border-gray-200 focus:border-default-color rounded focus:outline-none focus:ring-0 w-64"
               />
             </div>
-            <form className="flex mt-2 sm:mt-0">
+            <form className="flex flex-col sm:flex-row gap-2">
               <div>
                 <label className="sr-only">
                   Area
@@ -118,7 +118,7 @@ const TeacherPage = () => {
               ))
             )}
           </div>
-          <nav className="flex justify-center align-center mt-6 rounded-md shadow-sm -space-x-px gap-2" aria-label="Pagination">
+          <nav className="flex justify-center align-center mt-6 rounded-md -space-x-px gap-2" aria-label="Pagination">
             <button
               type="button"
               onClick={changeToPreviusPage}

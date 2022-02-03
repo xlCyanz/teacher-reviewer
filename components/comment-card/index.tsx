@@ -2,13 +2,13 @@ import { IComment } from "@types";
 import { TimeSince } from "@utils";
 
 const CommentCard = ({
-  _id, updatedAt, createdAt, body, userId: user,
+  updatedAt, createdAt, body, userId: user,
 }: IComment) => {
-  const timesince = TimeSince(updatedAt || createdAt || "");
+  const timesince = TimeSince(updatedAt || createdAt, "es");
   const username = user?.name.split(" ");
 
   return (
-    <div key={_id} className="p-8 bg-white dark:bg-default-color rounded shadow-xl">
+    <div className="p-8 bg-white dark:bg-default-color rounded shadow-xl">
       <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
         <span className="text-default-color dark:text-gray-100">
           {timesince}

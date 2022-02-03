@@ -45,7 +45,7 @@ const Features = () => {
       icon: AcademicCapIcon,
       offers: [
         { title: "Search engine", icon: SearchIcon },
-        { title: "Powerful filter", icon: FilterIcon },
+        { title: "Filter", icon: FilterIcon },
         { title: "Comments", icon: AnnotationIcon },
         { title: "Votes", icon: ThumbUpIcon },
       ],

@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable no-use-before-define */
 import React, {
-  createContext, ReactNode, useEffect, useMemo, useState,
+  createContext, Dispatch, ReactNode, SetStateAction, useEffect, useMemo, useState,
 } from "react";
 
-  interface ProviderProps {
-      children: ReactNode
-  }
+interface ProviderProps {
+  children: ReactNode
+}
 
-  interface IThemeContext {
-    theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<string>>
-  }
+interface IThemeContext {
+  theme: string;
+  setTheme: Dispatch<SetStateAction<string>>;
+}
 
 const ThemeContext = createContext<IThemeContext>({
   theme: "",
@@ -25,8 +26,11 @@ const getInitialTheme = () => {
 
     if (typeof storedPrefs === "string") return storedPrefs;
 
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    if (userMedia.matches) return "dark";
+    const hours = new Date().getHours();
+    const isDayTime = hours > 6 && hours < 20;
+
+    if (isDayTime) return "light";
+    return "dark";
   }
 
   return "light";

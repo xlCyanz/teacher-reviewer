@@ -70,7 +70,9 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                 <h6 className="text-4xl font-bold text-default-color">
                   {comments?.length || 0}
                 </h6>
-                <p className="mb-2 font-bold text-md dark:text-gray-100">Comments</p>
+                <p className="mb-2 font-bold text-md dark:text-gray-100">
+                  Comments
+                </p>
                 <p className="text-gray-700 dark:text-gray-600">
                   Comments can be found below.
                 </p>
@@ -96,7 +98,9 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                 <h6 className="text-4xl font-bold text-default-color">
                   {`${teacher?.rating?.scoreTakeClassAgain || 0}%`}
                 </h6>
-                <p className="mb-2 font-bold text-md dark:text-gray-100">Take classes again.</p>
+                <p className="mb-2 font-bold text-md dark:text-gray-100">
+                  Take classes again.
+                </p>
                 <p className="text-gray-700 dark:text-gray-600">
                   Would you take classes with this teacher again?
                 </p>
@@ -108,7 +112,9 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                 <h6 className="text-4xl font-bold text-default-color">
                   {`${teacher?.rating?.scoreClarity || 0}%`}
                 </h6>
-                <p className="mb-2 font-bold text-md dark:text-gray-100">Clarity</p>
+                <p className="mb-2 font-bold text-md dark:text-gray-100">
+                  Clarity
+                </p>
                 <p className="text-gray-700 dark:text-gray-600">
                   The clarity of the teacher when explaining topics.
                 </p>
@@ -122,12 +128,12 @@ const TeacherPage = ({ teacher, comments }: Props) => {
             )}
             {comments?.length >= 1 && (
               <div className="py-10 sm:py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-                <h2 className="mb-4 text-3xl font-bold tracking-tight sm:leading-none text-gray-900 dark:text-gray-100">Comentarios</h2>
+                <h2 className="mb-4 text-3xl font-bold tracking-tight sm:leading-none text-gray-900 dark:text-gray-100">
+                  Comentarios
+                </h2>
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                   {_.map(comments, (comment) => (
-                    <div key={`comment-${comment?.body}-${comment?._id}`}>
-                      <CommentCard key={comment?._id} {...comment} />
-                    </div>
+                    <CommentCard key={comment?._id} {...comment} />
                   ))}
                 </div>
               </div>
@@ -155,6 +161,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         }
       }
       comments(teacherName: $teacherName){
+        _id
         body
         createdAt
         updatedAt
