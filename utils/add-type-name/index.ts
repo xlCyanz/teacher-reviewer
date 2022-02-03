@@ -7,6 +7,7 @@ export const addTypeNameArr = (arr: any[], typename: string) => {
   return result;
 };
 
+//  we're already in produccion
 export const addTypeNameSingle = (obj: any, typename: string) => ({
   ...obj,
   __typename: typename,
