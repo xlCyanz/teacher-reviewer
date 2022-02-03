@@ -34,9 +34,9 @@ const timeSince = (date: string, locale: string) => {
   const secondsDiff = (Date.now() - Date.parse(date)) / 1000;
 
   const rtf = new Intl.RelativeTimeFormat(locale);
-  const { value, unit } = getUnitAndValueDate(secondsDiff);
+  const { value, unit }: any = getUnitAndValueDate(secondsDiff);
 
-  return rtf.format(value || 0, unit);
+  return rtf.format(value || 0, unit || "day");
 };
 
 export default timeSince;
