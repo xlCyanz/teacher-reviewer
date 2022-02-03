@@ -3,7 +3,7 @@ import client from "apollo-client";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { ApolloProvider } from "@apollo/client";
-import { DefaultColorContext, TeacherContext } from "contexts";
+import { DefaultColorContext, TeacherContext, ThemeContext } from "@contexts";
 
 import "../styles/globals.css";
 
@@ -12,7 +12,9 @@ const Application = ({ Component, pageProps: { session, ...pageProps } }: AppPro
     <ApolloProvider client={client}>
       <TeacherContext.Provider>
         <DefaultColorContext.Provider>
-          <Component {...pageProps} />
+          <ThemeContext.Provider>
+            <Component {...pageProps} />
+          </ThemeContext.Provider>
         </DefaultColorContext.Provider>
       </TeacherContext.Provider>
     </ApolloProvider>

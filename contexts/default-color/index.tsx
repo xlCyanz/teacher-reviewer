@@ -14,14 +14,14 @@ export interface IProvider {
 }
 
 const DefaultColorContext = createContext<IDefaultColor>({
-  color: "#FFF",
+  color: "#6200EA",
   changeColor: () => {},
 });
 
 const useContext = () => React.useContext(DefaultColorContext);
 
 const Provider = ({ children }: IProvider) => {
-  const [color, setColor] = useState<string>("#FFF");
+  const [color, setColor] = useState<string>("#6200EA");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -30,6 +30,9 @@ const Provider = ({ children }: IProvider) => {
       if (item) {
         setColor(item);
         document.documentElement.style.setProperty("--default-color", item);
+      } else {
+        localStorage.setItem("default-color", color);
+        document.documentElement.style.setProperty("--default-color", color);
       }
     }
   }, [color]);
