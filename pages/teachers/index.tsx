@@ -6,7 +6,7 @@ import { ITeacher } from "@types";
 import { MainLayout } from "@layouts";
 import { TeacherCard } from "@components";
 import { usePagination } from "@hooks";
-import { TeacherContext } from "@contexts";
+import { Language, TeacherContext } from "@contexts";
 import { useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
@@ -25,7 +25,8 @@ const areas = [
 
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
-
+  const text = Language.useContext();
+  console.log(text);
   const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
   const [searcher, setSearcher] = useState<string>("");
   const [filterArea, setFilterArea] = useState<string>("");
