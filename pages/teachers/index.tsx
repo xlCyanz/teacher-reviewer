@@ -6,8 +6,8 @@ import { ITeacher } from "@types";
 import { MainLayout } from "@layouts";
 import { TeacherCard } from "@components";
 import { usePagination } from "@hooks";
-import { Language, TeacherContext } from "@contexts";
-import { useEffect, useState } from "react";
+import { TeacherContext } from "@contexts";
+import { Children, useEffect, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
 const areas = [
@@ -25,8 +25,7 @@ const areas = [
 
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
-  const text = Language.useContext();
-  console.log(text);
+
   const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
   const [searcher, setSearcher] = useState<string>("");
   const [filterArea, setFilterArea] = useState<string>("");
@@ -79,7 +78,7 @@ const TeacherPage = () => {
                 required
                 onChange={({ target }) => setSearcher(target.value)}
                 type="text"
-                className="text-sm appearance-none border-2 border-gray-200 focus:border-default-color rounded focus:outline-none focus:ring-0 w-64"
+                className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0 w-64"
               />
             </div>
             <form className="flex flex-col sm:flex-row gap-2">
@@ -87,7 +86,7 @@ const TeacherPage = () => {
                 <label className="sr-only">
                   Area
                 </label>
-                <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none border-2 border-gray-200 focus:border-default-color rounded focus:outline-none focus:ring-0">
+                <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
                   <option value="">Area</option>
                   {_.map(areas, (area) => (
                     <option key={area} value={area}>{area}</option>
@@ -100,7 +99,7 @@ const TeacherPage = () => {
                   Sort
                 </label>
 
-                <select onChange={({ target }) => setSort(target.value)} className="text-sm appearance-none border-2 border-gray-200 focus:border-default-color rounded focus:outline-none focus:ring-0">
+                <select onChange={({ target }) => setSort(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
                   <option value="">Sort</option>
                   <option value="filter-asc">Name, A-Z</option>
                   <option value="filter-desc">Name, Z-A</option>
@@ -108,15 +107,15 @@ const TeacherPage = () => {
               </div>
             </form>
           </div>
-          <div className="grid gap-10 mx-auto py-6 sm:row-gap-10  sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-3">
             {teachersFiltered?.length >= 1 && (
-              _.map(teachersFiltered?.slice(firstIndex, lastIndex), (teacher) => (
+              Children.toArray(_.map(teachersFiltered?.slice(firstIndex, lastIndex), (teacher) => (
                 <Link href={`teachers/${teacher.name}`} passHref>
                   <a>
                     <TeacherCard name={teacher?.name} area={teacher?.area} />
                   </a>
                 </Link>
-              ))
+              )))
             )}
           </div>
           <nav className="flex justify-center align-center mt-6 rounded-md -space-x-px gap-2" aria-label="Pagination">
