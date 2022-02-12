@@ -4,13 +4,12 @@ import React, {
   createContext, ReactNode, useCallback, useEffect, useMemo, useState,
 } from "react";
 
+interface IProvider {
+  children: ReactNode;
+}
 interface IDefaultColor {
     color: string | undefined;
     changeColor: Function;
-}
-
-export interface IProvider {
-    children: ReactNode;
 }
 
 const DefaultColorContext = createContext<IDefaultColor>({
