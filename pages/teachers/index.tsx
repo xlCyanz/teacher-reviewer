@@ -4,11 +4,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { ITeacher } from "@types";
 import { MainLayout } from "@layouts";
-import { TeacherCard } from "@components";
-import { usePagination } from "@hooks";
+import { Pagination, TeacherCard } from "@components";
 import { TeacherContext } from "@contexts";
-import { Children, useEffect, useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import { Children, useMemo, useState } from "react";
 
 const areas = [
   "Multimedia",
@@ -26,20 +24,15 @@ const areas = [
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
 
-  const [teachersFiltered, setTeacherFiltered] = useState<ITeacher[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize] = useState<number>(12);
+
   const [searcher, setSearcher] = useState<string>("");
   const [filterArea, setFilterArea] = useState<string>("");
   const [sort, setSort] = useState<"filter-asc" | "filter-desc" | string>();
 
-  const {
-    currentPage,
-    firstIndex,
-    lastIndex,
-    pageNumbers,
-    changeCurrentPage,
-    changeToNextPage,
-    changeToPreviusPage,
-  } = usePagination({ dataLength: teachersFiltered?.length, limitPerPage: 12 });
+  const firstPageIndex = (currentPage - 1) * pageSize;
+  const lastPageIndex = firstPageIndex + pageSize;
 
   const sortArray = (data: ITeacher[], type: "filter-asc" | "filter-desc" | string) => {
     const dataSort = data.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
@@ -48,7 +41,7 @@ const TeacherPage = () => {
     return data;
   };
 
-  useEffect(() => {
+  const teachersFiltered = useMemo(() => {
     const searchedTeachers: ITeacher[] = Object.values(_.pickBy(teachers, (value) => {
       return value?.name.toLowerCase().includes(searcher?.toLowerCase());
     }));
@@ -57,8 +50,9 @@ const TeacherPage = () => {
       return value?.area.toLowerCase().includes(filterArea?.toLowerCase());
     }));
 
-    if (sort) setTeacherFiltered(sortArray(filteredByArea, sort));
-    else setTeacherFiltered(filteredByArea);
+    setCurrentPage(1);
+    if (sort) return sortArray(filteredByArea, sort);
+    return filteredByArea;
   }, [filterArea, searcher, sort, teachers]);
 
   return (
@@ -88,69 +82,43 @@ const TeacherPage = () => {
                 </label>
                 <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
                   <option value="">Area</option>
-                  {_.map(areas, (area) => (
-                    <option key={area} value={area}>{area}</option>
-                  ))}
+                  {Children.toArray(_.map(areas, (area) => (
+                    <option value={area}>{area}</option>
+                  )))}
                 </select>
               </div>
 
               <div className="ml-4">
                 <label className="sr-only">
-                  Sort
+                  Orden
                 </label>
 
                 <select onChange={({ target }) => setSort(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
-                  <option value="">Sort</option>
-                  <option value="filter-asc">Name, A-Z</option>
-                  <option value="filter-desc">Name, Z-A</option>
+                  <option value="">Orden</option>
+                  <option value="filter-asc">Ascendente por nombre</option>
+                  <option value="filter-desc">Descendente por nombre</option>
                 </select>
               </div>
             </form>
           </div>
           <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-3">
-            {teachersFiltered?.length >= 1 && (
-              Children.toArray(_.map(teachersFiltered?.slice(firstIndex, lastIndex), (teacher) => (
+            {Children.toArray(_.map(
+              teachersFiltered.slice(firstPageIndex, lastPageIndex),
+              (teacher) => (
                 <Link href={`teachers/${teacher.name}`} passHref>
                   <a>
                     <TeacherCard name={teacher?.name} area={teacher?.area} />
                   </a>
                 </Link>
-              )))
-            )}
-          </div>
-          <nav className="flex justify-center align-center mt-6 rounded-md -space-x-px gap-2" aria-label="Pagination">
-            <button
-              type="button"
-              onClick={changeToPreviusPage}
-              className="relative inline-flex items-center px-2 py-2 rounded-l-md bg-white text-sm font-medium text-gray-500 hover:bg-default-color hover:text-gray-100"
-            >
-              <span className="sr-only">Previous</span>
-              <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-            </button>
-            {_.map(pageNumbers, (page) => (
-              <button
-                key={`pagination-${page}`}
-                type="button"
-                aria-current={page === currentPage ? "page" : "false"}
-                onClick={() => changeCurrentPage(page)}
-                className={`z-10 hidden sm:flex ${
-                  page === currentPage
-                    ? "bg-default-color border-default-color rounded text-gray-100"
-                    : "bg-white text-gray-500 hover:bg-default-color hover:text-gray-100"
-                } relative inline-flex items-center px-4 py-2 text-sm font-medium`}
-              >
-                {page}
-              </button>
+              ),
             ))}
-            <button
-              type="button"
-              onClick={changeToNextPage}
-              className="relative inline-flex items-center px-2 py-2 rounded-r-md bg-white text-sm font-medium text-gray-500 hover:bg-default-color hover:text-gray-100"
-            >
-              <span className="sr-only">Next</span>
-              <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-            </button>
-          </nav>
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalCount={teachersFiltered?.length || 0}
+            pageSize={pageSize}
+            changeCurrentPage={(page) => setCurrentPage(page)}
+          />
         </div>
       </MainLayout>
     </>
