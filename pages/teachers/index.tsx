@@ -64,23 +64,23 @@ const TeacherPage = () => {
       </Head>
 
       <MainLayout>
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-18">
-          <div className="flex flex-col lg:flex-row gap-2 justify-between items-center">
-            <div className="flex space-x-1 sm:justify-end sm:order-last">
+        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+          <div className="flex flex-col lg:flex-row gap-2 lg:justify-between items-center">
+            <div className="flex justify-end lg:order-last w-full">
               <input
                 placeholder="Enter the teacher's name..."
                 required
                 onChange={({ target }) => setSearcher(target.value)}
                 type="text"
-                className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0 w-64"
+                className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full sm:w-72"
               />
             </div>
-            <form className="flex flex-col sm:flex-row gap-2">
+            <form className="flex flex-col w-full sm:flex-row gap-2">
               <div>
                 <label className="sr-only">
                   Area
                 </label>
-                <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
+                <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full sm:w-72">
                   <option value="">Area</option>
                   {Children.toArray(_.map(areas, (area) => (
                     <option value={area}>{area}</option>
@@ -88,12 +88,12 @@ const TeacherPage = () => {
                 </select>
               </div>
 
-              <div className="ml-4">
+              <div className="sm:ml-4">
                 <label className="sr-only">
                   Orden
                 </label>
 
-                <select onChange={({ target }) => setSort(target.value)} className="text-sm appearance-none border-2 border-gray-400 focus:border-default-color rounded focus:outline-none focus:ring-0">
+                <select onChange={({ target }) => setSort(target.value)} className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full sm:w-72">
                   <option value="">Orden</option>
                   <option value="filter-asc">Ascendente por nombre</option>
                   <option value="filter-desc">Descendente por nombre</option>
