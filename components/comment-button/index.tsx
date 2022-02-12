@@ -24,19 +24,19 @@ const QUERY_COMMENT = gql`
 const CommentButton = ({ userId, teacherId }: Props) => {
   const MySwal = withReactContent(Swal);
 
-  const comment = async () => {
+  const handleComment = async () => {
     const { value: body } = await Swal.fire({
-      title: "¿Que piensas acerca del profesor?",
+      title: "¿Que piensas acerca del profesor/a?",
       icon: "question",
       input: "textarea",
-      inputPlaceholder: "Type your comment here...",
+      inputPlaceholder: "Escribe el comentario aqui...",
       inputValidator: (value) => {
-        if (!value) return "You need to type something!";
-        if (value.length > 150) return "Only 150 characters are allowed!";
+        if (!value) return "Necesitas escribir el comentario!";
+        if (value.length > 150) return "Solamente se permite 150 caracteres!";
         return null;
       },
       inputAttributes: {
-        "aria-label": "Type your comment here",
+        "aria-label": "Escribe el comentario aqui",
       },
       showCancelButton: true,
     });
@@ -54,7 +54,7 @@ const CommentButton = ({ userId, teacherId }: Props) => {
         MySwal.fire({
           title: "Guardado",
           icon: "success",
-          text: "Tu comentario se guardo en nuestros registros. (Muchas veces tarda en reflejarse el comentario)",
+          text: "Tu comentario se guardo en nuestros registros.",
         }).then(() => {
           if (typeof window !== "undefined") {
             window.location.reload();
@@ -72,10 +72,10 @@ const CommentButton = ({ userId, teacherId }: Props) => {
   };
 
   return (
-    <button type="button" onClick={comment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={handleComment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
         <div className="mr-2 font-semibold text-white">
-          Leave a comment
+          Deja un comentario
         </div>
         <AnnotationIcon className="w-6 h-6" />
       </div>
