@@ -55,13 +55,6 @@ export default NextAuth({
         },
       };
     },
-    jwt: async ({ token, user }) => {
-      const query = {
-        ...token,
-      };
-      if (user) query.id = user?.id;
-      return query;
-    },
   },
   debug: process.env.NODE_ENV === "development",
 });
