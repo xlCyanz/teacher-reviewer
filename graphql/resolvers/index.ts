@@ -98,37 +98,28 @@ const resolvers = {
       const newComment = await modelComment.create(comment);
       return newComment;
     },
-    // updateComment: async (
-    //   _: never,
-    //   { newComment, id }: { newComment: string; id:string },
-    // ) => {
-    //   const { modelComment } = await connection();
-    //   const CommentUpdated = await modelComment.findOne({ id });
-
-    //   CommentUpdated.body = newComment;
-    //   CommentUpdated.updatedAt = new Date().toLocaleString();
-    //   CommentUpdated.save();
-
-    //   return CommentUpdated;
-    // },
-    deleteComment: async (_: never, { id }: { id: string }) => {
+    updateComment: async (
+      _: never,
+      { newComment, id }: { newComment: string; id: string },
+    ) => {
       const { modelComment } = await connection();
-      const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
-      return CommentDeleted;
-    },
-    updateUser: async (_:never, { name, newUser }: { name: string; newUser: IUser }) => {
-      const { modelUser } = await connection();
-      const TeacherUpdated: ITeacher = await modelUser.findOneAndUpdate({ name }, newUser);
-      return TeacherUpdated;
-    },
-    deleteUser: async (_:never, { name }: { name: string }) => {
-      const { modelTeacher } = await connection();
+
+      const query = {
+        body: newComment,
+        updatedAt: new Date().toLocaleString(),
+      };
+
       try {
-        await modelTeacher.deleteOne({ name });
+        await modelComment.updateOne({ _id: id }, query);
         return true;
       } catch (error) {
         return false;
       }
+    },
+    deleteComment: async (_: never, { id }: { id: string }) => {
+      const { modelComment } = await connection();
+      const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
+      return CommentDeleted;
     },
   },
 };
