@@ -31,7 +31,7 @@ const Navigation = () => {
           <a
             aria-label="Teacher Reviewer"
             title="Teacher Reviewer"
-            className="inline-flex items-center"
+            className="inline-flex items-center hover:cursor-pointer"
           >
             <AcademicCapIcon className="w-8 text-gray-100" />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
