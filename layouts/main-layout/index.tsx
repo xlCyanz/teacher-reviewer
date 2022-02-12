@@ -10,7 +10,7 @@ const MainLayout = ({ children }: Props) => (
     <div className="bg-default-color dark:bg-gray-900">
       <Navigation />
     </div>
-    <div className="flex-1 dark:bg-gray-900">
+    <div className="flex-1 bg-gray-50 dark:bg-gray-900">
       {children}
     </div>
     <div className="bg-default-color dark:bg-gray-900">
