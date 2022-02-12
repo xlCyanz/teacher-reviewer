@@ -17,42 +17,38 @@ const Footer = () => (
             </span>
           </a>
         </Link>
-        <div className="mt-4 lg:max-w-sm">
-          <p className="text-sm text-justify text-gray-100">
-            It is an application dedicated to managing
-            student grades towards teachers, divided into sections.
+        <div className="mt-4 lg:max-w-sm text-justify">
+          <p className="text-sm text-gray-100">
+            Es una aplicación dedicada a gestionar los votos de los alumnos
+            hacia los profesores.
           </p>
           <p className="mt-4 text-sm text-gray-100">
-            Rate that teacher who seemed to you the best in the world.
+            Califica a ese maestro que te pareció el mejor del mundo.
+            Para que otros tenga la misma oportunidad que tu.
           </p>
-        </div>
-      </div>
-      <div className="hidden grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-        <div>
-          <p className="font-semibold tracking-wide text-gray-800">
-            Category
-          </p>
-          <ul className="mt-2 space-y-2">
-            <li>
-              <Link href="/" passHref>
-                <a
-                  className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                >
-                  References
-                </a>
-              </Link>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
     <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
-      <p className="text-md text-gray-100">
+      <p className="text-md text-gray-100 flex-1">
         © Copyright
         {" "}
         {new Date().getFullYear()}
         {" "}
-        Teacher Reviewer. All rights reserved.
+        Teacher Reviewer. Todos los derechos reservados a sus respectivos desarrolladores.
+      </p>
+      <p className="text-md text-gray-100">
+        Por
+        {" "}
+        <Link href="https://github.com/HegerAriasSantos" passHref>
+          <a className="font-semibold">Heger</a>
+        </Link>
+        {" "}
+        y
+        {" "}
+        <Link href="https://github.com/xlCyanz" passHref>
+          <a className="font-semibold">Johan</a>
+        </Link>
       </p>
     </div>
   </div>
