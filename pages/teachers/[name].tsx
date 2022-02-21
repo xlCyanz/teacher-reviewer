@@ -1,17 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import _ from "lodash";
 import Head from "next/head";
 import Swal from "sweetalert2";
-import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
-import { gql } from "@apollo/client";
+import { Children } from "react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { MainLayout } from "@layouts";
 import { useSession } from "next-auth/react";
-import { IComment, ITeacher } from "@types";
-import { GetServerSideProps } from "next";
+import { gql, useQuery } from "@apollo/client";
 import { CommentButton, VoteButton, CommentCard } from "@components";
 import {
   AnnotationIcon,
@@ -20,45 +17,75 @@ import {
   SpeakerphoneIcon,
 } from "@heroicons/react/outline";
 
-interface Props {
-  teacher: ITeacher;
-  comments: IComment[]
-}
+const query = gql`
+  query GetTeacherName ($teacherName: String!) {
+    teacher(name: $teacherName) {
+      _id
+      name
+      area
+      rating {
+        scoreClarity
+        scoreAssistance
+        scoreTakeClassAgain
+      }
+    }
+    comments(teacherName: $teacherName){
+      _id
+      body
+      createdAt
+      updatedAt
+      userId {
+        name
+        image
+      }
+    }
+  }
+`;
 
-const TeacherPage = ({ teacher, comments }: Props) => {
-  const { data: session, status }: any = useSession();
+const TeacherPage = () => {
   const router = useRouter();
+  const { data: session, status } = useSession();
+  const { loading, error, data } = useQuery(
+    query,
+    { variables: { teacherName: `${router?.query?.name}` } },
+  );
 
   const MySwal = withReactContent(Swal);
 
-  useEffect(() => {
-    if (!teacher) {
-      MySwal.fire({
-        title: `Uups...`,
-        text: "El profesor al que intentas buscar no existe en nuestros registros.",
-        icon: "error",
-      }).then(() => router.push("/teachers"));
-    }
-  }, [MySwal, router, teacher]);
+  if (error) {
+    MySwal.fire({
+      title: `Uups...`,
+      text: "El profesor al que intentas buscar no existe en nuestros registros.",
+      icon: "error",
+    }).then(() => router.push("/teachers"));
+  }
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center bg-gray-100 dark:bg-gray-900 h-screen w-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-l-2 border-default-color" />
+      </div>
+    );
+  }
 
   return (
     <>
       <Head>
         <title>
-          {`Teacher Reviewer - ${teacher?.name}`}
+          {`Teacher Reviewer - ${data?.teacher?.name}`}
         </title>
         <meta name="description" content="Teacher Reviewer" />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
       <MainLayout>
-        <main className={`${!teacher && "blur-sm"} relative bg-default-color dark:bg-gray-900 dark:mb-0 pb-16`}>
+        <main className="relative bg-default-color dark:bg-gray-900 dark:mb-0 pb-16">
           <div className="relative py-10 sm:py-12 px-4 sm:px-0 text-center h-full max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl">
             <h2 className="mb-4 text-center text-5xl font-bold tracking-tight text-white lg:text-6xl sm:leading-none">
-              {`Prof. ${teacher?.name}`}
+              {`Prof. ${data?.teacher?.name || ""}`}
             </h2>
             <p className="max-w-md text-lg pb-6 sm:pb-4 font-medium dark:sm:pb-5 tracking-wide text-gray-100 dark:text-default-color sm:mx-auto">
-              {teacher?.area}
+              {data?.teacher?.area}
             </p>
           </div>
           <div className="px-4 py-16 mx-auto sm:max-w-xl bg-white dark:bg-gray-900 rounded-md md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-10 lg:py-20">
@@ -68,13 +95,13 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <AnnotationIcon className="w-6 h-6 sm:w-8 sm:h-8 text-default-color dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-default-color">
-                  {comments?.length || 0}
+                  {data?.comments?.length || 0}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">
-                  Comments
+                  Comentarios
                 </p>
                 <p className="text-gray-700 dark:text-gray-600">
-                  Comments can be found below.
+                  Encuentra los comentarios debajo de esta seccion.
                 </p>
               </div>
               <div className="text-center">
@@ -82,13 +109,14 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <ClockIcon className="w-6 h-6 sm:w-8 sm:h-8 text-default-color dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-default-color">
-                  {`${teacher?.rating?.scoreAssistance || 0}%`}
+                  {`${data?.teacher?.rating?.scoreAssistance || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">
-                  Assistance
+                  Asistencia
                 </p>
                 <p className="text-gray-700 dark:text-gray-600">
-                  Teacher attendance at meetings.
+                  ¿El profesor es responsable en asistir en
+                  el horario establecido a las reuniones?
                 </p>
               </div>
               <div className="text-center">
@@ -96,13 +124,13 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <RewindIcon className="w-6 h-6 sm:w-8 sm:h-8 text-default-color dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-default-color">
-                  {`${teacher?.rating?.scoreTakeClassAgain || 0}%`}
+                  {`${data?.teacher?.rating?.scoreTakeClassAgain || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">
-                  Take classes again.
+                  Volver a tomar clases
                 </p>
                 <p className="text-gray-700 dark:text-gray-600">
-                  Would you take classes with this teacher again?
+                  ¿Volverias a tomar clases con este profesor?
                 </p>
               </div>
               <div className="text-center">
@@ -110,31 +138,31 @@ const TeacherPage = ({ teacher, comments }: Props) => {
                   <SpeakerphoneIcon className="w-6 h-6 sm:w-8 sm:h-8 text-default-color dark:text-gray-100" />
                 </div>
                 <h6 className="text-4xl font-bold text-default-color">
-                  {`${teacher?.rating?.scoreClarity || 0}%`}
+                  {`${data?.teacher?.rating?.scoreClarity || 0}%`}
                 </h6>
                 <p className="mb-2 font-bold text-md dark:text-gray-100">
-                  Clarity
+                  Claridad
                 </p>
                 <p className="text-gray-700 dark:text-gray-600">
-                  The clarity of the teacher when explaining topics.
+                  Claridad y calidad del profesor al exponer correctamente un tema.
                 </p>
               </div>
             </div>
             {status === "authenticated" && (
               <div className="flex justify-center items-center gap-4 my-6">
-                <VoteButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
-                <CommentButton userId={session?.user?.id} teacherId={`${teacher?._id}`} />
+                <VoteButton userId={session?.user?.id} teacherId={`${data?.teacher?._id}`} />
+                <CommentButton userId={session?.user?.id} teacherId={`${data?.teacher?._id}`} />
               </div>
             )}
-            {comments?.length >= 1 && (
+            {data?.comments?.length >= 1 && (
               <div className="py-10 sm:py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
                 <h2 className="mb-4 text-3xl font-bold tracking-tight sm:leading-none text-gray-900 dark:text-gray-100">
                   Comentarios
                 </h2>
-                <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                  {_.map(comments, (comment) => (
-                    <CommentCard key={comment?._id} {...comment} />
-                  ))}
+                <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
+                  {Children.toArray(_.map(data?.comments, (comment) => (
+                    <CommentCard {...comment} />
+                  )))}
                 </div>
               </div>
             )}
@@ -143,47 +171,6 @@ const TeacherPage = ({ teacher, comments }: Props) => {
       </MainLayout>
     </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { name } = context.query;
-
-  const query = gql`
-    query GetTeacherName ($teacherName: String!) {
-      teacher(name: $teacherName) {
-        _id
-        name
-        area
-        rating {
-          scoreClarity
-          scoreAssistance
-          scoreTakeClassAgain
-        }
-      }
-      comments(teacherName: $teacherName){
-        _id
-        body
-        createdAt
-        updatedAt
-        userId {
-          name
-          image
-        }
-      }
-    }
-  `;
-
-  const { data } = await client.query({
-    query,
-    variables: { teacherName: name },
-  });
-
-  return {
-    props: {
-      teacher: data?.teacher,
-      comments: data?.comments,
-    },
-  };
 };
 
 export default TeacherPage;

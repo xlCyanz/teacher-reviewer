@@ -15,6 +15,7 @@ const typeDefs = gql`
     scoreAssistance: Int
     scoreTakeClassAgain: Int
   }
+  union teacherResult =  Rating | Teacher
 
   type Teacher {
     _id: String

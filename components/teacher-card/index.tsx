@@ -1,3 +1,5 @@
+import { AnnotationIcon, ThumbUpIcon } from "@heroicons/react/outline";
+
 interface Props {
     name: string;
     area: string;
@@ -5,16 +7,30 @@ interface Props {
 
 const TeacherCard = ({ name, area }: Props) => {
   return (
-    <div className="relative p-px overflow-hidden transition duration-300 transform border dark:border-0 rounded shadow-sm hover:scale-105 group hover:shadow-xl">
-      <div className="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-default-color group-hover:scale-x-100" />
-      <div className="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-default-color group-hover:scale-y-100" />
-      <div className="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-default-color group-hover:scale-x-100" />
-      <div className="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-default-color group-hover:scale-y-100" />
-      <div className="relative p-5 bg-white rounded-sm">
-        <div className="flex flex-col mb-2 lg:items-center lg:flex-row">
-          <p className="font-semibold leading-5">{name}</p>
+    <div className="col-span-1 bg-default-color shadow-md hover:ring-2 ring-default-color dark:bg-gray-800 transition-colors duration-200 px-5 rounded h-full">
+      <div className="flex flex-col py-5 h-full">
+        <div className="flex-1">
+          <p className="text-2xl font-bold leading-6 text-gray-100 dark:text-gray-200 mb-2">
+            {name}
+          </p>
+          <p className="mb-4 text-gray-300 dark:text-gray-200 font-medium">
+            {area}
+          </p>
         </div>
-        <p className="mb-2 text-sm text-gray-900">{area}</p>
+        <div className="flex space-x-4">
+          <div className="flex items-center text-gray-100 dark:text-gray-200">
+            <div className="mr-2">
+              <ThumbUpIcon className="w-6 h-6" />
+            </div>
+            <p className="font-semibold">0</p>
+          </div>
+          <div className="flex items-center text-gray-100 dark:text-gray-200">
+            <div className="mr-2">
+              <AnnotationIcon className="w-6 h-6" />
+            </div>
+            <p className="font-semibold">0</p>
+          </div>
+        </div>
       </div>
     </div>
   );

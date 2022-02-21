@@ -7,14 +7,14 @@ const NavProfile = () => {
   const { data: session } = useSession();
 
   const username = session?.user?.name?.split(" ")[0];
-  const lastname = session?.user?.name?.split(" ")[2];
+  const lastname = session?.user?.name?.split(" ")[2] || session?.user?.name?.split(" ")[1];
 
   return (
     <Menu as="div" className="relative text-left bg-default-color lg:bg-transparent p-2 rounded">
       <Menu.Button>
         <div className="flex items-center gap-2 cursor-pointer">
           <div className="bg-gray-100 flex-shrink-0 w-10 h-10 flex justify-center items-center rounded-full shadow-sm">
-            <span className="font-semibold text-lg text-default-color">{`${username?.at(0)}${lastname?.at(0)}`}</span>
+            <span className="font-semibold text-lg text-default-color">{`${username?.slice(0, 2)}`}</span>
           </div>
           <div>
             <h1 className="font-semibold text-gray-100 transition-colors duration-200">

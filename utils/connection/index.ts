@@ -1,9 +1,13 @@
 import mongoose, { Schema, connect } from "mongoose";
 
-const DATABASE_URL = process.env.NEXT_PUBLIC_DATABASE_URL;
+const MONGO_URI = process.env.NEXT_PUBLIC_MONGO_URI;
+
+if (!MONGO_URI) {
+  throw new Error("Please add your Mongo URI to .env.local");
+}
 
 const connection = async () => {
-  const conn = await connect(`${DATABASE_URL}`)
+  const conn = await connect(`${MONGO_URI}`)
     .catch((err: string) => console.error(err));
 
   const Teacher = new Schema({

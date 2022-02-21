@@ -21,7 +21,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const tabs: ITabs[] = [
-    { name: "Teachers", href: "/teachers" },
+    { name: "Profesores", href: "/teachers" },
   ];
 
   return (
@@ -31,7 +31,7 @@ const Navigation = () => {
           <a
             aria-label="Teacher Reviewer"
             title="Teacher Reviewer"
-            className="inline-flex items-center"
+            className="inline-flex items-center hover:cursor-pointer"
           >
             <AcademicCapIcon className="w-8 text-gray-100" />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
@@ -126,11 +126,11 @@ const Navigation = () => {
                     <li>
                       {theme === "dark" ? (
                         <button type="button" onClick={() => setTheme("light")} className="bg-white">
-                          Dark mode
+                          Modo Nocturno
                         </button>
                       ) : (
                         <button type="button" onClick={() => setTheme("dark")} className="bg-white">
-                          Light mode
+                          Modo Diurno
                         </button>
                       )}
                     </li>
