@@ -1,22 +1,32 @@
+import Head from "next/head";
 import { ReactNode } from "react";
 import { Navigation, Footer } from "@components";
 
 interface Props {
+  title: string;
   children: ReactNode;
 }
 
-const MainLayout = ({ children }: Props) => (
-  <div className="flex flex-col w-screen h-screen overflow-x-hidden">
-    <div className="bg-default-color dark:bg-gray-900">
-      <Navigation />
+const MainLayout = ({ children, title }: Props) => (
+  <>
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content="Teacher Reviewer" />
+      <link rel="icon" href="/favicon.png" />
+    </Head>
+
+    <div className="flex flex-col w-screen h-screen overflow-x-hidden">
+      <header className="bg-default-color dark:bg-gray-900">
+        <Navigation />
+      </header>
+      <main className="flex-1 bg-gray-50 dark:bg-gray-900">
+        {children}
+      </main>
+      <footer className="bg-default-color dark:bg-gray-900">
+        <Footer />
+      </footer>
     </div>
-    <div className="flex-1 bg-gray-50 dark:bg-gray-900">
-      {children}
-    </div>
-    <div className="bg-default-color dark:bg-gray-900">
-      <Footer />
-    </div>
-  </div>
+  </>
 );
 
 export default MainLayout;

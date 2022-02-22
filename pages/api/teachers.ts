@@ -1,21 +1,37 @@
+import _ from "lodash";
 import fs from "fs";
 import { connection } from "@utils";
-import { ResponseFuncs, ITeacher } from "@types";
 import { NextApiRequest, NextApiResponse } from "next";
+import {
+  ResponseFuncs, ITeacher, IComment, IVote,
+} from "@types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
   const handleCase: ResponseFuncs = {
-    GET: async () => {
-      const { modelTeacher } = await connection();
-      const teachersFromDB: ITeacher[] = await modelTeacher.find({});
-      const teachers = JSON.parse(fs.readFileSync("./public/teachers.json").toString());
+    POST: async () => {
+      const { modelTeacher, modelComment, modelVote } = await connection();
+      const teachersFromDB: ITeacher[] = await modelTeacher.find();
 
-      if (JSON.stringify(teachersFromDB) !== JSON.stringify(teachers)) {
-        fs.writeFileSync("./public/teachers.json", JSON.stringify(teachersFromDB));
+      const format = [];
+
+      for (let index = 0; index < teachersFromDB.length; index += 1) {
+        const teacher = _.omit(teachersFromDB[index], ["__v"]);
+
+        // eslint-disable-next-line no-await-in-loop
+        const votes: IVote[] = await modelVote.find({ teacherId: teacher?._id });
+        // eslint-disable-next-line no-await-in-loop
+        const comments: IComment[] = await modelComment.find({ teacherId: teacher?._id });
+
+        format.push({
+          teacher,
+          votes: votes.length,
+          comments: comments.length,
+        });
       }
 
-      return res.status(200).json({});
+      fs.writeFileSync("./public/teachers.json", JSON.stringify(format));
+      res.status(200).send({});
     },
   };
 

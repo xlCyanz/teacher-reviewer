@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable no-use-before-define */
 import React, {
-  createContext, Dispatch, ReactNode, SetStateAction, useEffect, useMemo, useState,
+  createContext, ReactNode, useCallback, useEffect, useMemo, useState,
 } from "react";
 
 interface ProviderProps {
@@ -10,12 +9,12 @@ interface ProviderProps {
 
 interface IThemeContext {
   theme: string;
-  setTheme: Dispatch<SetStateAction<string>>;
+  changeTheme: (newTheme: "dark" | "light") => void;
 }
 
 const ThemeContext = createContext<IThemeContext>({
   theme: "",
-  setTheme: () => {},
+  changeTheme: () => {},
 });
 
 const useContext = () => React.useContext(ThemeContext);
@@ -53,7 +52,9 @@ const Provider = ({ children }: ProviderProps) => {
 
   useEffect(() => rawSetTheme(theme), [theme]);
 
-  const values = useMemo(() => ({ theme, setTheme }), [setTheme, theme]);
+  const changeTheme = useCallback((newTheme: "dark" | "light") => setTheme(newTheme), []);
+
+  const values = useMemo(() => ({ theme, changeTheme }), [changeTheme, theme]);
 
   return (
     <ThemeContext.Provider value={values}>

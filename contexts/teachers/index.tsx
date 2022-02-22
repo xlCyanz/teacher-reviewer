@@ -1,9 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/ban-types */
 import React, {
-  createContext, ReactNode, useEffect, useMemo, useState,
+  createContext, ReactNode, useMemo, useState,
 } from "react";
-import { ITeacher } from "@types";
 import teachersFromLocal from "../../public/teachers.json";
 
 interface IProvider {
@@ -11,19 +10,19 @@ interface IProvider {
 }
 
 interface ITeacherContext {
-    teachers: ITeacher[];
+    teachers: any;
 }
 
 const TeacherContext = createContext<ITeacherContext>({
-  teachers: [],
+  teachers: {
+    teacher: [],
+  },
 });
 
 const useContext = () => React.useContext(TeacherContext);
 
 const Provider = ({ children }: IProvider) => {
-  const [teachers, setTeachers] = useState<ITeacher[]>([]);
-
-  useEffect(() => setTeachers(teachersFromLocal), []);
+  const [teachers] = useState(teachersFromLocal);
 
   const values = useMemo(() => ({ teachers }), [teachers]);
 

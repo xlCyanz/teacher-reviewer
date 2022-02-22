@@ -10,6 +10,15 @@ const typeDefs = gql`
     image: String
   }
 
+  type Vote {
+    _id: ID
+    userId: ID
+    teacherId: ID
+    scoreClarity: Int
+    scoreAssistance: Int
+    scoreTakeClassAgain: Int
+  }
+
   type Rating {
     scoreClarity: Int
     scoreAssistance: Int
@@ -18,7 +27,7 @@ const typeDefs = gql`
   union teacherResult =  Rating | Teacher
 
   type Teacher {
-    _id: String
+    _id: ID
     name: String
     area: String
     rating: Rating
@@ -40,6 +49,7 @@ const typeDefs = gql`
     comments(teacherName: String!): [Comment]
     user(email: String!): User
     users: [User]
+    vote(id: ID): Vote
   }
 
   input inputTeacher {
@@ -75,7 +85,7 @@ const typeDefs = gql`
     # Comment
     addComment(comment: inputComment!): Comment
     updateComment(newComment: inputComment!, userId: String!): Comment
-    deleteComment(id: ID!): String
+    deleteComment(id: ID!): Boolean
 
     # User
     updateUser(name: String!, newUser: inputUser!): User

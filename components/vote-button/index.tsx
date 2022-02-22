@@ -53,7 +53,7 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       cancelButtonText: "Saltar",
     };
 
-    const { value: assistance } = await Swal.fire({
+    const { value: assistance } = await MySwal.fire({
       title: "¿El profesor/a asistió correctamente a las reuniones?",
       icon: "question",
       input: "radio",
@@ -61,7 +61,7 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       ...config,
     });
 
-    const { value: takeclassagain } = await Swal.fire({
+    const { value: takeclassagain } = await MySwal.fire({
       title: "¿Volverías a tomar clase con este profesor/a?",
       icon: "question",
       input: "radio",
@@ -69,7 +69,7 @@ const VoteButton = ({ userId, teacherId }: Props) => {
       ...config,
     });
 
-    const { value: clarity } = await Swal.fire({
+    const { value: clarity } = await MySwal.fire({
       title: "Califica la claridad del profesor al exponer un tema.",
       icon: "question",
       input: "radio",

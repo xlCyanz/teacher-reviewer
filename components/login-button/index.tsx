@@ -9,8 +9,8 @@ const LoginButton = () => {
       <Menu.Button>
         <div
           className="flex items-center justify-center py-2 px-4 font-medium text-default-color rounded shadow-md bg-gray-100 hover:bg-white"
-          aria-label="Sign in"
-          title="Sign in"
+          aria-label="Iniciar Sesion"
+          title="Iniciar Sesion"
         >
           Iniciar Sesion
         </div>
