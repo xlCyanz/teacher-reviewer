@@ -8,6 +8,11 @@ const resolvers = {
       const teachers: ITeacher[] = await modelTeacher.find();
       return teachers;
     },
+    vote: async (_: never, { id }: { id: string }) => {
+      const { modelVote } = await connection();
+      const votes: IVote[] = await modelVote.findOne({ id });
+      return votes;
+    },
     comments: async (_: never, { teacherName }: { teacherName: string }) => {
       const { modelComment, modelTeacher } = await connection();
 
@@ -118,8 +123,12 @@ const resolvers = {
     },
     deleteComment: async (_: never, { id }: { id: string }) => {
       const { modelComment } = await connection();
-      const CommentDeleted: Comment = await modelComment.findByIdAndDelete(id);
-      return CommentDeleted;
+      try {
+        await modelComment.findByIdAndDelete(id);
+        return true;
+      } catch (error) {
+        return false;
+      }
     },
   },
 };

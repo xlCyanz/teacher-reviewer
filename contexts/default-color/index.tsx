@@ -1,5 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable @typescript-eslint/ban-types */
 import React, {
   createContext, ReactNode, useCallback, useEffect, useMemo, useState,
 } from "react";
@@ -9,7 +8,7 @@ interface IProvider {
 }
 interface IDefaultColor {
     color: string | undefined;
-    changeColor: Function;
+    changeColor: (colorHex: string) => void;
 }
 
 const DefaultColorContext = createContext<IDefaultColor>({

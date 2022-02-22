@@ -1,22 +1,21 @@
 import _ from "lodash";
 import Link from "next/link";
 import { ITabs } from "@types";
-import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { ThemeContext } from "contexts";
+import { Children, useState } from "react";
 import {
   AcademicCapIcon,
   MenuIcon,
-  MoonIcon,
-  SunIcon,
   XIcon,
 } from "@heroicons/react/outline";
+import dynamic from "next/dynamic";
 import LoginButton from "../login-button";
 import NavProfile from "../nav-profile";
 
+const DynamicToggleThemeWithNoSSR = dynamic(() => import("../toggle-theme"), { ssr: false });
+
 const Navigation = () => {
   const { data: session } = useSession();
-  const { theme, setTheme } = ThemeContext.useContext();
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
@@ -40,8 +39,8 @@ const Navigation = () => {
           </a>
         </Link>
         <ul className="hidden lg:flex items-center">
-          {_.map(tabs, (tab) => (
-            <li key={`navigation-tab-${tab?.name}`}>
+          {Children.toArray(_.map(tabs, (tab) => (
+            <li>
               <Link href={tab?.href} passHref>
                 <a
                   aria-label={tab?.name}
@@ -52,21 +51,13 @@ const Navigation = () => {
                 </a>
               </Link>
             </li>
-          ))}
+          )))}
           {session ? (
             <NavProfile />
           ) : (
             <LoginButton />
           )}
-          {theme === "dark" ? (
-            <button type="button" onClick={() => setTheme("light")} className="bg-white p-2 rounded-full">
-              <MoonIcon className="w-6 text-gray-800" />
-            </button>
-          ) : (
-            <button type="button" onClick={() => setTheme("dark")} className="bg-white p-2 rounded-full">
-              <SunIcon className="w-6 text-yellow-800" />
-            </button>
-          )}
+          <DynamicToggleThemeWithNoSSR />
         </ul>
         <div className="lg:hidden z-50">
           <button
@@ -124,15 +115,7 @@ const Navigation = () => {
                       </li>
                     ))}
                     <li>
-                      {theme === "dark" ? (
-                        <button type="button" onClick={() => setTheme("light")} className="bg-white">
-                          Modo Nocturno
-                        </button>
-                      ) : (
-                        <button type="button" onClick={() => setTheme("dark")} className="bg-white">
-                          Modo Diurno
-                        </button>
-                      )}
+                      <DynamicToggleThemeWithNoSSR />
                     </li>
                     {session ? (
                       <NavProfile />

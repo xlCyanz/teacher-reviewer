@@ -25,7 +25,7 @@ const CommentButton = ({ userId, teacherId }: Props) => {
   const MySwal = withReactContent(Swal);
 
   const handleComment = async () => {
-    const { value: body } = await Swal.fire({
+    const { value: body } = await MySwal.fire({
       title: "¿Que piensas acerca del profesor/a?",
       icon: "question",
       input: "textarea",
