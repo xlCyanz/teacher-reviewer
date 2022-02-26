@@ -72,9 +72,9 @@ const CommentButton = ({ userId, teacherId }: Props) => {
   };
 
   return (
-    <button type="button" onClick={handleComment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={handleComment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-50 transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
-        <div className="mr-2 font-semibold text-white">
+        <div className="mr-2 font-semibold text-gray-50">
           Deja un comentario
         </div>
         <AnnotationIcon className="w-6 h-6" />

@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         </div>
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
           <div className="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center">
-            <h2 className="mb-8 text-center text-5xl font-bold tracking-tight text-white lg:text-7xl sm:leading-none">
+            <h2 className="mb-8 text-center text-5xl font-bold tracking-tight text-gray-50 lg:text-7xl sm:leading-none">
               {replaceJSX("Vota y comenta sobre tus {teachers}", {
                 teachers: textStyled("profesores"),
               })}
