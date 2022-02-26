@@ -2,12 +2,20 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import _ from "lodash";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { MainLayout } from "@layouts";
+import { Pagination } from "@components";
 import { TeacherContext } from "@contexts";
-import { Pagination, TeacherCard } from "@components";
 import { Children, useMemo, useState } from "react";
 
 type TSort = "filter-asc" | "filter-desc" | string;
+type TeacherFormat = {
+  id: string;
+  name: string;
+  area: string;
+  comments: number;
+  votes: number;
+}
 
 const areas = [
   "Multimedia",
@@ -22,8 +30,10 @@ const areas = [
   "Ciencias de Datos",
 ];
 
+const DynamicTeacherCard = dynamic(() => import("../../components/teacher-card"), { ssr: false });
+
 const TeacherPage = () => {
-  const { teachers } = TeacherContext.useContext();
+  const teachers = TeacherContext.useContext();
 
   const [pageSize] = useState<number>(12);
   const [sort, setSort] = useState<TSort>();
@@ -36,8 +46,8 @@ const TeacherPage = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sortArray = (data: any[], type: TSort) => {
-    const dataSorted = data.sort((a, b) => a.teacher.name.toLowerCase().localeCompare(
-      b.teacher.name.toLowerCase(),
+    const dataSorted = data.sort((a, b) => a.name.toLowerCase().localeCompare(
+      b.name.toLowerCase(),
     ));
 
     if (type === "filter-asc") return dataSorted;
@@ -47,12 +57,12 @@ const TeacherPage = () => {
   };
 
   const teachersFiltered = useMemo(() => {
-    const searchedTeachers = Object.values(_.pickBy(teachers, (value) => {
-      return value?.teacher.name.toLowerCase().includes(searcher?.toLowerCase());
+    const searchedTeachers = Object.values(_.pickBy(teachers, (value: TeacherFormat) => {
+      return value?.name?.toLowerCase().includes(searcher?.toLowerCase());
     }));
 
-    const filteredByArea = Object.values(_.pickBy(searchedTeachers, (value) => {
-      return value?.teacher.area.toLowerCase().includes(filterArea?.toLowerCase());
+    const filteredByArea = Object.values(_.pickBy(searchedTeachers, (value: TeacherFormat) => {
+      return value?.area?.toLowerCase().includes(filterArea?.toLowerCase());
     }));
 
     setCurrentPage(1);
@@ -102,9 +112,9 @@ const TeacherPage = () => {
           {Children.toArray(_.map(
             teachersFiltered?.slice(firstPageIndex, lastPageIndex),
             (value) => (
-              <Link href={`teachers/${value.teacher.name}`} passHref>
+              <Link href={`teachers/${value?.name}`} passHref>
                 <a>
-                  <TeacherCard {...value} />
+                  <DynamicTeacherCard {...value} />
                 </a>
               </Link>
             ),
