@@ -30,7 +30,7 @@ const LoginButton = () => {
               {({ active }) => (
                 <button
                   type="button"
-                  onClick={() => signIn("google", { callbackUrl: "http://localhost:3000" })}
+                  onClick={() => signIn("google")}
                   className={`${
                     active ? "bg-default-color text-gray-50" : "text-gray-900"
                   } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
