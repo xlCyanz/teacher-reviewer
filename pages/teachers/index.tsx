@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import _ from "lodash";
@@ -7,6 +6,8 @@ import { MainLayout } from "@layouts";
 import { TeacherContext } from "@contexts";
 import { Pagination, TeacherCard } from "@components";
 import { Children, useMemo, useState } from "react";
+
+type TSort = "filter-asc" | "filter-desc" | string;
 
 const areas = [
   "Multimedia",
@@ -24,24 +25,25 @@ const areas = [
 const TeacherPage = () => {
   const { teachers } = TeacherContext.useContext();
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize] = useState<number>(12);
-
+  const [sort, setSort] = useState<TSort>();
   const [searcher, setSearcher] = useState<string>("");
   const [filterArea, setFilterArea] = useState<string>("");
-  const [sort, setSort] = useState<"filter-asc" | "filter-desc" | string>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const firstPageIndex = (currentPage - 1) * pageSize;
   const lastPageIndex = firstPageIndex + pageSize;
 
-  const sortArray = (data: any[], type: "filter-asc" | "filter-desc" | string) => {
-    const dataSort = data.sort((a, b) => a.teacher.name.toLowerCase().localeCompare(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sortArray = (data: any[], type: TSort) => {
+    const dataSorted = data.sort((a, b) => a.teacher.name.toLowerCase().localeCompare(
       b.teacher.name.toLowerCase(),
     ));
 
-    if (type === "filter-asc") return dataSort;
-    if (type === "filter-desc") return dataSort.reverse();
-    return data;
+    if (type === "filter-asc") return dataSorted;
+    if (type === "filter-desc") return dataSorted.reverse();
+
+    return dataSorted;
   };
 
   const teachersFiltered = useMemo(() => {
@@ -66,10 +68,10 @@ const TeacherPage = () => {
           <form className="flex flex-col w-full sm:flex-row gap-2">
             <div className="flex justify-end lg:order-last w-full">
               <input
-                placeholder="Ingresa el nombre del profesor..."
+                type="text"
                 required
                 onChange={({ target }) => setSearcher(target.value)}
-                type="text"
+                placeholder="Ingresa el nombre del profesor..."
                 className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full lg:w-72"
               />
             </div>
