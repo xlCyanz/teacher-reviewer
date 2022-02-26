@@ -9,11 +9,15 @@ const resolvers = {
       return teachers;
     },
     vote: async (_: never, { id }: { id: string }) => {
+      if (id === null) return null;
+
       const { modelVote } = await connection();
-      const votes: IVote[] = await modelVote.findOne({ id });
+      const votes: IVote = await modelVote.findById(id);
       return votes;
     },
     comments: async (_: never, { teacherName }: { teacherName: string }) => {
+      if (teacherName === null) return null;
+
       const { modelComment, modelTeacher } = await connection();
 
       try {
@@ -29,6 +33,7 @@ const resolvers = {
       }
     },
     teacher: async (_: never, { name }: { name: string }) => {
+      if (name === null) return null;
       const { modelTeacher, modelVote } = await connection();
 
       try {
@@ -61,6 +66,20 @@ const resolvers = {
       const { modelUser } = await connection();
       const user: IUser = await modelUser.findOne({ email });
       return user;
+    },
+    checkUserVote: async (_: never, { userId, teacherName }: {
+      userId: string,
+      teacherName: string }) => {
+      const { modelVote, modelTeacher } = await connection();
+
+      if (userId === null || teacherName === null) {
+        return null;
+      }
+
+      const teacher: ITeacher = await modelTeacher.findOne({ name: teacherName });
+      const votes: IVote = await modelVote.findOne({ userId, teacherId: teacher._id });
+
+      return votes !== null;
     },
   },
 

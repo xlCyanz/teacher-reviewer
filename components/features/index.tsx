@@ -1,5 +1,6 @@
 import _ from "lodash";
-import { Children, FC, SVGProps } from "react";
+import { Icon } from "@types";
+import { Children } from "react";
 import {
   AcademicCapIcon,
   AnnotationIcon,
@@ -18,10 +19,10 @@ import {
 interface IFeatures {
     title: string;
     subtitle: string;
-    icon: FC<SVGProps<SVGSVGElement>>;
+    icon: Icon
     offers: {
         title: string;
-        icon: FC<SVGProps<SVGSVGElement>>;
+        icon: Icon;
     }[]
 }
 
@@ -76,11 +77,11 @@ const Features = () => {
       </div>
       <section className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {Children.toArray(features.map(({
-          title, subtitle, icon: Icon, offers,
+          title, subtitle, icon: IconElement, offers,
         }) => (
           <div>
             <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-default-color">
-              <Icon className="w-8 h-8 text-gray-100" />
+              <IconElement className="w-8 h-8 text-gray-100" />
             </div>
             <h6 className="mb-2 font-semibold leading-5 text-gray-900 dark:text-gray-100">{title}</h6>
             <p className="mb-3 text-sm text-gray-900 dark:text-gray-300">

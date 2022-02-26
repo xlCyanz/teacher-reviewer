@@ -2,8 +2,8 @@
 import client from "apollo-client";
 import type { AppProps } from "next/app";
 import { ReactNode } from "react";
-import { SessionProvider } from "next-auth/react";
 import { ApolloProvider } from "@apollo/client";
+import { SessionProvider } from "next-auth/react";
 import { DefaultColorContext, TeacherContext, ThemeContext } from "@contexts";
 
 import "../styles/globals.css";

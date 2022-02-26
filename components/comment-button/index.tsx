@@ -3,6 +3,7 @@ import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { AnnotationIcon } from "@heroicons/react/outline";
+import { DefaultColorContext } from "contexts";
 
 interface Props {
     userId: string | undefined;
@@ -22,6 +23,8 @@ const QUERY_COMMENT = gql`
 `;
 
 const CommentButton = ({ userId, teacherId }: Props) => {
+  const { color } = DefaultColorContext.useContext();
+
   const MySwal = withReactContent(Swal);
 
   const handleComment = async () => {
@@ -39,6 +42,8 @@ const CommentButton = ({ userId, teacherId }: Props) => {
         "aria-label": "Escribe el comentario aqui",
       },
       showCancelButton: true,
+      confirmButtonColor: `${color}`,
+      cancelButtonText: "Cancelar",
     });
 
     if (body) {
@@ -55,6 +60,7 @@ const CommentButton = ({ userId, teacherId }: Props) => {
           title: "Guardado",
           icon: "success",
           text: "Tu comentario se guardo en nuestros registros.",
+          confirmButtonColor: `${color}`,
         }).then(() => {
           if (typeof window !== "undefined") {
             window.location.reload();
@@ -66,15 +72,16 @@ const CommentButton = ({ userId, teacherId }: Props) => {
           title: "Uups...",
           icon: "error",
           text: "Contacta a un administrador, este error es super raro.",
+          confirmButtonColor: `${color}`,
         });
       }
     }
   };
 
   return (
-    <button type="button" onClick={handleComment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={handleComment} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-50 transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
-        <div className="mr-2 font-semibold text-white">
+        <div className="mr-2 font-semibold text-gray-50">
           Deja un comentario
         </div>
         <AnnotationIcon className="w-6 h-6" />

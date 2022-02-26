@@ -3,6 +3,7 @@ import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { TrashIcon } from "@heroicons/react/outline";
+import { DefaultColorContext } from "contexts";
 
 interface Props {
     commentId: string | undefined;
@@ -16,6 +17,8 @@ const QUERY_COMMENT = gql`
 `;
 
 const CommentDeleteButton = ({ commentId, body }: Props) => {
+  const { color } = DefaultColorContext.useContext();
+
   const MySwal = withReactContent(Swal);
 
   const handleDelete = async () => {
@@ -24,7 +27,8 @@ const CommentDeleteButton = ({ commentId, body }: Props) => {
       text: `"${body}"`,
       icon: "question",
       showCancelButton: true,
-      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: `${color}`,
       confirmButtonText: "Si",
     });
 
@@ -42,6 +46,7 @@ const CommentDeleteButton = ({ commentId, body }: Props) => {
             title: "¡Comentario borrado!",
             icon: "success",
             text: "Este comentario ya no se encuentra en nuestros registros.",
+            confirmButtonColor: `${color}`,
           }).then(() => {
             if (typeof window !== "undefined") {
               window.location.reload();
@@ -53,6 +58,7 @@ const CommentDeleteButton = ({ commentId, body }: Props) => {
           title: "Uups...",
           icon: "error",
           text: "Se ha producido un error al intentar borrar el comentario, reinicia la pagina y vuelve a intentar. Si el error continua contacta al administrador la pagina.",
+          confirmButtonColor: `${color}`,
         });
       }
     }

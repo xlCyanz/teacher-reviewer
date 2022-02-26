@@ -46,7 +46,7 @@ const Pagination = ({
 
       {Children.toArray(_.map(paginationRange, (pageNumber) => {
         if (pageNumber === "...") {
-          return <div className="px-4 py-2 bg-white dark:bg-gray-800 dark:text-white">...</div>;
+          return <div className="px-4 py-2 bg-white dark:bg-gray-800 dark:text-gray-50">...</div>;
         }
 
         return (

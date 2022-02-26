@@ -1,12 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import _ from "lodash";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "@contexts";
-import { Pagination, TeacherCard } from "@components";
+import { Banner, Pagination } from "@components";
 import { Children, useMemo, useState } from "react";
+import { ExclamationIcon } from "@heroicons/react/outline";
+
+type TSort = "filter-asc" | "filter-desc" | string;
+type TeacherFormat = {
+  id: string;
+  name: string;
+  area: string;
+  comments: number;
+  votes: number;
+}
 
 const areas = [
   "Multimedia",
@@ -21,36 +31,39 @@ const areas = [
   "Ciencias de Datos",
 ];
 
+const DynamicTeacherCard = dynamic(() => import("../../components/teacher-card"), { ssr: false });
+
 const TeacherPage = () => {
-  const { teachers } = TeacherContext.useContext();
+  const teachers = TeacherContext.useContext();
 
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize] = useState<number>(12);
-
+  const [sort, setSort] = useState<TSort>();
   const [searcher, setSearcher] = useState<string>("");
   const [filterArea, setFilterArea] = useState<string>("");
-  const [sort, setSort] = useState<"filter-asc" | "filter-desc" | string>();
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const firstPageIndex = (currentPage - 1) * pageSize;
   const lastPageIndex = firstPageIndex + pageSize;
 
-  const sortArray = (data: any[], type: "filter-asc" | "filter-desc" | string) => {
-    const dataSort = data.sort((a, b) => a.teacher.name.toLowerCase().localeCompare(
-      b.teacher.name.toLowerCase(),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sortArray = (data: any[], type: TSort) => {
+    const dataSorted = data.sort((a, b) => a.name.toLowerCase().localeCompare(
+      b.name.toLowerCase(),
     ));
 
-    if (type === "filter-asc") return dataSort;
-    if (type === "filter-desc") return dataSort.reverse();
-    return data;
+    if (type === "filter-asc") return dataSorted;
+    if (type === "filter-desc") return dataSorted.reverse();
+
+    return dataSorted;
   };
 
   const teachersFiltered = useMemo(() => {
-    const searchedTeachers = Object.values(_.pickBy(teachers, (value) => {
-      return value?.teacher.name.toLowerCase().includes(searcher?.toLowerCase());
+    const searchedTeachers = Object.values(_.pickBy(teachers, (value: TeacherFormat) => {
+      return value?.name?.toLowerCase().includes(searcher?.toLowerCase());
     }));
 
-    const filteredByArea = Object.values(_.pickBy(searchedTeachers, (value) => {
-      return value?.teacher.area.toLowerCase().includes(filterArea?.toLowerCase());
+    const filteredByArea = Object.values(_.pickBy(searchedTeachers, (value: TeacherFormat) => {
+      return value?.area?.toLowerCase().includes(filterArea?.toLowerCase());
     }));
 
     setCurrentPage(1);
@@ -62,14 +75,17 @@ const TeacherPage = () => {
   return (
     <MainLayout title="Teacher Reviewer - Profesores">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+        <div className="py-4">
+          <Banner message="Los profesores actualmente estas desactualizados. Cada dia trabajamos para que la lista este actualizada. Contacta con un administrador si no encuentras a un profesor." icon={ExclamationIcon} />
+        </div>
         <div className="flex flex-col lg:flex-row gap-2 lg:justify-between items-center">
           <form className="flex flex-col w-full sm:flex-row gap-2">
             <div className="flex justify-end lg:order-last w-full">
               <input
-                placeholder="Ingresa el nombre del profesor..."
+                type="text"
                 required
                 onChange={({ target }) => setSearcher(target.value)}
-                type="text"
+                placeholder="Ingresa el nombre del profesor..."
                 className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full lg:w-72"
               />
             </div>
@@ -100,9 +116,9 @@ const TeacherPage = () => {
           {Children.toArray(_.map(
             teachersFiltered?.slice(firstPageIndex, lastPageIndex),
             (value) => (
-              <Link href={`teachers/${value.teacher.name}`} passHref>
+              <Link href={`teachers/${value?.name}`} passHref>
                 <a>
-                  <TeacherCard {...value} />
+                  <DynamicTeacherCard {...value} />
                 </a>
               </Link>
             ),

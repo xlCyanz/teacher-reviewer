@@ -94,21 +94,23 @@ const VoteButton = ({ userId, teacherId }: Props) => {
           title: "Votado",
           icon: "success",
           text: "Tu voto se guardo en nuestros registros.",
+          confirmButtonColor: `${color}`,
         });
       } catch (err) {
         MySwal.fire({
           title: "Uups...",
           icon: "error",
           text: "Contacta a un administrador, este error es super raro.",
+          confirmButtonColor: `${color}`,
         });
       }
     }
   };
 
   return (
-    <button type="button" onClick={vote} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
+    <button type="button" onClick={vote} className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-gray-50 transition-all duration-200 hover:border-2 border-default-color rounded shadow-md md:w-auto bg-default-color focus:shadow-outline focus:outline-none">
       <div className="flex items-center">
-        <div className="mr-2 font-semibold text-white">
+        <div className="mr-2 font-semibold text-gray-50">
           Deja tu voto
         </div>
         <ThumbUpIcon className="w-6 h-6" />

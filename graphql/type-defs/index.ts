@@ -43,13 +43,22 @@ const typeDefs = gql`
   }
 
   type Query {
+    # Teachers
     teachers: [Teacher]
     teacher(name: String!): Teacher
     teachersByArea(area: String!): [Teacher]
+
+    # Comments
     comments(teacherName: String!): [Comment]
+
+    # Users
     user(email: String!): User
     users: [User]
+
+    # Votes
     vote(id: ID): Vote
+    votes(teacherName: String!): [Vote]
+    checkUserVote(userId: ID, teacherName: String): Boolean
   }
 
   input inputTeacher {

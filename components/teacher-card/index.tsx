@@ -1,17 +1,15 @@
 import { AnnotationIcon, ThumbUpIcon } from "@heroicons/react/outline";
-import { ITeacher } from "@types";
 
 interface Props {
-  teacher: ITeacher,
-    votes: number;
-    comments: number;
+  name: string;
+  area: string;
+  votes: number;
+  comments: number;
 }
 
 const TeacherCard = ({
-  teacher, votes, comments,
+  name, area, votes, comments,
 }: Props) => {
-  const { area, name } = teacher;
-
   return (
     <div className="col-span-1 bg-default-color shadow-md hover:ring-2 ring-default-color dark:bg-gray-800 transition-colors duration-200 px-5 rounded h-full">
       <div className="flex flex-col py-5 h-full">
