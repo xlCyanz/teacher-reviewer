@@ -4,9 +4,10 @@ import _ from "lodash";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { MainLayout } from "@layouts";
-import { Pagination } from "@components";
 import { TeacherContext } from "@contexts";
+import { Banner, Pagination } from "@components";
 import { Children, useMemo, useState } from "react";
+import { ExclamationIcon } from "@heroicons/react/outline";
 
 type TSort = "filter-asc" | "filter-desc" | string;
 type TeacherFormat = {
@@ -74,6 +75,9 @@ const TeacherPage = () => {
   return (
     <MainLayout title="Teacher Reviewer - Profesores">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+        <div className="py-4">
+          <Banner message="Los profesores actualmente estas desactualizados. Cada dia trabajamos para que la lista este actualizada. Contacta con un administrador si no encuentras a un profesor." icon={ExclamationIcon} />
+        </div>
         <div className="flex flex-col lg:flex-row gap-2 lg:justify-between items-center">
           <form className="flex flex-col w-full sm:flex-row gap-2">
             <div className="flex justify-end lg:order-last w-full">

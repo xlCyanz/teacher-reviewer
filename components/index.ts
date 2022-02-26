@@ -7,5 +7,6 @@ export { default as Features } from "./features";
 export { default as TeacherCard } from "./teacher-card";
 export { default as Pagination } from "./pagination";
 export { default as DetailsCard } from "./details-card";
+export { default as Banner } from "./banner";
 
 export * from "./icons";
