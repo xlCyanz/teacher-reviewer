@@ -1,5 +1,3 @@
-import _ from "lodash";
-import fs from "fs";
 import { connection } from "@utils";
 import { NextApiRequest, NextApiResponse } from "next";
 import {
@@ -11,12 +9,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     POST: async () => {
       const { modelTeacher, modelComment, modelVote } = await connection();
-      const teachersFromDB: ITeacher[] = await modelTeacher.find();
+      const teachers: ITeacher[] = await modelTeacher.find();
 
       const format = [];
 
-      for (let index = 0; index < teachersFromDB.length; index += 1) {
-        const teacher = _.omit(teachersFromDB[index], ["__v"]);
+      for (let index = 0; index < teachers.length; index += 1) {
+        const teacher = teachers[index];
 
         // eslint-disable-next-line no-await-in-loop
         const votes: IVote[] = await modelVote.find({ teacherId: teacher?._id });
@@ -24,14 +22,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         const comments: IComment[] = await modelComment.find({ teacherId: teacher?._id });
 
         format.push({
-          teacher,
+          id: teacher._id,
+          name: teacher.name,
+          area: teacher.area,
           votes: votes.length,
           comments: comments.length,
         });
       }
 
-      fs.writeFileSync("./public/teachers.json", JSON.stringify(format));
-      res.status(200).send({});
+      res.status(200).send(format);
     },
   };
 
