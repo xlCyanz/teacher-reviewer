@@ -94,12 +94,14 @@ const VoteButton = ({ userId, teacherId }: Props) => {
           title: "Votado",
           icon: "success",
           text: "Tu voto se guardo en nuestros registros.",
+          confirmButtonColor: `${color}`,
         });
       } catch (err) {
         MySwal.fire({
           title: "Uups...",
           icon: "error",
           text: "Contacta a un administrador, este error es super raro.",
+          confirmButtonColor: `${color}`,
         });
       }
     }
