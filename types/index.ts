@@ -1,5 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { FC, SVGProps } from "react";
 
+export type Icon = FC<SVGProps<SVGSVGElement>>;
 export interface ITabs {
   name: string;
   href: string;
@@ -47,4 +49,11 @@ export interface IComment {
   updatedAt?: string;
   createdAt: string;
   body: string;
+}
+
+export interface IDetails {
+  title: string;
+  subtitle: string;
+  icon: Icon;
+  percentage: string;
 }
