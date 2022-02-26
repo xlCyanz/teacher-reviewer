@@ -35,19 +35,20 @@ const Footer = () => (
         {" "}
         {new Date().getFullYear()}
         {" "}
-        Teacher Reviewer. Todos los derechos reservados a sus respectivos desarrolladores.
+        <span className="font-medium text-default-color">Teacher Reviewer</span>
+        . Todos los derechos reservados a sus respectivos desarrolladores.
       </p>
       <p className="text-md text-gray-100">
         Por
         {" "}
         <Link href="https://github.com/HegerAriasSantos" passHref>
-          <a className="font-semibold">Heger</a>
+          <a className="font-semibold hover:text-default-color">Heger</a>
         </Link>
         {" "}
         y
         {" "}
         <Link href="https://github.com/xlCyanz" passHref>
-          <a className="font-semibold">Johan</a>
+          <a className="font-semibold hover:text-default-color">Johan</a>
         </Link>
       </p>
     </div>
