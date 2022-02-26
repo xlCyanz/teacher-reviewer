@@ -108,9 +108,11 @@ const TeacherPage = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center bg-gray-100 dark:bg-gray-900 h-screen w-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-l-2 border-default-color" />
-      </div>
+      <MainLayout title="Cargando...">
+        <div className="flex flex-col gap-4 justify-center items-center bg-gray-100 dark:bg-gray-900 h-screen w-screen">
+          <div className="animate-spin rounded-full h-32 w-32 border-l-2 border-default-color" />
+        </div>
+      </MainLayout>
     );
   }
 
