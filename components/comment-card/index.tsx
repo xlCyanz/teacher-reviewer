@@ -4,11 +4,6 @@ import { useSession } from "next-auth/react";
 import { useMemo } from "react";
 import CommentDeleteButton from "../comment-delete-button";
 
-const allowsId = [
-  "6205ecaf92ccf80c2063cc4a",
-  "6203301ddc30fe384b48c1e0",
-];
-
 const CommentCard = ({
   _id, updatedAt, createdAt, body, userId: user,
 }: IComment) => {
@@ -18,14 +13,11 @@ const CommentCard = ({
   const username = user?.name.split(" ");
 
   const canDelete = useMemo(() => {
-    switch (session?.user.id) {
-      case user._id:
-      case allowsId[0]:
-      case allowsId[1]:
-        return true;
-      default:
-        return false;
+    if (session?.user.id === user?._id) {
+      return true;
     }
+
+    return false;
   }, [session?.user.id, user._id]);
 
   return (
