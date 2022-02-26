@@ -57,6 +57,7 @@ const typeDefs = gql`
 
     # Votes
     vote(id: ID): Vote
+    votes(teacherName: String!): [Vote]
     checkUserVote(userId: ID, teacherName: String): Boolean
   }
 
