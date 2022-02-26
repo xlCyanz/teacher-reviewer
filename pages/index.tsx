@@ -19,14 +19,14 @@ const textStyled = (title: string) => (
 );
 
 const Home: NextPage = () => {
-  const { teachers } = TeacherContext.useContext();
+  const teachers = TeacherContext.useContext();
 
   const [searcher, setSearcher] = useState<string>("");
 
   const teachersFiltered = useMemo(() => {
     if (searcher !== "") {
       return Object.values(
-        _.pickBy(teachers, (value) => value?.name.toLowerCase().includes(
+        _.pickBy(teachers, (value) => value?.name?.toLowerCase().includes(
           searcher?.toLowerCase(),
         )),
       ).slice(0, 1);
