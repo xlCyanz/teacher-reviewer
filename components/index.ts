@@ -6,5 +6,6 @@ export { default as CommentCard } from "./comment-card";
 export { default as Features } from "./features";
 export { default as TeacherCard } from "./teacher-card";
 export { default as Pagination } from "./pagination";
+export { default as DetailsCard } from "./details-card";
 
 export * from "./icons";
