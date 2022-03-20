@@ -10,8 +10,8 @@
         "id": "61f5fe449591e64bdeb9c32f",
         "name": "Marlen Perez Dorville",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 1,
-        "comments": 0
+        "votes": 13,
+        "comments": 8
     },
     {
         "id": "61f5fe449591e64bdeb9c330",
@@ -25,14 +25,14 @@
         "name": "Edickson Minaya Del Rosario",
         "area": "Form. Humanistica en Etica y Valores",
         "votes": 0,
-        "comments": 0
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c331",
         "name": "Santo Figueroa",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c334",
@@ -45,7 +45,7 @@
         "id": "61f5fe449591e64bdeb9c336",
         "name": "Nelfis Raymundo Stapleton Pilier",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -80,7 +80,7 @@
         "id": "61f5fe449591e64bdeb9c349",
         "name": "Vladimir Columna Pimentel",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -150,14 +150,14 @@
         "id": "61f5fe449591e64bdeb9c375",
         "name": "José Cesar Guzmàn Nuñez",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c378",
         "name": "Israel Peralta Bonifacio",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -168,18 +168,18 @@
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c37d",
-        "name": "Santos E. Moreta Reyes",
-        "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
-        "comments": 0
-    },
-    {
         "id": "61f5fe449591e64bdeb9c37e",
         "name": "Cecilia Mercedes Belliard Vargas",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
+    },
+    {
+        "id": "61f5fe449591e64bdeb9c37d",
+        "name": "Santos E. Moreta Reyes",
+        "area": "Form. Humanistica en Etica y Valores",
+        "votes": 4,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c388",
@@ -192,8 +192,8 @@
         "id": "61f5fe449591e64bdeb9c396",
         "name": "Ramon Leonardo Diaz Diaz",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 1,
-        "comments": 0
+        "votes": 3,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c3d0",
@@ -248,7 +248,7 @@
         "id": "61f5fe449591e64bdeb9c3fb",
         "name": "Wilin Bernardo Volquez Perez",
         "area": "Cocurriculares",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -273,13 +273,6 @@
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c41b",
-        "name": "Alberto Moreta Martinez",
-        "area": "Multimedia",
-        "votes": 0,
-        "comments": 0
-    },
-    {
         "id": "61f5fe449591e64bdeb9c41d",
         "name": "Eladio Ruiz",
         "area": "Ciencias Básicas",
@@ -287,24 +280,31 @@
         "comments": 0
     },
     {
+        "id": "61f5fe449591e64bdeb9c41b",
+        "name": "Alberto Moreta Martinez",
+        "area": "Multimedia",
+        "votes": 0,
+        "comments": 0
+    },
+    {
         "id": "61f5fe449591e64bdeb9c422",
         "name": "Francisco Jimenez German",
         "area": "Ciencias Básicas",
-        "votes": 0,
-        "comments": 0
+        "votes": 4,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c428",
         "name": "Mercedes Ledesma Dolores",
         "area": "Ciencias Básicas",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c430",
         "name": "Rita Perez",
         "area": "Ciencias Básicas",
-        "votes": 1,
+        "votes": 2,
         "comments": 1
     },
     {
@@ -318,7 +318,7 @@
         "id": "61f5fe449591e64bdeb9c440",
         "name": "Lixon Perez",
         "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -374,7 +374,7 @@
         "id": "61f5fe449591e64bdeb9c473",
         "name": "Hector Jose Henriquez",
         "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -388,8 +388,8 @@
         "id": "61f5fe449591e64bdeb9c487",
         "name": "Carlos Manuel Vargas Toledo",
         "area": "Ciencias Básicas",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c493",
@@ -403,14 +403,14 @@
         "name": "Jean Willio Jean Jules",
         "area": "ILS",
         "votes": 0,
-        "comments": 0
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c4b8",
         "name": "Carlos Luis Luciano Baez",
         "area": "ILS",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c4c4",
@@ -451,7 +451,7 @@
         "id": "61f5fe449591e64bdeb9c4ec",
         "name": "Hector Gonzalez Mejia",
         "area": "ILS",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -465,8 +465,8 @@
         "id": "61f5fe449591e64bdeb9c4fe",
         "name": "Miguel Santiago",
         "area": "ILS",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c500",
@@ -486,14 +486,14 @@
         "id": "61f5fe449591e64bdeb9c51a",
         "name": "jean gesner jean gilles",
         "area": "ILS",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c532",
         "name": "Sandra Polanco",
         "area": "ILS",
-        "votes": 1,
+        "votes": 2,
         "comments": 0
     },
     {
@@ -507,8 +507,8 @@
         "id": "61f5fe449591e64bdeb9c549",
         "name": "Juan Martìnez Lòpez",
         "area": "ILS",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c559",
@@ -542,22 +542,22 @@
         "id": "61f5fe449591e64bdeb9c595",
         "name": "Alberto  Francois Michel",
         "area": "Ciencias Básicas",
-        "votes": 1,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c59a",
         "name": "Carlos Joel Santos Felix",
         "area": "Ciencias Básicas",
-        "votes": 0,
-        "comments": 0
+        "votes": 7,
+        "comments": 4
     },
     {
         "id": "61f5fe449591e64bdeb9c59c",
         "name": "Albert Ignacio Reyes Sanchez",
         "area": "Ciencias Básicas",
-        "votes": 0,
-        "comments": 0
+        "votes": 3,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c5a4",
@@ -577,22 +577,22 @@
         "id": "61f5fe449591e64bdeb9c5b2",
         "name": "Elvin Noel Valdez Cueva",
         "area": "Ciencias Básicas",
-        "votes": 1,
-        "comments": 0
-    },
-    {
-        "id": "61f5fe449591e64bdeb9c5b9",
-        "name": "Samuel David Ramirez Angomas",
-        "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 2,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c5b5",
         "name": "Maximiliano Alvarez",
         "area": "Ciencias Básicas",
-        "votes": 1,
+        "votes": 3,
         "comments": 0
+    },
+    {
+        "id": "61f5fe449591e64bdeb9c5b9",
+        "name": "Samuel David Ramirez Angomas",
+        "area": "Ciencias Básicas",
+        "votes": 4,
+        "comments": 3
     },
     {
         "id": "61f5fe449591e64bdeb9c5ba",
@@ -605,35 +605,35 @@
         "id": "61f5fe449591e64bdeb9c5c9",
         "name": "Samuel Alberto Lorenzo Valdez",
         "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c5cf",
         "name": "Livia Gouriliova",
         "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c5d1",
         "name": "Ramón Mena",
         "area": "Ciencias Básicas",
-        "votes": 1,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c5d7",
         "name": "Wilton Oltmanns Encarnación",
         "area": "Ciencias Básicas",
-        "votes": 0,
+        "votes": 3,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c60a",
         "name": "Leandro Marte Geraldino",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -647,7 +647,7 @@
         "id": "61f5fe449591e64bdeb9c60f",
         "name": "Yasmery Gomez",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -661,7 +661,7 @@
         "id": "61f5fe449591e64bdeb9c615",
         "name": "Norys Carolina Garcia Mañon",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -703,14 +703,14 @@
         "id": "61f5fe449591e64bdeb9c624",
         "name": "Jeremy Guzman Mendoza",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c643",
         "name": "Tomàs Rodriguez",
         "area": "Redes",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -731,21 +731,21 @@
         "id": "61f5fe449591e64bdeb9c654",
         "name": "Amadis Suarez Genao",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 4,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c656",
         "name": "Luis Soto Mirambeaux",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 4,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c657",
         "name": "Kelyn Tejada Belliard",
         "area": "Software",
-        "votes": 1,
+        "votes": 3,
         "comments": 0
     },
     {
@@ -759,7 +759,7 @@
         "id": "61f5fe449591e64bdeb9c659",
         "name": "Juan Enmanuel Rosario Rodriguez",
         "area": "Software",
-        "votes": 0,
+        "votes": 3,
         "comments": 0
     },
     {
@@ -780,14 +780,14 @@
         "id": "61f5fe449591e64bdeb9c660",
         "name": "Gilberto Elias Vittini",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 3,
+        "comments": 3
     },
     {
         "id": "61f5fe449591e64bdeb9c65f",
         "name": "Carlos Manuel Caraballo",
         "area": "Software",
-        "votes": 1,
+        "votes": 2,
         "comments": 0
     },
     {
@@ -801,8 +801,8 @@
         "id": "61f5fe449591e64bdeb9c66e",
         "name": "Leonardo Enrique Tavarez Betances",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c671",
@@ -871,15 +871,15 @@
         "id": "61f5fe449591e64bdeb9c6a1",
         "name": "Luis Bessewell Feliz",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 11,
+        "comments": 3
     },
     {
         "id": "61f5fe449591e64bdeb9c6a5",
         "name": "Marisol Alvarez Salcedo De Taveras",
         "area": "Software",
-        "votes": 1,
-        "comments": 0
+        "votes": 3,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c6a7",
@@ -889,25 +889,25 @@
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c6bc",
-        "name": "Orison Soto",
-        "area": "Software",
-        "votes": 0,
-        "comments": 0
-    },
-    {
         "id": "61f5fe449591e64bdeb9c6bb",
         "name": "Jose Abreu Sanchez",
         "area": "Software",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
+    },
+    {
+        "id": "61f5fe449591e64bdeb9c6bc",
+        "name": "Orison Soto",
+        "area": "Software",
+        "votes": 4,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c6ca",
         "name": "Wilmer Jose Fariña Piñero",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c6e2",
@@ -934,8 +934,8 @@
         "id": "61f5fe449591e64bdeb9c70b",
         "name": "Juan Restituyo",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c734",
@@ -955,14 +955,14 @@
         "id": "61f5fe449591e64bdeb9c741",
         "name": "Marino Junior Dicent Gil",
         "area": "Software",
-        "votes": 0,
-        "comments": 0
+        "votes": 3,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c74a",
         "name": "Evanyeline Brito Rojas",
         "area": "Software",
-        "votes": 0,
+        "votes": 3,
         "comments": 0
     },
     {
@@ -997,6 +997,13 @@
         "id": "61f5fe449591e64bdeb9c784",
         "name": "Porfirio Marino Campaña Pérez",
         "area": "Redes",
+        "votes": 1,
+        "comments": 0
+    },
+    {
+        "id": "61f5fe449591e64bdeb9c78b",
+        "name": "Virginia Mercedes Rymer Pérez",
+        "area": "Redes",
         "votes": 0,
         "comments": 0
     },
@@ -1008,32 +1015,25 @@
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c78b",
-        "name": "Virginia Mercedes Rymer Pérez",
-        "area": "Redes",
-        "votes": 0,
-        "comments": 0
-    },
-    {
         "id": "61f5fe449591e64bdeb9c78e",
         "name": "Gerald Williams Silvania Javiel",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c792",
         "name": "Maria Alejandra Mazara Gomera",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c791",
         "name": "Kelvin Albuèz Blanco",
         "area": "Redes",
-        "votes": 1,
-        "comments": 0
+        "votes": 4,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c79f",
@@ -1043,15 +1043,15 @@
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c7ae",
-        "name": "Esmil De Jesus Contreras Hidalgo",
+        "id": "61f5fe449591e64bdeb9c7a9",
+        "name": "Jose Manuel Doñe Mateo",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 9,
+        "comments": 4
     },
     {
-        "id": "61f5fe449591e64bdeb9c7af",
-        "name": "Onel Luis Pelegrino",
+        "id": "61f5fe449591e64bdeb9c7ae",
+        "name": "Esmil De Jesus Contreras Hidalgo",
         "area": "Redes",
         "votes": 0,
         "comments": 0
@@ -1060,21 +1060,21 @@
         "id": "61f5fe449591e64bdeb9c7ad",
         "name": "Juan Alexander Ramirez Perez",
         "area": "Redes",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
-        "id": "61f5fe449591e64bdeb9c7a9",
-        "name": "Jose Manuel Doñe Mateo",
+        "id": "61f5fe449591e64bdeb9c7af",
+        "name": "Onel Luis Pelegrino",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 2
     },
     {
         "id": "61f5fe449591e64bdeb9c7b8",
         "name": "Maria Antonia Pineda Pereyra",
         "area": "Redes",
-        "votes": 0,
+        "votes": 2,
         "comments": 0
     },
     {
@@ -1088,7 +1088,7 @@
         "id": "61f5fe449591e64bdeb9c7bf",
         "name": "Victor Manuel Mena Muñoz",
         "area": "Redes",
-        "votes": 0,
+        "votes": 2,
         "comments": 0
     },
     {
@@ -1102,14 +1102,14 @@
         "id": "61f5fe449591e64bdeb9c7c7",
         "name": "Frederic De La Rosa Astacio",
         "area": "Redes",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
         "id": "61f5fe449591e64bdeb9c7d2",
         "name": "Victor Díaz",
         "area": "Redes",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -1123,15 +1123,15 @@
         "id": "61f5fe449591e64bdeb9c7ea",
         "name": "Jesus Nicolas Mejia Ortiz",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 2,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c7f0",
         "name": "Gean Carlos Sosa",
         "area": "Redes",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c7fe",
@@ -1172,7 +1172,7 @@
         "id": "61f5fe449591e64bdeb9c839",
         "name": "Wilkins Gabriel Cedano Del Rosario",
         "area": "Mecatrónica",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -1228,7 +1228,7 @@
         "id": "61f5fe449591e64bdeb9c88a",
         "name": "Nestor Gautreaux",
         "area": "Multimedia",
-        "votes": 0,
+        "votes": 1,
         "comments": 0
     },
     {
@@ -1256,8 +1256,8 @@
         "id": "61f5fe449591e64bdeb9c915",
         "name": "Francisco Alberto Jimenez German",
         "area": "Multimedia",
-        "votes": 0,
-        "comments": 0
+        "votes": 1,
+        "comments": 1
     },
     {
         "id": "61f5fe449591e64bdeb9c942",
@@ -1326,7 +1326,7 @@
         "id": "6219f35c91c85c6d6502ee83",
         "name": "Victtor Lorenzo Hilario Fernandez",
         "area": "Form. Humanistica en Etica y Valores",
-        "votes": 1,
+        "votes": 4,
         "comments": 0
     }
 ]
