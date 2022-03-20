@@ -60,8 +60,11 @@ const TeacherPage = () => {
 
   const MySwal = withReactContent(Swal);
 
-  const [pageSize] = useState<number>(6);
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize] = useState(6);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const firstPageIndex = (currentPage - 1) * pageSize;
+  const lastPageIndex = firstPageIndex + pageSize;
 
   const checkUserComment = useMemo(() => {
     const result = _.find(data?.comments, (a: IComment) => a.userId._id === session?.user.id);
@@ -154,8 +157,11 @@ const TeacherPage = () => {
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:leading-none text-gray-900 dark:text-gray-100">
               Comentarios
             </h2>
-            <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
-              {Children.toArray(_.map(data?.comments, (comment) => (
+            <div className="grid gap-4 grid-cols-1">
+              {Children.toArray(_.map(data?.comments.slice(
+                firstPageIndex,
+                lastPageIndex,
+              ), (comment) => (
                 <CommentCard {...comment} />
               )))}
             </div>
