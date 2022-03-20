@@ -1,30 +1,22 @@
-import _ from "lodash";
-import { Icon } from "@types";
+/* eslint-disable react/jsx-props-no-spreading */
 import { Children } from "react";
+import { IFeatures } from "@types";
 import {
-  AcademicCapIcon,
-  AnnotationIcon,
   BanIcon,
-  CursorClickIcon,
-  DeviceMobileIcon,
-  FilterIcon,
-  GlobeAltIcon,
-  IdentificationIcon,
   MoonIcon,
   SearchIcon,
-  TemplateIcon,
+  FilterIcon,
   ThumbUpIcon,
+  TemplateIcon,
+  GlobeAltIcon,
+  AnnotationIcon,
+  AcademicCapIcon,
+  CursorClickIcon,
+  DeviceMobileIcon,
+  IdentificationIcon,
 } from "@heroicons/react/outline";
 
-interface IFeatures {
-    title: string;
-    subtitle: string;
-    icon: Icon
-    offers: {
-        title: string;
-        icon: Icon;
-    }[]
-}
+import FeatureCard from "../feature-card";
 
 const features: IFeatures[] = [
   {
@@ -76,26 +68,8 @@ const Features = () => {
         </div>
       </div>
       <section className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        {Children.toArray(features.map(({
-          title, subtitle, icon: IconElement, offers,
-        }) => (
-          <div>
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-default-color">
-              <IconElement className="w-8 h-8 text-gray-100" />
-            </div>
-            <h6 className="mb-2 font-semibold leading-5 text-gray-900 dark:text-gray-100">{title}</h6>
-            <p className="mb-3 text-sm text-gray-900 dark:text-gray-300">
-              {subtitle}
-            </p>
-            <ul className="mb-4 -ml-1 space-y-2">
-              {_.map(offers, (offer) => (
-                <li className="flex items-center gap-1" key={offer?.title}>
-                  <offer.icon className="w-6 h-6 mt-px text-default-color" />
-                  <span className="text-sm font-medium text-gray-900 dark:text-gray-100">{offer?.title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {Children.toArray(features.map((feature) => (
+          <FeatureCard {...feature} />
         )))}
       </section>
     </div>
