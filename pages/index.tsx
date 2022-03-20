@@ -21,7 +21,7 @@ const textStyled = (title: string) => (
 const Home: NextPage = () => {
   const teachers = TeacherContext.useContext();
 
-  const [searcher, setSearcher] = useState<string>("");
+  const [searcher, setSearcher] = useState("");
 
   const teachersFiltered = useMemo(() => {
     if (searcher !== "") {

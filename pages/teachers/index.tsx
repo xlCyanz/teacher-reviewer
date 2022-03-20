@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import _ from "lodash";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "@contexts";
+import { ExclamationIcon } from "@heroicons/react/outline";
 import { Banner, Pagination } from "@components";
 import { Children, useMemo, useState } from "react";
-import { ExclamationIcon } from "@heroicons/react/outline";
 
 type TSort = "filter-asc" | "filter-desc" | string;
 type TeacherFormat = {
@@ -36,11 +35,11 @@ const DynamicTeacherCard = dynamic(() => import("../../components/teacher-card")
 const TeacherPage = () => {
   const teachers = TeacherContext.useContext();
 
-  const [pageSize] = useState<number>(12);
+  const [pageSize] = useState(12);
   const [sort, setSort] = useState<TSort>();
-  const [searcher, setSearcher] = useState<string>("");
-  const [filterArea, setFilterArea] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searcher, setSearcher] = useState("");
+  const [filterArea, setFilterArea] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const firstPageIndex = (currentPage - 1) * pageSize;
   const lastPageIndex = firstPageIndex + pageSize;
@@ -76,7 +75,11 @@ const TeacherPage = () => {
     <MainLayout title="Teacher Reviewer - Profesores">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
         <div className="py-4">
-          <Banner message="Los profesores actualmente estas desactualizados. Cada dia trabajamos para que la lista este actualizada. Contacta con un administrador si no encuentras a un profesor." icon={ExclamationIcon} />
+          <Banner
+            message="Los profesores actualmente estan desactualizados. Ayudanos recomendando profesores faltantes."
+            icon={ExclamationIcon}
+            link="https://forms.gle/XqtdvxWpyhzTdhwi8"
+          />
         </div>
         <div className="flex flex-col lg:flex-row gap-2 lg:justify-between items-center">
           <form className="flex flex-col w-full sm:flex-row gap-2">
@@ -112,15 +115,11 @@ const TeacherPage = () => {
             </div>
           </form>
         </div>
-        <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
           {Children.toArray(_.map(
             teachersFiltered?.slice(firstPageIndex, lastPageIndex),
             (value) => (
-              <Link href={`teachers/${value?.name}`} passHref>
-                <a>
-                  <DynamicTeacherCard {...value} />
-                </a>
-              </Link>
+              <DynamicTeacherCard {...value} />
             ),
           ))}
         </div>
