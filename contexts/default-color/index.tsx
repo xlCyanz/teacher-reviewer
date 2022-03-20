@@ -19,7 +19,7 @@ const DefaultColorContext = createContext<IDefaultColor>({
 const useContext = () => React.useContext(DefaultColorContext);
 
 const Provider = ({ children }: IProvider) => {
-  const [color, setColor] = useState<string>("#6200EA");
+  const [color, setColor] = useState("#6200EA");
 
   useEffect(() => {
     if (typeof window !== "undefined") {

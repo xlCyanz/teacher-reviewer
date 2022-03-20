@@ -36,7 +36,7 @@ const getInitialTheme = () => {
 };
 
 const Provider = ({ children }: ProviderProps) => {
-  const [theme, setTheme] = useState<string>(getInitialTheme);
+  const [theme, setTheme] = useState(getInitialTheme);
 
   const rawSetTheme = (rawTheme: string) => {
     if (typeof window !== "undefined") {
