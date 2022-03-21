@@ -2,12 +2,12 @@ import Head from "next/head";
 import { ReactNode } from "react";
 import { Navigation, Footer } from "@components";
 
-interface Props {
+interface IMainLayoutProps {
   title: string;
   children: ReactNode;
 }
 
-const MainLayout = ({ children, title }: Props) => (
+const MainLayout = ({ children, title }: IMainLayoutProps) => (
   <>
     <Head>
       <title>{title}</title>

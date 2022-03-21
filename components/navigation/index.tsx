@@ -1,5 +1,6 @@
 import _ from "lodash";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ITabs } from "@types";
 import { useSession } from "next-auth/react";
 import { Children, useState } from "react";
@@ -8,7 +9,7 @@ import {
   MenuIcon,
   XIcon,
 } from "@heroicons/react/outline";
-import dynamic from "next/dynamic";
+
 import LoginButton from "../login-button";
 import NavProfile from "../nav-profile";
 
@@ -17,7 +18,7 @@ const DynamicToggleThemeWithNoSSR = dynamic(() => import("../toggle-theme"), { s
 const Navigation = () => {
   const { data: session } = useSession();
 
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const tabs: ITabs[] = [
     { name: "Profesores", href: "/teachers" },
@@ -130,7 +131,6 @@ const Navigation = () => {
         </div>
       </div>
     </div>
-  //
   );
 };
 

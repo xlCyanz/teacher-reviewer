@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { FC, SVGProps } from "react";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export type Icon = FC<SVGProps<SVGSVGElement>>;
 export interface ITabs {
@@ -56,4 +56,15 @@ export interface IDetails {
   subtitle: string;
   icon: Icon;
   percentage: string;
+}
+
+type Offer = {
+  title: string;
+  icon: Icon;
+}
+export interface IFeatures {
+    title: string;
+    subtitle: string;
+    icon: Icon
+    offers: Offer[]
 }

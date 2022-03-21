@@ -5,7 +5,7 @@ import { gql } from "@apollo/client";
 import { ThumbUpIcon } from "@heroicons/react/outline";
 import { DefaultColorContext } from "@contexts";
 
-interface Props {
+interface IVoteButtonProps {
     userId: string | undefined;
     teacherId: string | undefined;
 }
@@ -24,7 +24,7 @@ const QUERY_VOTE = gql`
   }
 `;
 
-const VoteButton = ({ userId, teacherId }: Props) => {
+const VoteButton = ({ userId, teacherId }: IVoteButtonProps) => {
   const { color } = DefaultColorContext.useContext();
   const MySwal = withReactContent(Swal);
 

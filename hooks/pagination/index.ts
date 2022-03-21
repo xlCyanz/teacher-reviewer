@@ -1,20 +1,16 @@
 import { useMemo } from "react";
+import { range } from "@utils";
 
-interface Props {
+interface IUsePaginationProps {
   totalCount: number;
   pageSize: number;
   siblingCount: number;
   currentPage: number;
 }
 
-const range = (start: number, end: number) => {
-  const length = end - start + 1;
-  return Array.from({ length }, (_, idx) => idx + start);
-};
-
 const usePagination = ({
   totalCount, pageSize, siblingCount = 1, currentPage,
-}: Props) => {
+}: IUsePaginationProps) => {
   const paginationRange = useMemo(() => {
     const DOTS = "...";
     const totalPageCount = Math.ceil(totalCount / pageSize);

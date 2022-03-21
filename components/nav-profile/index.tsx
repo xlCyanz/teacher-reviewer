@@ -6,8 +6,9 @@ import { signOut, useSession } from "next-auth/react";
 const NavProfile = () => {
   const { data: session } = useSession();
 
-  const username = session?.user?.name?.split(" ")[0];
-  const lastname = session?.user?.name?.split(" ")[2] || session?.user?.name?.split(" ")[1];
+  const user = session?.user;
+  const username = user?.name?.split(" ")[0];
+  const lastname = user?.name?.split(" ")[2] || session?.user?.name?.split(" ")[1];
 
   return (
     <Menu as="div" className="relative text-left bg-default-color lg:bg-transparent p-2 rounded">

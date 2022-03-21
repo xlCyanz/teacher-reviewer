@@ -3,9 +3,9 @@ import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { AnnotationIcon } from "@heroicons/react/outline";
-import { DefaultColorContext } from "contexts";
+import { DefaultColorContext } from "@contexts";
 
-interface Props {
+interface ICommentButtonProps {
     userId: string | undefined;
     teacherId: string | undefined;
 }
@@ -22,7 +22,7 @@ const QUERY_COMMENT = gql`
     }
 `;
 
-const CommentButton = ({ userId, teacherId }: Props) => {
+const CommentButton = ({ userId, teacherId }: ICommentButtonProps) => {
   const { color } = DefaultColorContext.useContext();
 
   const MySwal = withReactContent(Swal);

@@ -35,8 +35,9 @@ const Footer = () => (
         {" "}
         {new Date().getFullYear()}
         {" "}
-        <span className="font-medium text-default-color">Teacher Reviewer</span>
-        . Todos los derechos reservados a sus respectivos desarrolladores.
+        <span className="font-medium text-gray-100 dark:text-default-color">Teacher Reviewer</span>
+        {" | "}
+        Todos los derechos reservados a sus respectivos desarrolladores.
       </p>
       <p className="text-md text-gray-100">
         Por

@@ -1,10 +1,10 @@
 /* eslint-disable react/require-default-props */
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
-import { usePagination } from "@hooks";
 import _ from "lodash";
 import { Children } from "react";
+import { usePagination } from "@hooks";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
-interface PaginationProps {
+interface IPaginationProps {
     totalCount: number;
     siblingCount?: number;
     pageSize: number;
@@ -14,7 +14,7 @@ interface PaginationProps {
 
 const Pagination = ({
   totalCount, siblingCount = 0, pageSize, currentPage, changeCurrentPage,
-}: PaginationProps) => {
+}: IPaginationProps) => {
   const paginationRange = usePagination({
     currentPage,
     totalCount,

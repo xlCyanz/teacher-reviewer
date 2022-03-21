@@ -1,6 +1,6 @@
 import { Icon } from "@types";
 
-interface Props {
+interface IDetailsCardProps {
     title: string;
     subtitle: string;
     icon: Icon;
@@ -9,7 +9,7 @@ interface Props {
 
 const DetailsCard = ({
   title, subtitle, icon: IconElement, percentage,
-}: Props) => {
+}: IDetailsCardProps) => {
   return (
     <div className="text-center">
       <div className="flex items-center justify-center w-10 h-10 mx-auto mb-3 rounded-full bg-default-color sm:w-12 sm:h-12">
