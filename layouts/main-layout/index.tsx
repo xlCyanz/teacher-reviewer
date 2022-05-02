@@ -1,5 +1,9 @@
+import { FC, ReactNode } from "react";
+
+// Import packages.
 import Head from "next/head";
-import { ReactNode } from "react";
+
+// Import modules.
 import { Navigation, Footer } from "@components";
 
 interface IMainLayoutProps {
@@ -7,7 +11,7 @@ interface IMainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout = ({ children, title }: IMainLayoutProps) => (
+const MainLayout: FC<IMainLayoutProps> = ({ children, title }) => (
   <>
     <Head>
       <title>{title}</title>

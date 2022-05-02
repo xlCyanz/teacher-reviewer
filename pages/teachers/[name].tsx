@@ -1,22 +1,29 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import _ from "lodash";
+import { useMemo, useState } from "react";
+
+// Import packages.
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { IComment, IDetails } from "@types";
 import { useRouter } from "next/router";
-import { MainLayout } from "@layouts";
 import { useSession } from "next-auth/react";
 import { gql, useQuery } from "@apollo/client";
-import { Children, useMemo, useState } from "react";
-import {
-  CommentButton, VoteButton, CommentCard, Pagination, DetailsCard,
-} from "@components";
 import {
   ClockIcon,
   RewindIcon,
   AnnotationIcon,
   SpeakerphoneIcon,
 } from "@heroicons/react/outline";
+
+// Import modules.
+import { MainLayout } from "@layouts";
+import { IComment, IDetails } from "@types";
+import {
+  VoteButton,
+  Pagination,
+  CommentCard,
+  DetailsCard,
+  CommentButton,
+} from "@components";
 
 const query = gql`
   query GetTeacherData ($teacherName: String!, $userId: ID) {
@@ -67,7 +74,9 @@ const TeacherPage = () => {
   const lastPageIndex = firstPageIndex + pageSize;
 
   const checkUserComment = useMemo(() => {
-    const result = _.find(data?.comments, (a: IComment) => a.userId._id === session?.user.id);
+    const result = data?.comments?.find((comment: IComment) => {
+      return comment.userId._id === session?.user?.id;
+    });
 
     if (result) return true;
     return null;
@@ -132,9 +141,9 @@ const TeacherPage = () => {
         </div>
         <div className="px-4 py-16 mx-auto sm:max-w-xl bg-white dark:bg-gray-900 rounded-md md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-10 lg:py-20">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {Children.toArray(_.map(details, (detail) => (
-              <DetailsCard {...detail} />
-            )))}
+            {details.map((detail) => (
+              <DetailsCard key={detail.title} {...detail} />
+            ))}
           </div>
           {status === "authenticated" && (
           <div className="flex justify-center items-center gap-4 my-6">
@@ -158,12 +167,9 @@ const TeacherPage = () => {
               Comentarios
             </h2>
             <div className="grid gap-4 grid-cols-1">
-              {Children.toArray(_.map(data?.comments.slice(
-                firstPageIndex,
-                lastPageIndex,
-              ), (comment) => (
-                <CommentCard {...comment} />
-              )))}
+              {data?.comments?.slice(firstPageIndex, lastPageIndex).map((comment: IComment) => (
+                <CommentCard key={comment._id} {...comment} />
+              ))}
             </div>
             <Pagination
               currentPage={currentPage}

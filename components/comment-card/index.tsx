@@ -1,13 +1,17 @@
-import { useMemo } from "react";
+import { FC, useMemo } from "react";
+
+// Import packages.
+import { useSession } from "next-auth/react";
+
+// Import modules.
 import { IComment } from "@types";
 import { timeSince } from "@utils";
-import { useSession } from "next-auth/react";
 
 import CommentDeleteButton from "../comment-delete-button";
 
-const CommentCard = ({
+const CommentCard: FC<IComment> = ({
   _id, updatedAt, createdAt, body, userId: user,
-}: IComment) => {
+}) => {
   const { data: session } = useSession();
 
   const timesince = timeSince(updatedAt || createdAt, "es");

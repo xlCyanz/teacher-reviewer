@@ -1,9 +1,12 @@
+// Import packages.
 import Swal from "sweetalert2";
 import client from "apollo-client";
 import withReactContent from "sweetalert2-react-content";
 import { gql } from "@apollo/client";
 import { TrashIcon } from "@heroicons/react/outline";
-import { DefaultColorContext } from "contexts";
+
+// Import modules.
+import { DefaultColorContext } from "@contexts";
 
 interface ICommentDeleteButtonProps {
     commentId: string | undefined;

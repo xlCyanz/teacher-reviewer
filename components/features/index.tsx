@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Children } from "react";
+
+// Import packages.
 import { IFeatures } from "@types";
 import {
   BanIcon,
@@ -68,9 +69,9 @@ const Features = () => {
         </div>
       </div>
       <section className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        {Children.toArray(features.map((feature) => (
-          <FeatureCard {...feature} />
-        )))}
+        {features.map((feature) => (
+          <FeatureCard key={feature.title} {...feature} />
+        ))}
       </section>
     </div>
   );

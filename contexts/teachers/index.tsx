@@ -2,11 +2,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
-  createContext, ReactNode, useEffect, useMemo, useState,
+  createContext, FC, ReactNode, useEffect, useMemo, useState,
 } from "react";
+
 import teachersFromLocal from "../../public/teachers.json";
 
-interface IProvider {
+interface IProviderProps {
   children: ReactNode;
 }
 
@@ -22,11 +23,10 @@ const TeacherContext = createContext<ITeacherContext[]>([]);
 
 const useContext = () => React.useContext(TeacherContext);
 
-const Provider = ({ children }: IProvider) => {
+const Provider: FC<IProviderProps> = ({ children }) => {
   const [teachers, setTeachers] = useState<ITeacherContext[]>([]);
 
-  // @ts-ignore
-  useEffect(() => setTeachers(teachersFromLocal), []);
+  useEffect(() => setTeachers(teachersFromLocal as ITeacherContext[]), []);
 
   const values = useMemo(() => (teachers), [teachers]);
 

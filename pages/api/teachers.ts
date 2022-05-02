@@ -6,7 +6,20 @@ import {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
+
+  const { name } = req.query;
   const handleCase: ResponseFuncs = {
+    GET: async () => {
+      const { modelTeacher } = await connection();
+
+      if (name) {
+        const teacher: ITeacher = await modelTeacher.findOne({ name });
+        res.status(200).send(teacher);
+      } else {
+        const teachers: ITeacher[] = await modelTeacher.find();
+        res.status(200).send(teachers);
+      }
+    },
     POST: async () => {
       const { modelTeacher, modelComment, modelVote } = await connection();
       const teachers: ITeacher[] = await modelTeacher.find();

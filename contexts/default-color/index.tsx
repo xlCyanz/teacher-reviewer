@@ -1,9 +1,9 @@
 /* eslint-disable no-use-before-define */
 import React, {
-  createContext, ReactNode, useCallback, useEffect, useMemo, useState,
+  createContext, FC, ReactNode, useCallback, useEffect, useMemo, useState,
 } from "react";
 
-interface IProvider {
+interface IProviderProps {
   children: ReactNode;
 }
 interface IDefaultColor {
@@ -18,7 +18,7 @@ const DefaultColorContext = createContext<IDefaultColor>({
 
 const useContext = () => React.useContext(DefaultColorContext);
 
-const Provider = ({ children }: IProvider) => {
+const Provider: FC<IProviderProps> = ({ children }) => {
   const [color, setColor] = useState("#6200EA");
 
   useEffect(() => {

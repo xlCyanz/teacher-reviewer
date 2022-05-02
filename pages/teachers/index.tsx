@@ -1,12 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useMemo, useState } from "react";
+
+// Import packages.
 import _ from "lodash";
 import dynamic from "next/dynamic";
+import { ExclamationIcon } from "@heroicons/react/outline";
+
+// Import modules.
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "@contexts";
-import { ExclamationIcon } from "@heroicons/react/outline";
 import { Banner, Pagination } from "@components";
-import { Children, useMemo, useState } from "react";
 
 type TSort = "filter-asc" | "filter-desc" | string;
 type TeacherFormat = {
@@ -98,9 +102,11 @@ const TeacherPage = () => {
               </label>
               <select onChange={({ target }) => setFilterArea(target.value)} className="text-sm appearance-none dark:bg-gray-800 border-2 border-gray-400 dark:border-gray-800 dark:text-gray-100 dark:focus:border-default-color focus:border-default-color rounded focus:outline-none focus:ring-0 w-full lg:w-72">
                 <option value="">Area</option>
-                {Children.toArray(_.map(areas, (area) => (
-                  <option value={area}>{area}</option>
-                )))}
+                {areas.map((area) => (
+                  <option key={area} value={area}>
+                    {area}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
@@ -116,11 +122,8 @@ const TeacherPage = () => {
           </form>
         </div>
         <div className="grid gap-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
-          {Children.toArray(_.map(
-            teachersFiltered?.slice(firstPageIndex, lastPageIndex),
-            (value) => (
-              <DynamicTeacherCard {...value} />
-            ),
+          {teachersFiltered.slice(firstPageIndex, lastPageIndex).map((teacher) => (
+            <DynamicTeacherCard key={teacher.id} {...teacher} />
           ))}
         </div>
         <Pagination

@@ -1,13 +1,15 @@
+import { useMemo, useState } from "react";
+
+// Import packages.
 import _ from "lodash";
 import Link from "next/link";
+import type { NextPage } from "next";
+
+// Import modules
 import { Features } from "@components";
 import { replaceJSX } from "@utils";
 import { MainLayout } from "@layouts";
 import { TeacherContext } from "@contexts";
-import {
-  Children, useMemo, useState,
-} from "react";
-import type { NextPage } from "next";
 
 const textStyled = (title: string) => (
   <span key={title} className="relative inline-block px-2">
@@ -65,14 +67,16 @@ const Home: NextPage = () => {
               />
               {(teachersFiltered?.length || 0) >= 1 && (
                 <div className="flex flex-col gap-2 w-full mt-4">
-                  {Children.toArray(_.map(teachersFiltered, (teacher) => (
+                  {teachersFiltered?.map((teacher) => (
                     <Link key={teacher?._id} href={`teachers/${teacher.name}`} passHref>
                       <a className="flex flex-col justify-center cursor-pointer shadow-lg w-full items-center bg-white hover:border-2 dark:border-default-color rounded py-4 px-6">
                         {teacher?.name}
-                        <span className="text-sm font-medium text-default-color">{teacher?.area}</span>
+                        <span className="text-sm font-medium text-default-color">
+                          {teacher?.area}
+                        </span>
                       </a>
                     </Link>
-                  )))}
+                  ))}
                 </div>
               )}
             </form>

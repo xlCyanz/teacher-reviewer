@@ -1,7 +1,11 @@
+import { FC, useState } from "react";
+
+// Import packages.
 import Link from "next/link";
-import { Icon } from "@types";
-import { useState } from "react";
 import { ExternalLinkIcon, XIcon } from "@heroicons/react/outline";
+
+// Import modules.
+import { Icon } from "@types";
 
 interface IBannerProps {
   message: string;
@@ -9,7 +13,7 @@ interface IBannerProps {
   link?: string;
 }
 
-const Banner = ({ message, icon: IconElement, link }: IBannerProps) => {
+const Banner: FC<IBannerProps> = ({ message, icon: IconElement, link }) => {
   const [show, setShow] = useState(true);
 
   if (!show) return null;
@@ -48,7 +52,7 @@ const Banner = ({ message, icon: IconElement, link }: IBannerProps) => {
 };
 
 Banner.defaultProps = {
-  link: null,
+  link: "",
 };
 
 export default Banner;

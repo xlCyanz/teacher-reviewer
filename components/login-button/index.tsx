@@ -1,5 +1,7 @@
-import { signIn } from "next-auth/react";
 import { Fragment } from "react";
+
+// Import packages
+import { signIn } from "next-auth/react";
 import { Menu, Transition } from "@headlessui/react";
 
 import GoogleIcon from "../icons/google-icon";

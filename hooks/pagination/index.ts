@@ -1,4 +1,6 @@
 import { useMemo } from "react";
+
+// Import modules.
 import { range } from "@utils";
 
 interface IUsePaginationProps {

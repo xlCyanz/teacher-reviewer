@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+
+// Import packages.
 import { LogoutIcon } from "@heroicons/react/outline";
 import { Menu, Transition } from "@headlessui/react";
 import { signOut, useSession } from "next-auth/react";

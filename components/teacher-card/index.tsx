@@ -1,16 +1,19 @@
-import { AnnotationIcon, ArrowRightIcon, ThumbUpIcon } from "@heroicons/react/outline";
-import Link from "next/link";
+import { FC } from "react";
 
-interface Props {
+// Import packages.
+import Link from "next/link";
+import { AnnotationIcon, ArrowRightIcon, ThumbUpIcon } from "@heroicons/react/outline";
+
+interface ITeacherCardProps {
   name: string;
   area: string;
   votes: number;
   comments: number;
 }
 
-const TeacherCard = ({
+const TeacherCard: FC<ITeacherCardProps> = ({
   name, area, votes, comments,
-}: Props) => {
+}) => {
   return (
     <div className="col-span-2 bg-default-color shadow-md dark:bg-gray-800 px-5 rounded">
       <div className="flex flex-col py-5 h-full">
